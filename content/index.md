@@ -52,5 +52,5 @@ band:
   text: Use the toolkit on a collaboration and tell us what happened. Review the law of your country. Bring your institution in.
   buttons:
     - {label: Get in touch, href: "mailto:pestilli@utexas.edu"}
-    - {label: GitHub, href: https://github.com/pestillilab}
+    - {label: GitHub, href: https://github.com/pestillilab/braindatagovernance}
 ---

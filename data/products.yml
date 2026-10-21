@@ -30,7 +30,7 @@
     advice, and it marks every item that needs human verification.
   links:
   - label: Follow on GitHub
-    href: https://github.com/pestillilab
+    href: https://github.com/pestillilab/braindatagovernance
   roadmap:
     what: AI-assisted guide that applies the toolkit to a collaboration and drafts the records
     builds: Toolkit; compatibility matrix; regime table
