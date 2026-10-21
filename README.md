@@ -23,10 +23,10 @@ Published pages: `/` (home), `/about/`, `/media/`, `/toolkit/`, `/toolkit/legal-
 
 ## Putting it online
 
-1. Create a public repository under github.com/pestillilab (for example `braindatagovernance`), push this folder to its `main` branch.
+1. Create a public repository under github.com/francopestilli (for example `braindatagovernance`), push this folder to its `main` branch.
 2. Repository **Settings → Pages → Source: GitHub Actions**. The workflow in `.github/workflows/build.yml` then builds and deploys on every push to `main` (about a minute; progress under the Actions tab).
-3. Same screen, **Custom domain**: `braindatagovernance.org` (matches the `CNAME` file). At the DNS provider add A records for the apex to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153, and a CNAME for `www` to `pestillilab.github.io`. When DNS has propagated, tick **Enforce HTTPS**.
-4. Until the domain is live the site is at `pestillilab.github.io/<repo-name>/`; for that address set `base_url: /<repo-name>/` in `data/site.yml`, and set it back to `/` for the domain.
+3. Same screen, **Custom domain**: `braindatagovernance.org` (matches the `CNAME` file). At the DNS provider add A records for the apex to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153, and a CNAME for `www` to `francopestilli.github.io`. When DNS has propagated, tick **Enforce HTTPS**.
+4. Until the domain is live the site is at `francopestilli.github.io/<repo-name>/`; for that address set `base_url: /<repo-name>/` in `data/site.yml`, and set it back to `/` for the domain.
 
 After that, publishing is editing a file in `content/` or `data/` and pushing (or saving in the GitHub web editor); the site rebuilds itself.
 
