@@ -1,0 +1,21 @@
+# People, grouped. A page shows a group with "::people <group>", e.g. "::people director".
+director:
+- name: Franco Pestilli
+  role: Director; Principal Investigator, Pestilli Laboratory, Departments of Psychology and Neuroscience, The University of Texas at Austin
+team:
+- name: Kimberly L. Ray
+  role: BRIDGE Project Director, The University of Texas at Austin
+- name: Marietjie Botes
+  role: Legal lead; lead author of the toolkit study, The University of Texas at Austin
+- name: Blaire M. Porter
+  role: Research scientist; toolkit co-author, The University of Texas at Austin
+- name: Damian Eke
+  role: University of Nottingham
+- name: Ricardo Chavarriaga
+  role: ZHAW Zurich University of Applied Sciences
+- name: Fernanda Tovar Moll
+  role: D’Or Institute for Research and Education, Rio de Janeiro
+- name: Amadi Ihunwo
+  role: University of the Witwatersrand, Johannesburg
+- name: Thomas E. Nichols
+  role: University of Oxford
