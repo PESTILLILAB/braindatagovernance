@@ -124,8 +124,8 @@ const G=window.GEO;
 function viridis(t){const st=[[68,1,84],[59,82,139],[33,145,140],[94,201,98],[253,231,37]];t=Math.max(0,Math.min(1,t))*(st.length-1);const i=Math.min(Math.floor(t),st.length-2),f=t-i;const c=st[i].map((v,k)=>Math.round(v+(st[i+1][k]-v)*f));return `rgb(${c[0]},${c[1]},${c[2]})`;}
 function buildMap(id){const sv=document.getElementById(id);sv.setAttribute('viewBox',`0 0 ${G.w} ${G.h}`);const bg=el('g',{}),fg=el('g',{}),isl=el('g',{});sv.appendChild(bg);sv.appendChild(fg);sv.appendChild(isl);const shapes={};
  G.f.forEach(f=>{if(!f.k){if(f.d)bg.appendChild(el('path',{d:f.d,class:f.na?'bg na':'bg'}));return;}
-  let e;if(f.a<30){e=el('circle',{cx:f.c[0],cy:f.c[1],r:4.5,class:'isl','data-id':f.n});if(f.d)bg.appendChild(el('path',{d:f.d,class:'bg'}));}else{e=el('path',{d:f.d,class:'j','data-id':f.n});}
-  const t=el('title',{});e.appendChild(t);shapes[f.n]={e,t};(f.a<30?isl:fg).appendChild(e);});
+  let e;if(f.a<20){e=el('circle',{cx:f.c[0],cy:f.c[1],r:4.5,class:'isl','data-id':f.n});if(f.d)bg.appendChild(el('path',{d:f.d,class:'bg'}));}else{e=el('path',{d:f.d,class:'j','data-id':f.n});}
+  const t=el('title',{});e.appendChild(t);shapes[f.n]={e,t};(f.a<20?isl:fg).appendChild(e);});
  return {sv,shapes};}
 function wireMap(m,sideId,colorFn,hoverFn,clickFn){const side=document.getElementById(sideId);let pin=null;
  const paint=()=>{for(const x in m.shapes){const {e,t}=m.shapes[x];const c=colorFn(x);e.setAttribute('fill',c.fill);t.textContent=c.title;}};

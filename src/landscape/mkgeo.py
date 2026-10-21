@@ -1,7 +1,7 @@
 import sys
-"""Build geo.json: projected SVG paths (Equal Earth) for the Findings maps."""
+"""Build geo.json: projected SVG paths (equirectangular, standard parallel 25°) for the Legal landscape maps."""
 import json, math
-T = json.load(open(sys.argv[1]  # path to world-atlas countries-50m.json (npm package world-atlas)))
+T = json.load(open(sys.argv[1]))  # path to world-atlas countries-50m.json (npm package world-atlas)
 M = json.load(open('matrix.json'))
 sc, tr = T['transform']['scale'], T['transform']['translate']
 
@@ -28,15 +28,15 @@ ALIAS = {'Congo': 'Republic of the Congo', "Côte d'Ivoire": "Cote d'Ivoire",
          'Dominican Rep.': 'Dominican Republic'}
 NAMES = set(M['names'])
 
-A1, A2, A3, A4 = 1.340264, -0.081106, 0.000893, 0.003796
+# Equirectangular projection with standard parallel PHI1 (degrees). Shapes are close to true in the
+# tropics and areas are only moderately distorted; Equal Earth (used earlier) kept areas exact but
+# drew the tropics about a third taller than wide, which read as a stretched map.
 LON0 = -35
+PHI1 = 25
 W, H = 980, 560
 def proj(lon, lat):
     lam = math.radians(lon - LON0); phi = math.radians(lat)
-    th = math.asin(math.sqrt(3)/2*math.sin(phi)); t2 = th*th; t6 = t2*t2*t2
-    x = 2*math.sqrt(3)*lam*math.cos(th)/(3*(A1+3*A2*t2+t6*(7*A3+9*A4*t2)))
-    y = th*(A1+A2*t2+t6*(A3+A4*t2))
-    return x, -y
+    return lam*math.cos(math.radians(PHI1)), -phi
 # window
 xs = [proj(lo, la) for lo in (-170, 60) for la in (-58, 72)]
 minx = proj(-128, 0)[0]; maxx = proj(60, 0)[0]
@@ -67,6 +67,7 @@ for g in T['objects']['countries']['geometries']:
             if not pts: continue
             if max(p[0] for p in pts) < 0 or min(p[0] for p in pts) > W or max(p[1] for p in pts) < 0 or min(p[1] for p in pts) > H:
                 continue
+            if max(p[0] for p in pts) - min(p[0] for p in pts) > 600: continue  # ring wraps the antimeridian (Russia, Fiji): would draw a line across the map
             a = area(pts)
             if a < 4 and key not in NAMES: continue
             if a > big:
@@ -82,6 +83,6 @@ for g in T['objects']['countries']['geometries']:
                   'k': key in NAMES, 'na': nm in ('United States of America', 'Canada')})
 have = {f['n'] for f in feats if f['k']}
 print('missing', NAMES - have)
-print('tiny', [f['n'] for f in feats if f['k'] and f['a'] < 30])
+print('tiny', [f['n'] for f in feats if f['k'] and f['a'] < 20])
 json.dump({'w': W, 'h': H, 'f': feats}, open('geo.json', 'w'), separators=(',', ':'))
 import os; print(os.path.getsize('geo.json'), H)
