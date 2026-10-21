@@ -1,0 +1,8 @@
+# Who must review what. Replace the placeholders with GitHub user names.
+# Legal content: a regional co-author for the jurisdictions concerned.
+/data/tools.yml            @pestillilab/legal-reviewers
+/data/examples.yml         @pestillilab/legal-reviewers
+/data/tiers.yml            @pestillilab/legal-reviewers
+/src/landscape/matrix.json @pestillilab/legal-reviewers
+# Everything else: the site maintainers.
+*                          @pestillilab/site-maintainers
