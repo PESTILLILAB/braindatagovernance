@@ -91,7 +91,7 @@ legal landscape are parts of the Toolkit.
 
 ## 3. People and partners — `data/people.yml`, `data/partners.yml`
 
-People are in named groups; a page shows a group with a line `::people leadership`. Add a
+People are in named groups; a page shows a group with a line `::people team`. Add a
 person as `- {name: …, role: …}` under the group, or add a new group and a new `::people`
 line on the page. Partners are a plain list, shown wherever a page says `::partners`.
 
@@ -118,7 +118,7 @@ Lines starting with `::` insert a component rendered from the data files:
 | Line | Shows |
 |---|---|
 | `::toc` | "On this page" list of the `##` headings |
-| `::people leadership` | the people in that group |
+| `::people team` | the people in that group |
 | `::partners` | the partner tiles |
 | `::products` | product cards (available and in development) |
 | `::roadmap` | the roadmap table |

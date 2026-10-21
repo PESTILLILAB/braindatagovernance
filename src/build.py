@@ -14,7 +14,7 @@ Pages: content/<name>.md → /<name>/ (written as <name>/index.html). Each start
     url: /toolkit/legal-landscape/   (optional; the page's address, default /<name>/)
     ---
 Then ordinary Markdown. Lines that start with "::" insert a component rendered from data/:
-    ::people LIST        cards for the people under LIST in data/people.yml (e.g. ::people leadership)
+    ::people LIST        cards for the people under LIST in data/people.yml (e.g. ::people team)
     ::partners           tiles for data/partners.yml
     ::products           cards for products with status available/next (data/products.yml)
     ::roadmap            table of all products

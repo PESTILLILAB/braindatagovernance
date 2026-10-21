@@ -29,13 +29,15 @@ Two ideas underlie the tools. **Functional exposure** is what a piece of brain d
 
 ## People and partners {#people}
 
-### Leadership
+### Director
 
-::people leadership
+::people director
 
-### Investigators and partner institutions
+### Team
 
-::people investigators
+::people team
+
+### Partner institutions
 
 ::partners
 
