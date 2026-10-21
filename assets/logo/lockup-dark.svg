@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 120" width="640" height="120">
+  <g>
+  <circle cx="60" cy="60" r="42" fill="none" stroke="#ffffff" stroke-width="1.6"/>
+  <polygon points="89.0,46.5 58.1,55.9 60,60 61.9,64.1" fill="#ffffff"/><polygon points="46.5,31.0 55.9,61.9 60,60 64.1,58.1" fill="#ffffff"/><polygon points="31.0,73.5 61.9,64.1 60,60 58.1,55.9" fill="#ffffff"/><polygon points="73.5,89.0 64.1,58.1 60,60 55.9,61.9" fill="#ffffff"/>
+  <polygon points="77.8,11.1 52.5,57.3 60,60 67.5,62.7" fill="#f9c926"/><polygon points="108.9,77.8 62.7,52.5 60,60 57.3,67.5" fill="#e57536"/><polygon points="42.2,108.9 67.5,62.7 60,60 52.5,57.3" fill="#a9262c"/><polygon points="11.1,42.2 57.3,67.5 60,60 62.7,52.5" fill="#5fb0d6"/>
+  <circle cx="60" cy="60" r="5" fill="none" stroke="#ffffff" stroke-width="3"/>
+</g>
+  <text x="140" y="66" font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif" font-size="38" font-weight="700" fill="#ffffff" letter-spacing="-0.5">Global Brain Governance</text>
+  <text x="141" y="92" font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif" font-size="15" fill="#cfe0ea" letter-spacing="1.5">PROTECTION THAT TRAVELS WITH THE DATA</text>
+</svg>

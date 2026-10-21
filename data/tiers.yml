@@ -1,0 +1,70 @@
+# The tier framework shown in the explorer (Introduction tab) and the tier figure.
+- id: '1'
+  name: Tier 1 — Anonymised aggregate outputs
+  description: Group-level or summary information with no participant-level record and no reasonable small-group
+    disclosure risk. Minimal risk of re-identification or individual inference.
+  examples:
+  - Group-level activation maps (voxel-wise averages)
+  - Aggregated connectivity matrices
+  - Summary statistics (e.g., mean amplitudes by group)
+  - Published group results with no individual-level data
+  background: '#f3f7fa'
+  text_colour: '#1d2230'
+- id: 1b
+  name: Tier 1b — Participant-level, non-linkable neurodata
+  description: 'Participant-level records with identifiers, identifying anatomy and metadata removed, no linkage
+    key available to the intended recipient, and a documented disclosure-risk assessment for that recipient (for
+    public release: any member of the public). Recipient-relative.'
+  examples:
+  - Defaced structural MRI released without any key
+  - EEG/MEG with identifying metadata removed and key destroyed
+  - Participant-level summary derivatives that reveal no more than the source
+  - Synthetic participant-level data with reproduction excluded by testing
+  background: '#e9f0f5'
+  text_colour: '#1d2230'
+- id: '2'
+  name: Tier 2 — Pseudonymised / controlled-access neurodata
+  description: Participant-level data linkable to an individual through a code, repository record or institutional
+    key available to the recipient; re-identification risk mitigated but not eliminated.
+  examples:
+  - Pseudonymised EEG or fMRI time series
+  - Structural MRI (T1-weighted) with participant code
+  - Clinical neuropsychological scores with codes
+  - Data stored in controlled-access repositories
+  background: '#dbe7f0'
+  text_colour: '#1d2230'
+- id: '3'
+  name: Tier 3 — Directly identifiable or intrinsically traceable neurodata
+  description: Data containing direct identifiers, recognisable anatomy, identifying acquisition metadata or intrinsic
+    signal characteristics that permit identification or tracing without reliance on a separately protected key.
+  examples:
+  - Non-defaced structural MRI; raw DICOM with headers
+  - EEG/MEG/ECoG with identifying metadata or demonstrated fingerprinting capacity
+  - Implant telemetry or BCI logs with device identifiers
+  - Neurodata linked to names, voice or video
+  background: '#b9d0e2'
+  text_colour: '#1d2230'
+- id: '4'
+  name: Tier 4 — Functionally revealing derivative neurodata
+  description: 'Transformed data with excess inferential capacity: inference outside the authorised purpose, re-identification
+    by the derivative alone, or reconstruction of stimuli, speech, imagery or signals. Standard summary derivatives
+    retain the source tier.'
+  examples:
+  - Connectome fingerprints and participant-unique embeddings
+  - Decoders reconstructing stimuli, speech or imagery
+  - Cognitive, emotional or behavioural profiles beyond the approved purpose
+  - Risk scores and biomarkers used for prohibited inferences
+  background: '#005981'
+  text_colour: '#ffffff'
+- id: '5'
+  name: Tier 5 — Model-associated or computationally persistent neurodata
+  description: Neural information dispersed across AI models, synthetic-data generators or computational infrastructure
+    with continuing functional exposure, where inference, extraction or reconstruction may be possible without the
+    original dataset.
+  examples:
+  - Model weights trained on neurodata
+  - Latent representations in generative models
+  - Federated-learning updates and model gradients
+  - Synthetic neurodata generators; persistent embedding stores
+  background: '#002b40'
+  text_colour: '#ffffff'

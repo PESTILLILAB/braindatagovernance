@@ -1,0 +1,82 @@
+# Products and roadmap, in display order.
+# status: available | next | planned   (cards are shown for available and next; the roadmap lists all)
+# links: - {label: …, href: …, primary: true}   primary renders as a button
+# Only products belong here: the MDTAA and the legal landscape are parts of the Toolkit.
+- id: toolkit
+  status: available
+  title: Neurodata Governance Toolkit
+  text: Four decision tools that classify a neurodata object by what it can reveal, test a transfer or access pathway against
+    the law of origin and destination, reassess derivatives and models before release, and select the contract modules the
+    result requires. With an interactive workflow, printable PDFs and sixteen worked examples. Adoption — demonstrations with member institutions begin in Phase 1.
+  links:
+  - label: Open the Toolkit
+    href: /toolkit/
+    primary: true
+  - label: Legal landscape
+    href: /toolkit/legal-landscape/
+  - label: All tools (PDF)
+    href: /toolkit/pdf/Toolkit_Tools_1-4.pdf
+  roadmap:
+    what: Decision tools, workflow, examples
+    builds: 93-jurisdiction legal analysis
+  status_label: Available · v1.0 · October 2026
+- id: ezgov
+  status: next
+  title: ezGov
+  text: An AI-assisted guide for establishing the governance of a collaboration. ezGov interviews the researchers in plain
+    language, runs the toolkit’s questions in the right order, looks up the origin and destination regimes and the compatibility
+    class, flags prerequisites such as authorisations, localisation and sanctions screening, and drafts the Governance Assessment
+    Record and the MDTAA modules for review by the institutions’ legal, ethics and repository offices. It does not give legal
+    advice, and it marks every item that needs human verification.
+  links:
+  - label: Follow on GitHub
+    href: https://github.com/pestillilab
+  roadmap:
+    what: AI-assisted guide that applies the toolkit to a collaboration and drafts the records
+    builds: Toolkit; compatibility matrix; regime table
+  status_label: In development
+- id: profiles
+  status: planned
+  status_label: Planned
+  title: Institutional governance profiles
+  roadmap:
+    what: "A standard governance profile per institution and repository (legal basis for research, data-protection contact, ethics route, transfer instruments it can sign), so partners stop re-asking the same questions"
+    builds: Member institutions; MDTAA; Tool 2 Step 6B
+- id: handbook
+  status: planned
+  title: Legal landscape handbook
+  roadmap:
+    what: Country profiles for the sampled jurisdictions across the six governance layers, with the coded instruments and
+      dates
+    builds: Supplementary Data 1–3 of the toolkit study; BRIDGE handbook
+  status_label: Planned
+- id: templates
+  status: planned
+  title: Agreement template catalogue
+  roadmap:
+    what: MDTAA modules and transfer-instrument modules for each origin regime, with completed worked examples
+    builds: MDTAA
+  status_label: Planned
+- id: labels
+  status: planned
+  title: Governance labelling metadata
+  roadmap:
+    what: Machine-readable governance attributes for datasets and derived artefacts (modality, tier, consent scope, jurisdictional
+      constraints, permitted contexts) for repositories and platforms
+    builds: Ray et al. 2026; DUO; BIDS and NWB metadata
+  status_label: Planned
+- id: registry
+  status: planned
+  title: Derived-model registry schema
+  roadmap:
+    what: A schema for documenting model provenance, training-data lineage, intended use and inference risk for models trained
+      on neural data
+    builds: Ray et al. 2026; toolkit Tool 3
+  status_label: Planned
+- id: training
+  status: planned
+  title: Training materials
+  roadmap:
+    what: Short courses and worked examples for researchers, data stewards and ethics committees
+    builds: Eke et al. 2022; BRIDGE workshops
+  status_label: Planned

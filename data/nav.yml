@@ -1,0 +1,17 @@
+# Top menu and sub-menus. href is the page address; label is what is shown.
+menu:
+- href: /about/
+  label: About
+- href: /toolkit/
+  label: Toolkit
+submenus:
+  toolkit:
+    label: Neurodata Governance Toolkit
+    parent: /toolkit/
+    items:
+    - href: /toolkit/
+      label: Explorer
+    - href: /toolkit/legal-landscape/
+      label: Legal landscape
+    - href: /toolkit/pdf/Toolkit_Tools_1-4.pdf
+      label: Tools (PDF)

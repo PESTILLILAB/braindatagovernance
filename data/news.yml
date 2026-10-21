@@ -1,0 +1,43 @@
+# News, events and publications. Newest first (they are sorted by date anyway).
+# kind: news | event | publication     date: "2026-12", "2026-12-05" or "2026"
+# link is optional. text may contain simple HTML such as <i>…</i> or <a href="…">…</a>.
+- kind: event
+  date: "2026-12"
+  title: BRIDGE Global Summit, Rio de Janeiro
+  text: The community meets to review the first instruments and set the agenda for an international governance framework for
+    brain and mental health research.
+  link: https://bridge.incf.org/
+- kind: news
+  date: "2026-10"
+  title: Neurodata Governance Toolkit v1.0
+  text: Four decision tools and the Modular Neurodata Transfer and Access Agreement, with an interactive explorer and printable
+    PDFs.
+  link: /toolkit/
+- kind: news
+  date: "2026-10"
+  title: Global Brain Governance opens
+  text: The public home for the products of BRIDGE and the Pestilli Laboratory, with the interactive legal landscape of 93
+    jurisdictions.
+- kind: publication
+  date: '2026'
+  title: A decision support toolkit for AI-ready neuroscience data governance
+  text: Botes M, Mendes A, Huffman B, et al. The comparative analysis of 93 jurisdictions, the six-layer framework, the directional
+    compatibility matrix and the toolkit.
+- kind: publication
+  date: '2026'
+  title: Reconciling global collaboration and data sovereignty in neuroscience
+  text: Ray KL, Botes M, Collier M, et al. <i>Nature Neuroscience</i> 29, 2397–2407.
+  link: https://doi.org/10.1038/s41593-026-02468-w
+- kind: event
+  date: '2025'
+  title: Regional workshop for Africa (Marrakesh) and global workshop (Johannesburg)
+  text: Researchers, regulators, ethicists and people with lived experience.
+- kind: event
+  date: '2024'
+  title: Regional workshop for Latin America, Rio de Janeiro
+  text: The first BRIDGE regional workshop.
+- kind: publication
+  date: '2022'
+  title: International data governance for neuroscience
+  text: Eke DO, Bernard A, Bjaalie JG, et al. <i>Neuron</i> 110, 600–612.
+  link: https://doi.org/10.1016/j.neuron.2021.11.017

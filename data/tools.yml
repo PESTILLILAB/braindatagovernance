@@ -1,0 +1,1540 @@
+# The four tools, step by step: T6 = Tool 1, T7 = Tool 2, T8 = Tool 3, T9 = Tool 4 (Supplementary Tables 6–9 of the study).
+# Each table is a list of rows; the first row holds the column headings. A row that ends with "__CHANGED__" is ignored.
+T6:
+- - Step
+  - Question
+  - Answer
+  - Risk tier
+  - Required action
+- - Applicability checkpoint
+  - Which statutory access regimes and ex ante data-protection, privacy-impact or privacy-risk assessment requirements
+    may apply to the proposed activity? Consider the data category, holder, purpose, jurisdiction and application
+    date, including EHDS where relevant. Assess legal applicability separately from functional-exposure tier.
+  - Complete checkpoint
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record potentially applicable regimes and assessment requirements in Neurodata Governance Assessment Record
+    (Schedule B of the MDTAA) Record any unresolved applicability question and refer it to the responsible legal
+    or institutional reviewer in Neurodata Governance Assessment Record (Schedule B of the MDTAA) Continue to Step
+    1. Completion of this checkpoint does not resolve or waive an outstanding legal requirement.
+- - 0B
+  - Participant status. Do the neurodata relate, in whole or in part, to (a) minors; (b) adults who lacked capacity
+    to consent at collection; (c) deceased persons; (d) members of an Indigenous people or a community-governed
+    or otherwise defined population with recognised governance interests; or (e) persons in a dependent relationship
+    with the collecting institution (patients, employees, students, detainees)?
+  - Yes (select all that apply)
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record each applicable status and the consent, assent, proxy-consent, community-approval or post-mortem rule
+    relied on under Applicable Law in the Neurodata Governance Assessment Record (Schedule B of the MDTAA). Treat
+    the minimum tier available at the Final Decision as one tier higher than otherwise determined (Tier 1 → Tier
+    1b; Tier 1b → Tier 2), unless a documented ethics or community determination permits otherwise. Where (d) applies,
+    mark Tool 4 (Supplementary Table 9) Step 17 as required. Continue to Step 1.
+  - __CHANGED__
+- - 0B
+  - Participant status. Do the neurodata relate, in whole or in part, to (a) minors; (b) adults who lacked capacity
+    to consent at collection; (c) deceased persons; (d) members of an Indigenous people or a community-governed
+    or otherwise defined population with recognised governance interests; or (e) persons in a dependent relationship
+    with the collecting institution (patients, employees, students, detainees)?
+  - 'No'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the basis for the answer in Neurodata Governance Assessment Record (Schedule B of the MDTAA). Continue
+    to Step 1.
+  - __CHANGED__
+- - 0B
+  - Participant status. Do the neurodata relate, in whole or in part, to (a) minors; (b) adults who lacked capacity
+    to consent at collection; (c) deceased persons; (d) members of an Indigenous people or a community-governed
+    or otherwise defined population with recognised governance interests; or (e) persons in a dependent relationship
+    with the collecting institution (patients, employees, students, detainees)?
+  - Unknown
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the uncertainty; obtain the information from the Principal Investigator or data steward. Apply the ‘Yes’
+    action provisionally. Continue to Step 1.
+  - __CHANGED__
+- - '1'
+  - Does this object contain, represent or derive from human neurodata? ? Examples include MRI, fMRI, EEG, MEG,
+    ECoG, neural implant data, BCI recordings, neural features, embeddings, predictions, or AI models trained using
+    neurodata.
+  - 'No'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record why the object falls outside this Tool’s scope in Neurodata Governance Assessment Record (Schedule B
+    of the MDTAA). Record the outcome as “Not applicable” in Neurodata Governance Assessment Record (Schedule B
+    of the MDTAA). Follow the institution’s ordinary data-governance procedures. End this Tool.
+- - '1'
+  - Does this object contain, represent or derive from human neurodata? ? Examples include MRI, fMRI, EEG, MEG,
+    ECoG, neural implant data, BCI recordings, neural features, embeddings, predictions, or AI models trained using
+    neurodata.
+  - 'Yes'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the object’s human-neurodata source or relationship in Neurodata Governance Assessment Record (Schedule
+    B of the MDTAA). Continue to Step 2A.
+- - '1'
+  - Does this object contain, represent or derive from human neurodata? ? Examples include MRI, fMRI, EEG, MEG,
+    ECoG, neural implant data, BCI recordings, neural features, embeddings, predictions, or AI models trained using
+    neurodata.
+  - Unsure
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the uncertainty in Neurodata Governance Assessment Record (Schedule B of the MDTAA) Obtain clarification
+    from the Principal Investigator, data steward or technical lead before beginning the proposed sharing or analysis.
+    Pause this assessment. Return to Step 1 when the evidence supports “Yes” or “No”.
+- - 2A
+  - Is the object under assessment itself a trained AI model, model component, model gradient, shared embedding
+    store, synthetic-data generator, federated-learning artefact or other persistent computational artefact that
+    was trained on, fitted to or otherwise derived from human neurodata? Examples include model weights, foundation
+    models, federated-learning systems, synthetic-data generators, model gradients, or shared embedding repositories.
+  - 'Yes'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the artefact, its version and the form of incorporation in Neurodata Governance Assessment Record (Schedule
+    B of the MDTAA). Mark Tool 3 (Supplementary Table 8) as required for this object. Continue to Step 2B.
+  - __CHANGED__
+- - 2A
+  - Is the object under assessment itself a trained AI model, model component, model gradient, shared embedding
+    store, synthetic-data generator, federated-learning artefact or other persistent computational artefact that
+    was trained on, fitted to or otherwise derived from human neurodata? Examples include model weights, foundation
+    models, federated-learning systems, synthetic-data generators, model gradients, or shared embedding repositories.
+  - 'No'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the basis for this answer in Neurodata Governance Assessment Record (Schedule B of the MDTAA). If a model
+    has been or will be trained on this object, note that the model is a separate object requiring its own Tool
+    1 and Tool 3 assessment. Continue to Step 3.
+  - __CHANGED__
+- - 2A
+  - Is the object under assessment itself a trained AI model, model component, model gradient, shared embedding
+    store, synthetic-data generator, federated-learning artefact or other persistent computational artefact that
+    was trained on, fitted to or otherwise derived from human neurodata? Examples include model weights, foundation
+    models, federated-learning systems, synthetic-data generators, model gradients, or shared embedding repositories.
+  - Unknown
+  - Tier 5
+  - 'Record provisional Tier 5 in Neurodata Governance Assessment Record (Schedule B of the MDTAA) and apply the
+    Tier 5 safeguards specified in Annexure 1 §3.5 to the relevant object and activity. Request technical confirmation
+    of whether incorporation has occurred. Continue to Step 3 to identify additional exposure and safeguards. When
+    clarification is available, return to Step 2A: if “Yes”, continue to Step 2B; if “No”, document resolution of
+    this provisional finding and continue to Step 3. Do not finalise a lower tier or proceed with affected sharing,
+    transfer or deployment while this uncertainty remains unresolved.'
+  - __CHANGED__
+- - 2B
+  - Is there evidence, or a reasonable possibility, that neural information persists within the model or computational
+    infrastructure in a manner capable of supporting identification, inference, reconstruction, extraction or profiling
+    of individuals or groups? Consider model memorisation, inversion, membership inference, extraction attacks,
+    reconstructive outputs, shared embeddings and other forms of persistent representation.
+  - 'Yes'
+  - Tier 5
+  - Record a provisional Tier 5 condition in Neurodata Governance Assessment Record (Schedule B of the MDTAA) and
+    apply Tier 5 safeguards provisionally under Annexure 1 §3.5. Record the evidence or credible technical assessment
+    supporting continuing functional exposure in Neurodata Governance Assessment Record (Schedule B of the MDTAA).
+    Initiate or complete Tool 3 (Supplementary Table 8) and apply the Tool 3 (Supplementary Table 8) return procedure
+    below. Continue to Step 3 to identify additional exposure and safeguards. Tier 5 remains unconfirmed until the
+    required assessment establishes its criteria
+- - 2B
+  - Is there evidence, or a reasonable possibility, that neural information persists within the model or computational
+    infrastructure in a manner capable of supporting identification, inference, reconstruction, extraction or profiling
+    of individuals or groups? Consider model memorisation, inversion, membership inference, extraction attacks,
+    reconstructive outputs, shared embeddings and other forms of persistent representation.
+  - 'No'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the supporting technical assessment in Neurodata Governance Assessment Record (Schedule B of the MDTAA).
+    Complete Tool 3 (Supplementary Table 8) because Step 2A was answered “Yes”; this answer does not remove that
+    requirement. Apply the Tool 3 (Supplementary Table 8) return procedure below. Continue to Step 3. Do not remove
+    an existing higher-tier finding solely on the basis of this answer.
+- - 2B
+  - Is there evidence, or a reasonable possibility, that neural information persists within the model or computational
+    infrastructure in a manner capable of supporting identification, inference, reconstruction, extraction or profiling
+    of individuals or groups? Consider model memorisation, inversion, membership inference, extraction attacks,
+    reconstructive outputs, shared embeddings and other forms of persistent representation.
+  - Unknown
+  - Tier 5
+  - Record provisional Tier 5 in Neurodata Governance Assessment Record (Schedule B of the MDTAA) and apply Tier
+    5 safeguards under Annexure 1 §3.5. Record the unresolved exposure question in Neurodata Governance Assessment
+    Record (Schedule B of the MDTAA). Obtain appropriate specialist technical, legal, ethics or institutional review
+    and complete Tool 3 (Supplementary Table 8). Apply the Tool 3 (Supplementary Table 8) return procedure below.
+    Continue to Step 3 to identify additional exposure and safeguards. Do not finalise a lower tier or proceed with
+    affected sharing, transfer or deployment until the uncertainty is resolved.
+- - '3'
+  - Is this object a derived neurodata product rather than the original neurodata? ? Examples include embeddings,
+    feature vectors, neural fingerprints, cognitive profiles, classifiers, predictions, or reconstructed neural
+    representations.
+  - 'Yes'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the source neurodata and the transformation that produced the object in Neurodata Governance Assessment
+    Record (Schedule B of the MDTAA). Continue to Step 4.
+- - '3'
+  - Is this object a derived neurodata product rather than the original neurodata? ? Examples include embeddings,
+    feature vectors, neural fingerprints, cognitive profiles, classifiers, predictions, or reconstructed neural
+    representations.
+  - 'No'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the basis for treating the object as original neurodata. in Neurodata Governance Assessment Record (Schedule
+    B of the MDTAA). Continue to Step 5 to assess direct identification and traceability.
+- - '3'
+  - Is this object a derived neurodata product rather than the original neurodata? ? Examples include embeddings,
+    feature vectors, neural fingerprints, cognitive profiles, classifiers, predictions, or reconstructed neural
+    representations.
+  - Unknown
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Obtain provenance or processing information from the data steward or technical lead. Retain all existing tier
+    findings and safeguards. Pause progression beyond this step. Return to Step 3 when the evidence supports “Yes”
+    or “No”.
+- - '4'
+  - 'Does this derived object have excess inferential capacity, that is, can it, alone or with information reasonably
+    available to the intended recipient: (i) support inference about neurological, cognitive, emotional or behavioural
+    states or traits outside the purpose for which the source neurodata were authorised; (ii) identify or trace
+    a participant by itself (for example a functional-connectome fingerprint or a high-dimensional embedding unique
+    to a participant); or (iii) reconstruct stimuli, speech, imagery or neural signals? Standard summary derivatives
+    that reveal no more than the source dataset already reveals (for example regional volumes, connectivity matrices
+    or spectral summaries used for the authorised purpose) do not satisfy this question and retain the source tier.
+    Apply Annexure 1 §4.1.6 and the §2.1 distinction between ordinary aggregate description and material group-level
+    Functional Exposure.'
+  - 'Yes'
+  - Tier 4
+  - Record a Tier 4 finding and the relevant capability in Neurodata Governance Assessment Record (Schedule B of
+    the MDTAA). Restrict access to controlled access; document permitted uses and prohibited inferences inNeurodata
+    Governance Assessment Record (Schedule B of the MDTAA); prohibit unauthorised profiling, reconstruction and
+    general-purpose AI training; and maintain provenance records. Obtain specialist governance review and complete
+    Tool 3 (Supplementary Table 8). Complete Neuro-TADT (Tool 2) (Supplementary Table 7)  before external sharing
+    or international transfer. Retain any higher tier finding. Continue to Step 5.
+  - __CHANGED__
+- - '4'
+  - 'Does this derived object have excess inferential capacity, that is, can it, alone or with information reasonably
+    available to the intended recipient: (i) support inference about neurological, cognitive, emotional or behavioural
+    states or traits outside the purpose for which the source neurodata were authorised; (ii) identify or trace
+    a participant by itself (for example a functional-connectome fingerprint or a high-dimensional embedding unique
+    to a participant); or (iii) reconstruct stimuli, speech, imagery or neural signals? Standard summary derivatives
+    that reveal no more than the source dataset already reveals (for example regional volumes, connectivity matrices
+    or spectral summaries used for the authorised purpose) do not satisfy this question and retain the source tier.
+    Apply Annexure 1 §4.1.6 and the §2.1 distinction between ordinary aggregate description and material group-level
+    Functional Exposure.'
+  - 'No'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the evidence supporting this answer in Neurodata Governance Assessment Record (Schedule B of the MDTAA),
+    including why the derivative reveals no more than the source dataset and the additional information reasonably
+    available to the intended recipient. Continue to Step 5.
+  - __CHANGED__
+- - '4'
+  - 'Does this derived object have excess inferential capacity, that is, can it, alone or with information reasonably
+    available to the intended recipient: (i) support inference about neurological, cognitive, emotional or behavioural
+    states or traits outside the purpose for which the source neurodata were authorised; (ii) identify or trace
+    a participant by itself (for example a functional-connectome fingerprint or a high-dimensional embedding unique
+    to a participant); or (iii) reconstruct stimuli, speech, imagery or neural signals? Standard summary derivatives
+    that reveal no more than the source dataset already reveals (for example regional volumes, connectivity matrices
+    or spectral summaries used for the authorised purpose) do not satisfy this question and retain the source tier.
+    Apply Annexure 1 §4.1.6 and the §2.1 distinction between ordinary aggregate description and material group-level
+    Functional Exposure.'
+  - Unknown
+  - Tier 4
+  - Record provisional Tier 4 and the capability requiring assessment in Neurodata Governance Assessment Record
+    (Schedule B of the MDTAA). Apply the safeguards specified in the Step 4 “Yes” row provisionally. Complete Tool
+    3 (Supplementary Table 8) and obtain the specialist review needed to resolve the uncertainty. Retain any higher
+    tier finding. Continue to Step 5.
+  - __CHANGED__
+- - '5'
+  - Does the object contain direct identifiers, recognisable identifying anatomy, identifying acquisition metadata,
+    or intrinsic information that reasonably permits participant identification or tracing beyond linkage through
+    a separately protected code or mapping? Examples include names, identifying DICOM headers, non-defaced facial
+    anatomy, identifying voice or video, or device identifiers and timestamps that enable tracing. Being a raw EEG,
+    MEG, ECoG or MRI acquisition is not, by itself, a “Yes”; linkage solely through a protected code or mapping
+    is assessed at Step 6.
+  - 'Yes'
+  - Tier 3
+  - Record a Tier 3 finding and the identifiers or intrinsic traceability identified in Neurodata Governance Assessment
+    Record (Schedule B of the MDTAA). Store the object in a secure controlled environment with encryption, role-based
+    access, audit logs, and formal access approval. Remove unnecessary identifiers where feasible and restrict downloads
+    and onward sharing. Complete Neuro-TADT (Tool 2) (Supplementary Table 7) before international transfer or external
+    access. Retain any higher tier finding. Continue to Step 6.
+- - '5'
+  - Does the object contain direct identifiers, recognisable identifying anatomy, identifying acquisition metadata,
+    or intrinsic information that reasonably permits participant identification or tracing beyond linkage through
+    a separately protected code or mapping? Examples include names, identifying DICOM headers, non-defaced facial
+    anatomy, identifying voice or video, or device identifiers and timestamps that enable tracing. Being a raw EEG,
+    MEG, ECoG or MRI acquisition is not, by itself, a “Yes”; linkage solely through a protected code or mapping
+    is assessed at Step 6.
+  - 'No'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the basis for concluding that the specified identifiers and intrinsic traceability are absent in Neurodata
+    Governance Assessment Record (Schedule B of the MDTAA). Continue to Step 6.
+- - '5'
+  - Does the object contain direct identifiers, recognisable identifying anatomy, identifying acquisition metadata,
+    or intrinsic information that reasonably permits participant identification or tracing beyond linkage through
+    a separately protected code or mapping? Examples include names, identifying DICOM headers, non-defaced facial
+    anatomy, identifying voice or video, or device identifiers and timestamps that enable tracing. Being a raw EEG,
+    MEG, ECoG or MRI acquisition is not, by itself, a “Yes”; linkage solely through a protected code or mapping
+    is assessed at Step 6.
+  - Unknown
+  - Tier 3
+  - Record provisional Tier 3 in Neurodata Governance Assessment Record (Schedule B of the MDTAA). Apply the safeguards
+    specified in the Step 5 “Yes” row provisionally. Assign an identifier and traceability review to the responsible
+    data steward or technical reviewer. Retain any higher tier finding. Continue to Step 6. Return to Step 5 when
+    the review supports “Yes” or “No”.
+- - '6'
+  - 'Does the object still contain participant-level neurodata that can be linked back to an individual through
+    a code, repository record or institutional key that is available to, or obtainable by, the intended recipient?
+    Where a key exists but is held by another party under a documented undertaking not to disclose it, answer ‘No’
+    for that recipient and ‘Yes’ for the key-holder, and record both. Example: a pseudonymised EEG dataset whose
+    participant identifiers are held by the originating institution (‘Yes’ for the originating institution; ‘No’
+    for an external recipient that has no access to the key).'
+  - 'Yes'
+  - Tier 2
+  - Record a Tier 2 finding, the linkage mechanism and the responsible custodian in Neurodata Governance Assessment
+    Record (Schedule B of the MDTAA). Use controlled-access repositories; separate and protect the linkage key;
+    encrypt data in storage and transit; maintain access logs; and restrict re-identification and onward sharing.
+    Put any required Data Use or Transfer Agreement in place before the relevant access or transfer. Where another
+    institution holds the key, record its custody and restrictions without obtaining or disclosing the key. Retain
+    any higher tier finding. Proceed to the Final Decision.
+  - __CHANGED__
+- - '6'
+  - 'Does the object still contain participant-level neurodata that can be linked back to an individual through
+    a code, repository record or institutional key that is available to, or obtainable by, the intended recipient?
+    Where a key exists but is held by another party under a documented undertaking not to disclose it, answer ‘No’
+    for that recipient and ‘Yes’ for the key-holder, and record both. Example: a pseudonymised EEG dataset whose
+    participant identifiers are held by the originating institution (‘Yes’ for the originating institution; ‘No’
+    for an external recipient that has no access to the key).'
+  - 'No'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the evidence that no linkage mechanism is available to the intended recipient (key destroyed; or key-holder
+    identified with its undertaking recorded) in Neurodata Governance Assessment Record (Schedule B of the MDTAA).
+    If a candidate, provisional or confirmed Tier 3, Tier 4 or Tier 5 finding remains active, proceed to the Final
+    Decision. Otherwise, continue to Step 7.
+  - __CHANGED__
+- - '6'
+  - 'Does the object still contain participant-level neurodata that can be linked back to an individual through
+    a code, repository record or institutional key that is available to, or obtainable by, the intended recipient?
+    Where a key exists but is held by another party under a documented undertaking not to disclose it, answer ‘No’
+    for that recipient and ‘Yes’ for the key-holder, and record both. Example: a pseudonymised EEG dataset whose
+    participant identifiers are held by the originating institution (‘Yes’ for the originating institution; ‘No’
+    for an external recipient that has no access to the key).'
+  - Unknown
+  - Tier 2
+  - Record provisional Tier 2 in Neurodata Governance Assessment Record (Schedule B of the MDTAA). Apply the linkage
+    safeguards specified in the Step 6 “Yes” row to any existing or potentially retained linkage mechanism. Request
+    confirmation from the data holder or repository custodian about whether participant-level linkage remains possible.
+    Retain any higher tier finding. Proceed to the Final Decision with the uncertainty unresolved. When confirmation
+    is available, return to Step 6 and follow the “Yes” or “No” branch.
+  - __CHANGED__
+- - '7'
+  - 'Does the object contain only aggregated or summary-level information with no participant-level records or persistent
+    participant trace? Example: A published study reporting only group-average brain activation patterns, summary
+    statistics, or aggregate connectivity measures with no participant-level records or re-identifiable individual
+    data.'
+  - 'Yes'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record the aggregation or summarisation method and the evidence that no participant-level records or persistent
+    participant trace remain in Neurodata Governance Assessment Record (Schedule B of the MDTAA). Continue to Step
+    8.
+- - '7'
+  - 'Does the object contain only aggregated or summary-level information with no participant-level records or persistent
+    participant trace? Example: A published study reporting only group-average brain activation patterns, summary
+    statistics, or aggregate connectivity measures with no participant-level records or re-identifiable individual
+    data.'
+  - 'No'
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record that the object contains participant-level records without an available linkage mechanism (candidate
+    Tier 1b) in Neurodata Governance Assessment Record (Schedule B of the MDTAA). Continue to Step 8 for the disclosure-risk
+    assessment. Do not record ‘Unclassified’ at this step.
+  - __CHANGED__
+- - '7'
+  - 'Does the object contain only aggregated or summary-level information with no participant-level records or persistent
+    participant trace? Example: A published study reporting only group-average brain activation patterns, summary
+    statistics, or aggregate connectivity measures with no participant-level records or re-identifiable individual
+    data.'
+  - Unknown
+  - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
+    at an earlier step remains applicable unless resolved through documented reassessment.
+  - Record that aggregate-only status has not been established Neurodata Governance Assessment Record (Schedule
+    B of the MDTAA). Request technical review of participant-level records, persistent traces and the aggregation
+    or summarisation method. Pause classification and retain any existing safeguards. Do not approve release through
+    this Tool while the uncertainty remains unresolved. Return to Step 7 when the evidence supports “Yes” or “No”.
+- - '8'
+  - 'Could an individual or small group still reasonably be identified by means reasonably likely to be used by
+    the intended recipient (for public release: by any member of the public), through rare conditions, small sample
+    sizes, unique characteristics, intrinsic signal characteristics known to permit re-identification for this modality
+    (for example residual facial features after defacing; connectome fingerprints), accompanying metadata, or linkage
+    with data reasonably available to the recipient? Example: a dataset describing a single participant with a rare
+    neurological disorder, a very small cohort from one clinic, or records containing unique demographic or geographic
+    metadata.'
+  - 'Yes'
+  - Tier 2 (minimum)
+  - Record Tier 2 as the minimum applicable tier and identify the disclosure mechanism in Neurodata Governance Assessment
+    Record (Schedule B of the MDTAA). Increase aggregation, suppress disclosive information or strengthen de-identification
+    where feasible. Determine and record the necessary access restrictions, including controlled access where required.
+    Reassess the modified object before release, repeating Steps 5–8 and any earlier step affected by the modification.
+    Retain any higher tier finding unless documented reassessment resolves it. Proceed to the Final Decision.
+  - __CHANGED__
+- - '8'
+  - 'Could an individual or small group still reasonably be identified by means reasonably likely to be used by
+    the intended recipient (for public release: by any member of the public), through rare conditions, small sample
+    sizes, unique characteristics, intrinsic signal characteristics known to permit re-identification for this modality
+    (for example residual facial features after defacing; connectome fingerprints), accompanying metadata, or linkage
+    with data reasonably available to the recipient? Example: a dataset describing a single participant with a rare
+    neurological disorder, a very small cohort from one clinic, or records containing unique demographic or geographic
+    metadata.'
+  - No — and the object is aggregate-only (Step 7 ‘Yes’)
+  - 'Tier 1 Note: A Tier 1 outcome does not automatically exclude Annexure 3 in the MDTAA. Apply the exception and
+    triggers in Annexure 1 §7.2 in the MDTAA to the particular object and proposed activity, and record the reason
+    for completing or omitting Annexure 3 in the MDTAA. A Tier 1 outcome shall not override a higher candidate,
+    provisional or confirmed tier identified elsewhere in the assessment.'
+  - Record a Tier 1 finding and the supporting disclosure-risk assessment in Neurodata Governance Assessment Record
+    (Schedule B of the MDTAA). Document the aggregation or anonymisation method and confirm that no participant-level
+    record, persistent participant trace or linkage mechanism remains in Neurodata Governance Assessment Record
+    (Schedule B of the MDTAA). Check the triggers and exceptions in Annexure 1 §7.2 and record why Tool 3 (Supplementary
+    Table 8) is required or may be omitted. Do not use this finding to override a higher candidate, provisional
+    or confirmed tier. Proceed to the Final Decision.
+  - __CHANGED__
+- - '8'
+  - 'Could an individual or small group still reasonably be identified by means reasonably likely to be used by
+    the intended recipient (for public release: by any member of the public), through rare conditions, small sample
+    sizes, unique characteristics, intrinsic signal characteristics known to permit re-identification for this modality
+    (for example residual facial features after defacing; connectome fingerprints), accompanying metadata, or linkage
+    with data reasonably available to the recipient? Example: a dataset describing a single participant with a rare
+    neurological disorder, a very small cohort from one clinic, or records containing unique demographic or geographic
+    metadata.'
+  - No — and the object is participant-level (Step 7 ‘No’)
+  - 'Tier 1b Note: a Tier 1b finding is made for a specified recipient (or for the public) and may differ from the
+    tier applying to the Data Exporter, which may retain a key (Tier 2). A Tier 1b outcome shall not override a
+    higher candidate, provisional or confirmed tier identified elsewhere in the assessment.'
+  - Record a Tier 1b finding and the supporting disclosure-risk assessment in Neurodata Governance Assessment Record
+    (Schedule B of the MDTAA). Document the de-identification method (including defacing, header stripping and date
+    shifting, with software and version), the absence of an available linkage mechanism, and the recipient (or ‘public’)
+    for which the finding is made. Select and record the licence or access condition required by Annexure 1 §3.1b(d),
+    including a prohibition on re-identification attempts. Apply any uplift required by Step 0B. Check the triggers
+    and exceptions in Annexure 1 §7.2 and record why Tool 3 (Supplementary Table 8) is required or may be omitted.
+    Do not use this finding to override a higher candidate, provisional or confirmed tier. Proceed to the Final
+    Decision.
+  - __CHANGED__
+- - '8'
+  - 'Could an individual or small group still reasonably be identified by means reasonably likely to be used by
+    the intended recipient (for public release: by any member of the public), through rare conditions, small sample
+    sizes, unique characteristics, intrinsic signal characteristics known to permit re-identification for this modality
+    (for example residual facial features after defacing; connectome fingerprints), accompanying metadata, or linkage
+    with data reasonably available to the recipient? Example: a dataset describing a single participant with a rare
+    neurological disorder, a very small cohort from one clinic, or records containing unique demographic or geographic
+    metadata.'
+  - Unknown
+  - Tier 2
+  - Record provisional Tier 2 in Neurodata Governance Assessment Record (Schedule B of the MDTAA). Obtain a disclosure-risk
+    review addressing rare conditions, small samples, unique characteristics, and accompanying metadata. Withhold
+    release pending resolution of this uncertainty. Retain any higher tier finding. Proceed to the Final Decision
+    with the uncertainty unresolved. Return to Step 8 when the review supports “Yes” or “No”.
+  - __CHANGED__
+- - Final Decision
+  - Have all applicable steps and required classification reviews been completed?
+  - Complete assessment
+  - '-'
+  - Record the highest applicable tier and whether it is provisional or confirmed. Do not finalise a lower tier
+    while a higher candidate or provisional finding remains unresolved. Retain all safeguards whose underlying conditions
+    remain present. Save the outcome, supporting evidence, outstanding actions and responsible reviewer in the assessment
+    record; incorporate or reference it in Neurodata Governance Assessment Record (Schedule B of the MDTAA). where
+    applicable. Complete or update Tools 2 (Supplementary Table 7) and 3 (Supplementary Table 8) where required,
+    then proceed to Tool 4 (Supplementary Table 9) where contractual implementation is needed. Do not begin the
+    proposed activity until required safeguards and approvals are in place. Apply any tier uplift recorded at Step
+    0B before finalising.
+  - __CHANGED__
+T7:
+- - Step
+  - Question
+  - Answer
+  - Required action
+- - 'General instructions before using this tool: Assess the proposed transfer or access arrangement using the tier
+    and safeguards identified in Supplementary Table 6. Wherever this Tool says “record”, enter the information
+    against the relevant step in the transfer and access section of the Neurodata Governance Assessment Record.
+    Where the MDTAA applies, incorporate or reference that assessment in Schedule C and link it to the classification
+    recorded in Schedule B. Record supporting evidence, outstanding actions and responsible persons. Continuing
+    through the assessment does not authorise transfer or access. A later answer does not remove an earlier restriction
+    or unresolved requirement. Before Step 7, complete the pathway lookup at Step 6A and the restrictions check
+    at Step 6B; the actions recorded there are prerequisites for Outcome 1 or 2.'
+  - __CHANGED__
+- - '1'
+  - 'What are you planning to do with the neurodata? Example: Using an EEG dataset to train a machine learning model
+    for early detection of Alzheimer''s disease.'
+  - Internal use only with no external or cross border sharing or access to data.
+  - Record the internal use and why no listed external or cross-border pathway applies. Apply the safeguards identified
+    in Supplementary Table 6 and assess applicable statutory access and authorisation requirements. Record “Neuro-TADT
+    not required for this arrangement” and end this Tool. Other applicable governance assessments remain required
+- - '1'
+  - 'What are you planning to do with the neurodata? Example: Using an EEG dataset to train a machine learning model
+    for early detection of Alzheimer''s disease.'
+  - Share with another institution; international transfer; repository deposit; cloud-hosted access; or AI platform
+    or vendor access.
+  - Record every selected pathway and the proposed activity. Continue to Step 2.
+- - '1'
+  - 'What are you planning to do with the neurodata? Example: Using an EEG dataset to train a machine learning model
+    for early detection of Alzheimer''s disease.'
+  - Unsure
+  - Obtain clarification of the proposed storage, sharing, access and processing arrangements. Pause the assessment
+    and do not begin the proposed transfer or external access. Return to Step 1 when the pathway is established.
+- - '2'
+  - 'Has the neurodata already been assigned a risk tier using (Tool 1) Supplementary Table 6? Example: The neurodata
+    has been classified as Tier 2 (Moderate Risk) using the criteria in Supplementary Table 26 before planning further
+    processing or sharing.'
+  - 'Yes'
+  - Record the tier, whether it is provisional or confirmed, the applicable safeguards and the (Tool 1) Supplementary
+    Table 6 assessment reference. Carry forward all unresolved conditions and restrictions. A provisional tier may
+    support pathway assessment but does not remove required review. Continue to Step 3.
+- - '2'
+  - 'Has the neurodata already been assigned a risk tier using (Tool 1) Supplementary Table 6? Example: The neurodata
+    has been classified as Tier 2 (Moderate Risk) using the criteria in Supplementary Table 26 before planning further
+    processing or sharing.'
+  - 'No'
+  - Complete (Tool 1) Supplementary Table 6 to get a risk tier assigned to the particular data object and proposed
+    activity. Return to Step 2 after a tier has been assigned. If (Tool 1) Supplementary Table 6 cannot establish
+    a tier and requires specialist review, select Final Decision Outcome 4 below.
+- - '2'
+  - 'Has the neurodata already been assigned a risk tier using (Tool 1) Supplementary Table 6? Example: The neurodata
+    has been classified as Tier 2 (Moderate Risk) using the criteria in Supplementary Table 26 before planning further
+    processing or sharing.'
+  - Unsure
+  - Locate the existing classification and check that it covers the object, version and proposed activity. Complete
+    or update records according to Supplementary Table 6 if the classification is absent or no longer applicable.
+    Return to Step 2 when the tier and safeguards are established.
+- - '3'
+  - 'Who will receive or access the neurodata? Example: An approved research collaborator, an international research
+    consortium, or a trusted cloud service provider processing the neurodata under a data processing agreement.'
+  - Named collaborating institution; repository; cloud provider; commercial partner; or AI developer. Select all
+    that apply.
+  - Record each recipient’s name, role and proposed access or processing activity. Continue to Step 4.
+- - '3'
+  - 'Who will receive or access the neurodata? Example: An approved research collaborator, an international research
+    consortium, or a trusted cloud service provider processing the neurodata under a data processing agreement.'
+  - Unknown recipients
+  - Record which recipients remain unidentified. Obtain recipient information from the proposed collaborator, repository,
+    provider or other responsible party. Do not begin transfer or access. Return to Step 3 once recipients are identified.
+    If they cannot be identified, select Final Decision Outcome 4 below.
+- - '3'
+  - 'Who will receive or access the neurodata? Example: An approved research collaborator, an international research
+    consortium, or a trusted cloud service provider processing the neurodata under a data processing agreement.'
+  - Public or unrestricted release (open repository deposit, open licence, public model weights, publication of
+    participant-level supplementary data)
+  - 'Record the release channel, licence and any registration or click-through conditions. Public release is permitted
+    through this Tool only where (a) Tool 1 (Supplementary Table 6) records a confirmed Tier 1 or Tier 1b finding
+    made for the public as recipient, or (b) for a model or other computational artefact, Tool 3 (Supplementary
+    Table 8) Step 7 records leakage testing with no material exposure for the intended release conditions and a
+    documented anonymity assessment. If neither condition is met, record ‘Public release not supported by current
+    classification’ and either select Final Decision Outcome 3 (redesign: controlled access, gated or registered
+    access, or federated access) or return the object to Tool 1/Tool 3 for further de-identification or testing.
+    If a condition is met, record ‘Recipients: public’ at Steps 4 and 12, treat Step 5 as ‘Downloadable copy’, and
+    continue to Step 6.'
+  - __CHANGED__
+- - '4'
+  - 'Can every recipient and subprocessor be identified? Example: All recipients are known by name, including collaborating
+    institutions, cloud service providers, and any contracted subprocessors.'
+  - 'Yes'
+  - Record each recipient and subprocessor, its role and the information available about its access. Continue to
+    Step 5.
+- - '4'
+  - 'Can every recipient and subprocessor be identified? Example: All recipients are known by name, including collaborating
+    institutions, cloud service providers, and any contracted subprocessors.'
+  - No or Unsure
+  - Request a complete recipient and subprocessor list from the responsible organisation or provider. Do not begin
+    transfer or access while required identities remain unresolved. Return to Step 4 when the list is complete.
+    If the required information cannot be established, select Final Decision Outcome 4 below.
+- - '4'
+  - 'Can every recipient and subprocessor be identified? Example: All recipients are known by name, including collaborating
+    institutions, cloud service providers, and any contracted subprocessors.'
+  - Not applicable — public release recorded at Step 3
+  - 'Record ‘Not applicable: public release permitted under Step 3’. Continue to Step 5.'
+  - __CHANGED__
+- - '5'
+  - 'How will recipients access the neurodata or governed artefact? Example: The recipient can download and retain
+    a local copy of the neurodata rather than accessing it only through a secure remote environment.'
+  - Downloadable copy
+  - Record what may be downloaded, by whom and to which environment. Specify tier-appropriate controls for local
+    storage, copying, access, onward sharing, retention and deletion. Continue to Step 6.
+- - '5'
+  - 'How will recipients access the neurodata or governed artefact? Example: The recipient can download and retain
+    a local copy of the neurodata rather than accessing it only through a secure remote environment.'
+  - Remote or controlled access without downloading the underlying object
+  - Record the access environment, authorised users and restrictions on downloading or exporting data and outputs.
+    Specify access controls, logging and output review appropriate to the tier. Continue to Step 6.
+- - '5'
+  - 'How will recipients access the neurodata or governed artefact? Example: The recipient can download and retain
+    a local copy of the neurodata rather than accessing it only through a secure remote environment.'
+  - Query-only or federated access
+  - Record where processing occurs and what queries, outputs, gradients or other information may leave each environment.
+    Specify controls on queries, outputs, access and logging appropriate to the tier. Continue to Step 6.
+- - ''
+  - ''
+  - Unsure
+  - Obtain confirmation of the access modes and export capabilities from the recipient or infrastructure provider.
+    Pause the assessment and do not begin access. Return to Step 5 when the access arrangements are established.
+- - '6'
+  - 'Will the neurodata be transferred to, stored in, or remotely accessed from another legal jurisdiction? Example:
+    neurodata remains on a server in South Africa but is accessed remotely by researchers in Germany.'
+  - 'Yes'
+  - Record every relevant originating, receiving, hosting and remotely accessing jurisdiction, including relevant
+    subprocessor locations. Continue to Step 7.
+- - '6'
+  - 'Will the neurodata be transferred to, stored in, or remotely accessed from another legal jurisdiction? Example:
+    neurodata remains on a server in South Africa but is accessed remotely by researchers in Germany.'
+  - 'No'
+  - Record the locations and the basis for concluding that no cross-jurisdictional transfer, storage or remote access
+    is involved. Continue to Step 7.
+- - '6'
+  - 'Will the neurodata be transferred to, stored in, or remotely accessed from another legal jurisdiction? Example:
+    neurodata remains on a server in South Africa but is accessed remotely by researchers in Germany.'
+  - Unsure
+  - Obtain location and remote-access information from the recipients and infrastructure providers. Do not begin
+    transfer or access while relevant jurisdictions remain unresolved. Return to Step 6 when the locations are established.
+    If they cannot be established, select Final Decision Outcome 4 below.
+- - 6A
+  - 'Pathway class. What is the compatibility class of the origin→destination pathway (and of each origin→hosting
+    and origin→remote-access pathway) in Supplementary Data 2 (or the current online version of the matrix)? Record
+    the matrix version and date. Where the destination is the United States or Canada, use the North American governance-unit
+    analysis (Supplementary Figure 1) and record the applicable federal, state or provincial regime instead of a
+    class. Example: Nigeria → Germany is Class B; Germany → Brazil was Class C at the study cut-off and is adequacy-based
+    (Class A2) since 26 January 2026.'
+  - A1 (unified legal space)
+  - 'Record ‘A1: no transfer mechanism required’. The lawful basis for processing in both environments and any sector-specific
+    or institutional condition remain required at Step 7. Continue to Step 6B.'
+  - __CHANGED__
+- - 6A
+  - 'Pathway class. What is the compatibility class of the origin→destination pathway (and of each origin→hosting
+    and origin→remote-access pathway) in Supplementary Data 2 (or the current online version of the matrix)? Record
+    the matrix version and date. Where the destination is the United States or Canada, use the North American governance-unit
+    analysis (Supplementary Figure 1) and record the applicable federal, state or provincial regime instead of a
+    class. Example: Nigeria → Germany is Class B; Germany → Brazil was Class C at the study cut-off and is adequacy-based
+    (Class A2) since 26 January 2026.'
+  - A2 (convergent; adequacy-type recognition)
+  - Record the adequacy decision, regulation or recognition relied on, its date and any scope limits (for example
+    sectoral or organisational limits, as for Canada (commercial organisations) or the United States (DPF-certified
+    organisations only)). Verify that the recipient falls within the scope; if it does not, treat the pathway as
+    Class B. Continue to Step 6B.
+  - __CHANGED__
+- - 6A
+  - 'Pathway class. What is the compatibility class of the origin→destination pathway (and of each origin→hosting
+    and origin→remote-access pathway) in Supplementary Data 2 (or the current online version of the matrix)? Record
+    the matrix version and date. Where the destination is the United States or Canada, use the North American governance-unit
+    analysis (Supplementary Figure 1) and record the applicable federal, state or provincial regime instead of a
+    class. Example: Nigeria → Germany is Class B; Germany → Brazil was Class C at the study cut-off and is adequacy-based
+    (Class A2) since 26 January 2026.'
+  - B (standard transfer instrument)
+  - Record the instrument required by the origin regime (see the Step 6B regime table and the MDTAA Transfer-Instrument
+    Modules). Mark the corresponding MDTAA module for activation at Tool 4 (Supplementary Table 9) Step 2. Continue
+    to Step 6B.
+  - __CHANGED__
+- - 6A
+  - 'Pathway class. What is the compatibility class of the origin→destination pathway (and of each origin→hosting
+    and origin→remote-access pathway) in Supplementary Data 2 (or the current online version of the matrix)? Record
+    the matrix version and date. Where the destination is the United States or Canada, use the North American governance-unit
+    analysis (Supplementary Figure 1) and record the applicable federal, state or provincial regime instead of a
+    class. Example: Nigeria → Germany is Class B; Germany → Brazil was Class C at the study cut-off and is adequacy-based
+    (Class A2) since 26 January 2026.'
+  - C (operationally conditional)
+  - 'As for Class B, and in addition: mark Tool 4 Step 3 (Supplementary Safeguards Module) as required; require
+    a documented transfer-risk or impact assessment at Step 7(i); and record the supplementary institutional, repository
+    or technical safeguards that make the pathway navigable. Continue to Step 6B.'
+  - __CHANGED__
+- - 6A
+  - 'Pathway class. What is the compatibility class of the origin→destination pathway (and of each origin→hosting
+    and origin→remote-access pathway) in Supplementary Data 2 (or the current online version of the matrix)? Record
+    the matrix version and date. Where the destination is the United States or Canada, use the North American governance-unit
+    analysis (Supplementary Figure 1) and record the applicable federal, state or provincial regime instead of a
+    class. Example: Nigeria → Germany is Class B; Germany → Brazil was Class C at the study cut-off and is adequacy-based
+    (Class A2) since 26 January 2026.'
+  - D (restricted in practice)
+  - 'Record that the pathway is restricted. Default to Final Decision Outcome 3: redesign toward remote access,
+    federated or query-only access, aggregation to Tier 1, or an alternative destination. Proceed with a transfer
+    of participant-level data only where counsel in the origin jurisdiction documents a lawful mechanism and the
+    authorisations required at Step 6B. Continue to Step 6B.'
+  - __CHANGED__
+- - 6A
+  - 'Pathway class. What is the compatibility class of the origin→destination pathway (and of each origin→hosting
+    and origin→remote-access pathway) in Supplementary Data 2 (or the current online version of the matrix)? Record
+    the matrix version and date. Where the destination is the United States or Canada, use the North American governance-unit
+    analysis (Supplementary Figure 1) and record the applicable federal, state or provincial regime instead of a
+    class. Example: Nigeria → Germany is Class B; Germany → Brazil was Class C at the study cut-off and is adequacy-based
+    (Class A2) since 26 January 2026.'
+  - E (insufficient legal certainty)
+  - Record that legal certainty is insufficient. Default to Final Decision Outcome 4 unless counsel in the origin
+    jurisdiction documents a lawful mechanism; where that is done, treat the pathway as Class D. Continue to Step
+    6B.
+  - __CHANGED__
+- - 6A
+  - 'Pathway class. What is the compatibility class of the origin→destination pathway (and of each origin→hosting
+    and origin→remote-access pathway) in Supplementary Data 2 (or the current online version of the matrix)? Record
+    the matrix version and date. Where the destination is the United States or Canada, use the North American governance-unit
+    analysis (Supplementary Figure 1) and record the applicable federal, state or provincial regime instead of a
+    class. Example: Nigeria → Germany is Class B; Germany → Brazil was Class C at the study cut-off and is adequacy-based
+    (Class A2) since 26 January 2026.'
+  - Not in matrix / Unsure
+  - Record the gap. Obtain an origin-jurisdiction legal assessment and treat the pathway as Class C pending that
+    assessment. Continue to Step 6B.
+  - __CHANGED__
+- - 6B
+  - Origin-side and destination-side restrictions. Using the Step 6B regime table (and Supplementary Data 3 for
+    jurisdictions not listed), does any of the following apply? (a) a statutory prohibition on transferring this
+    category of data or this type of database (e.g., LGPD art. 13 §2); (b) a localisation, serving-copy or in-country
+    processing duty (e.g., Kenya reg. 26; Rwanda art. 50); (c) a requirement of prior authorisation, notification,
+    licence or registration by a regulator before transfer or storage abroad (e.g., POPIA s. 57(1)(d); NCSA authorisation);
+    (d) sanctions, export-control or national-security screening of the destination or recipient (e.g., US DOJ Data
+    Security Program, 28 CFR Part 202; OFAC) where any Party is a US person or the data concern US persons; (e)
+    a research export permit, ethics-committee export clearance or data-transfer approval required by the origin
+    jurisdiction (e.g., NACOSTI; NHREC); (f) a destination-side import condition (registration, local representative,
+    sectoral hosting certification such as HDS in France).
+  - Yes (select all that apply)
+  - 'Record each applicable restriction, the responsible Party, the competent authority and the evidence required.
+    Where (a) applies, select Final Decision Outcome 3 (redesign so that no transfer of the prohibited category
+    occurs, for example analysis within the origin environment with export of results only) or Outcome 4. Where
+    (b)–(f) apply, mark each as a prerequisite: Outcome 1 may not be selected until the authorisation, registration,
+    serving copy, screening or permit is documented; Outcome 2 may be selected where the action is pending. Continue
+    to Step 7(i).'
+  - __CHANGED__
+- - 6B
+  - Origin-side and destination-side restrictions. Using the Step 6B regime table (and Supplementary Data 3 for
+    jurisdictions not listed), does any of the following apply? (a) a statutory prohibition on transferring this
+    category of data or this type of database (e.g., LGPD art. 13 §2); (b) a localisation, serving-copy or in-country
+    processing duty (e.g., Kenya reg. 26; Rwanda art. 50); (c) a requirement of prior authorisation, notification,
+    licence or registration by a regulator before transfer or storage abroad (e.g., POPIA s. 57(1)(d); NCSA authorisation);
+    (d) sanctions, export-control or national-security screening of the destination or recipient (e.g., US DOJ Data
+    Security Program, 28 CFR Part 202; OFAC) where any Party is a US person or the data concern US persons; (e)
+    a research export permit, ethics-committee export clearance or data-transfer approval required by the origin
+    jurisdiction (e.g., NACOSTI; NHREC); (f) a destination-side import condition (registration, local representative,
+    sectoral hosting certification such as HDS in France).
+  - 'No'
+  - Record the basis for concluding that none applies, with reference to the regime table or Supplementary Data
+    3. Continue to Step 7(i).
+  - __CHANGED__
+- - 6B
+  - Origin-side and destination-side restrictions. Using the Step 6B regime table (and Supplementary Data 3 for
+    jurisdictions not listed), does any of the following apply? (a) a statutory prohibition on transferring this
+    category of data or this type of database (e.g., LGPD art. 13 §2); (b) a localisation, serving-copy or in-country
+    processing duty (e.g., Kenya reg. 26; Rwanda art. 50); (c) a requirement of prior authorisation, notification,
+    licence or registration by a regulator before transfer or storage abroad (e.g., POPIA s. 57(1)(d); NCSA authorisation);
+    (d) sanctions, export-control or national-security screening of the destination or recipient (e.g., US DOJ Data
+    Security Program, 28 CFR Part 202; OFAC) where any Party is a US person or the data concern US persons; (e)
+    a research export permit, ethics-committee export clearance or data-transfer approval required by the origin
+    jurisdiction (e.g., NACOSTI; NHREC); (f) a destination-side import condition (registration, local representative,
+    sectoral hosting certification such as HDS in France).
+  - Unsure
+  - Obtain origin-jurisdiction and destination-jurisdiction review. Do not begin transfer or access. Return to Step
+    6B when established; if it cannot be established, select Final Decision Outcome 4 below.
+  - __CHANGED__
+- - 7(i)
+  - 'Exporter side. Under the law of the originating jurisdiction, have the following been identified and documented:
+    the lawful basis or justification for the disclosure; the transfer mechanism indicated at Step 6A (or the reason
+    none is required); the transfer-risk, transfer-impact, privacy-impact or data-protection assessment required
+    for that mechanism or by the origin regime; the authorisations identified at Step 6B; the exporter’s authority
+    to make the present transfer or release under any upstream conditions (consent scope, ethics approval, repository
+    or funder terms, community agreements); and the ethics, institutional and repository approvals required? Consider
+    consent or another lawful basis, statutory transfer provisions, adequacy-type mechanisms, contractual safeguards,
+    DPIAs, PIAs or other jurisdiction-specific assessments, regulatory authorisation and institutional approval,
+    as applicable.'
+  - 'Yes'
+  - Record each item with its reference and status. Verify the Data Exporter’s authority to make the present transfer
+    or release, including applicable upstream conditions. Mark outstanding items as pending. Continue to Step 7(ii).
+  - __CHANGED__
+- - 7(i)
+  - 'Exporter side. Under the law of the originating jurisdiction, have the following been identified and documented:
+    the lawful basis or justification for the disclosure; the transfer mechanism indicated at Step 6A (or the reason
+    none is required); the transfer-risk, transfer-impact, privacy-impact or data-protection assessment required
+    for that mechanism or by the origin regime; the authorisations identified at Step 6B; the exporter’s authority
+    to make the present transfer or release under any upstream conditions (consent scope, ethics approval, repository
+    or funder terms, community agreements); and the ethics, institutional and repository approvals required? Consider
+    consent or another lawful basis, statutory transfer provisions, adequacy-type mechanisms, contractual safeguards,
+    DPIAs, PIAs or other jurisdiction-specific assessments, regulatory authorisation and institutional approval,
+    as applicable.'
+  - No or Unsure
+  - Identify the missing basis, mechanism, assessment, approval or evidence of authority. Obtain the necessary origin-jurisdiction
+    legal, ethics, institutional or repository review. Do not begin transfer or access. Return to Step 7(i) when
+    documented. If no applicable lawful pathway can be established, select Final Decision Outcome 4 below.
+  - __CHANGED__
+- - 7(ii)
+  - 'Importer side. Under the law of each receiving, hosting and remotely accessing jurisdiction, have the following
+    been identified and documented: the recipient’s own lawful basis or justification for processing (including
+    any special-category, health-data or sensitive-data condition); any registration, notification, licensing, local-representative
+    or data-protection-officer requirement applying to the recipient; any sectoral hosting requirement (for example
+    health-data hosting certification); and the recipient’s ethics or institutional approval for the proposed use?'
+  - 'Yes'
+  - Record each item with its reference and status. Continue to Step 7A.
+  - __CHANGED__
+- - 7(ii)
+  - 'Importer side. Under the law of each receiving, hosting and remotely accessing jurisdiction, have the following
+    been identified and documented: the recipient’s own lawful basis or justification for processing (including
+    any special-category, health-data or sensitive-data condition); any registration, notification, licensing, local-representative
+    or data-protection-officer requirement applying to the recipient; any sectoral hosting requirement (for example
+    health-data hosting certification); and the recipient’s ethics or institutional approval for the proposed use?'
+  - No or Unsure
+  - Identify the missing item and obtain destination-jurisdiction review. Do not begin transfer or access. Return
+    to Step 7(ii) when documented; if it cannot be established, select Final Decision Outcome 4 below.
+  - __CHANGED__
+- - 7A
+  - 'Does the proposed activity require a statutory access authorisation, data permit or research permit under the
+    origin regime or the hosting regime? Examples: a Findata permit (Finland); a Health Data Hub/CESREES authorisation
+    (France); a Forschungsdatenzentrum authorisation (Germany); a Garante authorisation under art. 110 of the Privacy
+    Code (Italy); a NACOSTI permit (Kenya); a UNCST clearance (Uganda); a COSTECH permit (Tanzania); CONEP approval
+    of an international collaboration (Brazil); or, from 26 March 2029, an EHDS data permit.'
+  - 'Yes'
+  - Record the competent body, required authorisation, application or approval status, and reference. Record the
+    authorised purpose, users, duration, processing location and release conditions once established. Mark an authorisation
+    not yet obtained as pending; do not begin the activity requiring it. Continue to Step 8.
+  - __CHANGED__
+- - ''
+  - ''
+  - 'No'
+  - Record the basis for concluding that no such authorisation is required for this activity. Continue to Step 8.
+- - ''
+  - ''
+  - Uncertain
+  - Obtain review of the authorisation requirement. Do not begin the affected transfer or access. Return to Step
+    7A when the requirement is established. If it remains unresolved, select Final Decision Outcome 4 below.
+- - '8'
+  - Can the receiving or accessing governance environment implement and maintain the safeguards required for the
+    assigned tier? Consider institutional oversight, repository governance, technical controls, contractual compliance,
+    auditability, enforcement and available remedies.
+  - 'Yes'
+  - Record the evidence of capacity to maintain the required safeguards. Identify any safeguards that the environment
+    can support but has not yet implemented, for verification at Step 13. Continue to Step 9.
+- - ''
+  - ''
+  - 'No'
+  - Record which required safeguards cannot be maintained and why. If an alternative access model or governance
+    arrangement could provide the required protection, select Final Decision Outcome 3 below. If no feasible alternative
+    is identified, select Final Decision Outcome 4 below.
+- - ''
+  - ''
+  - Unsure
+  - Record which safeguards cannot yet be verified. Request evidence from the recipient or provider (policies, certifications,
+    repository governance documents, audit or penetration-test reports, Annexure 5 self-assessment). Do not begin
+    transfer or access until capacity is verified. Return to Step 8 when evidence is available. If evidence cannot
+    be obtained, select Final Decision Outcome 3 where an alternative access model could provide the required protection;
+    otherwise select Final Decision Outcome 4 below.
+  - __CHANGED__
+- - '9'
+  - Will the neurodata be linked with additional datasets after transfer or access? Examples include genomic, electronic
+    health-record, wearable-device, consumer or public-register data.
+  - 'Yes'
+  - Record the additional datasets, linkage purpose, responsible party and proposed resulting object. Apply Supplementary
+    Table 6 to the proposed linked dataset or resulting object before linkage begins. Update the tier and safeguards
+    recorded at Step 2 and review Steps 3–8 and 7A against that assessment, revising affected answers. Once the
+    affected checks are complete and no blocking outcome applies, continue to Step 10. Do not repeat the same linkage
+    assessment unless relevant circumstances change.
+- - ''
+  - ''
+  - 'No'
+  - Record that linkage is outside the assessed arrangement and requires reassessment before introduction. Continue
+    to Step 10.
+- - ''
+  - ''
+  - Unsure
+  - Record that linkage has not been excluded. Prohibit linkage contractually pending clarification (activate Tool
+    4 (Supplementary Table 9) Step 12 in its prohibitory form). Obtain confirmation from the recipient. Return to
+    Step 9 when the answer is established; if it remains unresolved at the Final Decision, Outcome 1 may not be
+    selected.
+  - __CHANGED__
+- - '10'
+  - 'Will the neurodata or a derivative artefact be used to train, fine-tune, validate, benchmark or deploy an AI
+    or machine-learning system? Example: An external collaborator will use a transferred EEG dataset to fine-tune
+    a model for detecting cognitive impairment, or use the dataset to validate the performance of an existing predictive
+    model.'
+  - 'Yes'
+  - Record the proposed AI activities, system, responsible parties and intended outputs. Complete Tool 3 (Supplementary
+    Table 8) for the proposed activity and follow its Final Decision instructions. If the tier or safeguards change,
+    update Step 2 and repeat the affected pathway checks before continuing. If Tool 3 (Supplementary Table 8) requires
+    unresolved specialist review or prohibits proceeding in the current form, select Final Decision Outcome 4 below.
+    Otherwise, continue to Step 11, carrying forward all outstanding safeguards and restrictions.
+- - ''
+  - ''
+  - 'No'
+  - Record that these AI activities are outside the assessed arrangement and require assessment before introduction.
+    Continue to Step 11.
+- - ''
+  - ''
+  - Unsure
+  - Obtain confirmation of the intended AI activities from the recipient. Prohibit unassessed AI use pending clarification.
+    Return to Step 10 when the answer is established. If the intended use cannot be established, select Final Decision
+    Outcome 4 below.
+- - '11'
+  - 'Will the neurodata be used for a purpose materially different from the approved research purpose? Examples
+    may include commercial development, employment, insurance, clinical deployment or unrelated secondary research
+    where these activities fall outside the already approved purpose, consent, ethics approval or other applicable
+    authorisation. Interpretive note: Assess the proposed purpose against the authorisations and conditions applicable
+    to this activity, including upstream restrictions and relevant consent, ethics and institutional requirements.
+    A purpose different from the original study is not automatically prohibited, and public availability does not
+    automatically authorise it. Record the basis for permitting the proposed use or the additional review or approval
+    required.'
+  - 'Yes'
+  - 'Record the proposed purpose and the gap between it and the approved purpose, the consent, the ethics approval
+    and any upstream condition. Do not begin the new use. Obtain the approvals required under Applicable Law and
+    institutional rules: an ethics amendment; re-consent, or a documented compatibility or secondary-use assessment
+    where the origin regime permits research reuse without re-consent; Data Access Committee approval; and the Data
+    Exporter’s written approval. If the proposed purpose is commercial or involves product development, licensing
+    or deployment, mark Tool 4 (Supplementary Table 9) Step 10 as required and Step 11 as not applicable. If the
+    proposed purpose is clinical deployment, record the applicable medical-device or clinical-governance requirements
+    under Tool 4 Step 19. Return to Step 11 when approvals are documented; otherwise select Final Decision Outcome
+    4 below.'
+  - __CHANGED__
+- - ''
+  - ''
+  - 'No'
+  - Record the approved purpose and the authorisation or conditions covering it. Continue to Step 12.
+- - ''
+  - ''
+  - Unsure
+  - Clarify the proposed purpose with the recipient and compare it with applicable authorisations and restrictions.
+    Do not begin the uncertain use. Return to Step 11 when the answer is established. If it remains unresolved,
+    select Final Decision Outcome 4 below.
+- - '12'
+  - May the recipient disclose, transfer, or provide access to the neurodata or resulting artefacts to another party?
+    This includes collaborators, repositories, vendors, cloud providers, subprocessors and downstream recipients.
+  - 'Yes'
+  - Record permitted onward recipients or recipient categories, purposes and conditions. Check that onward permission
+    is consistent with upstream conditions. Distinguish permission already granted from permission requiring separate
+    approval. Require applicable safeguards to continue throughout the onward pathway and mark outstanding approvals
+    as pending. If the proposed onward arrangement introduces recipients, locations or access modes not yet assessed,
+    update Steps 3–8 and 7A before continuing. Continue to Step 13.
+- - ''
+  - ''
+  - 'No'
+  - Record and contractually implement the prohibition on onward transfer or access. Continue to Step 13. This prohibition
+    concerns the recipient’s onward sharing; authority for the Data Exporter’s present transfer remains subject
+    to Step 7.
+- - ''
+  - ''
+  - Unsure
+  - Clarify the onward-sharing permissions and upstream restrictions. Do not permit onward sharing while permission
+    remains unresolved. Return to Step 12 when the answer is established. If the arrangement cannot be assessed
+    without resolving this issue, select Final Decision Outcome 4 below.
+- - '12'
+  - ''
+  - Public release recorded at Step 3
+  - Record that onward use is governed by the licence selected at Step 3 and that no further recipient-specific
+    control is possible. Confirm that the licence prohibits re-identification and requires attribution and notification
+    of suspected re-identification. Continue to Step 13.
+  - __CHANGED__
+- - '13'
+  - 'Have all legal, institutional, repository, technical and contractual safeguards required for the assigned tier
+    and proposed pathway been implemented and documented? Example: Before an international transfer of Tier 3 MRI
+    data, the parties have confirmed the applicable transfer mechanism and approvals, implemented encrypted transfer
+    and role-based access, enabled audit logging, restricted onward sharing, and documented permitted uses, retention,
+    deletion and incident-response requirements.'
+  - 'Yes'
+  - Record the implementation evidence and responsible verifier. Proceed to the Final Decision below and check the
+    conditions for Outcome 1. Outstanding requirements identified earlier must still be satisfied.
+- - ''
+  - ''
+  - No, but they can be implemented.
+  - Record each outstanding safeguard, the responsible party and the evidence needed to verify implementation. Proceed
+    to the Final Decision below and select Outcome 2 only if its conditions are met. Do not begin transfer or access
+    before implementation is verified.
+- - ''
+  - ''
+  - No, and they cannot be implemented within the proposed pathway
+  - Record the safeguards that cannot be implemented. Select Outcome 3 if a feasible alternative arrangement may
+    provide the required protection. Otherwise, select Final Decision Outcome 4 below.
+- - ''
+  - ''
+  - Unsure
+  - Obtain verification from the responsible technical, legal or governance reviewer. Do not begin transfer or access.
+    Return to Step 13 when implementation can be established. If material uncertainty remains, select Final Decision
+    Outcome 4 below.
+- - 'Final Decision: Select and document one outcome Interpretive note: A Neuro-TADT outcome provides structured
+    governance decision support. It does not independently authorise processing, establish formal legal adequacy
+    or replace any required legal, ethics, institutional, repository or regulatory determination.'
+- - ''
+  - Outcome
+  - Decision Criterion
+  - ''
+- - '1'
+  - Proceed subject to applicable approvals
+  - Select only where the applicable lawful basis, transfer or access mechanism, required approvals and authority
+    for the present transfer have been confirmed, and all required safeguards are implemented and documented. Record
+    the approved recipients, purposes, access conditions, supporting evidence and reviewer. Proceed only within
+    those confirmed approvals and conditions. Reassess before a material change to the object, purpose, recipient,
+    jurisdiction or access arrangement. Outcome 1 may not be selected while any Step 6B prerequisite, Step 7(i)/(ii)
+    item or Step 9 uncertainty remains open. For public release, Outcome 1 additionally requires the Tier 1/1b or
+    model-anonymity condition at Step 3 to be confirmed, the licence to be recorded, and a takedown and re-identification-response
+    procedure to be documented.
+  - ''
+  - __CHANGED__
+- - '2'
+  - Proceed after supplementary safeguards are implemented
+  - Select where the applicable legal and approval prerequisites are established, but specified safeguards remain
+    to be implemented within the current pathway. Record each outstanding safeguard, responsible party and verification
+    requirement. Withhold transfer or access until implementation is verified. Return to Step 13 and, if all conditions
+    are satisfied, record Outcome 1.
+  - ''
+- - '3'
+  - Redesign the transfer or access pathway
+  - Select where required safeguards cannot be maintained under the current arrangement but a feasible alternative
+    may provide the required protection. Record why the current pathway is unsuitable and the proposed changes.
+    Do not begin transfer or access through the unsuitable pathway. Repeat this Tool for the redesigned arrangement,
+    updating Supplementary Table 6 if the changes could affect functional exposure or the required tier.
+  - ''
+- - '4'
+  - Do not proceed and obtain specialist review
+  - Select where a required legal basis, mechanism, approval, recipient identity or material governance issue remains
+    unresolved, or the required protection cannot be maintained. Record the reason, required review and responsible
+    person or body. Do not begin the affected transfer or access. Following review, return to the affected step
+    and update all dependent answers. If no acceptable pathway is established, retain this outcome.
+  - ''
+T8:
+- - Step
+  - Question
+  - Answer
+  - Required action
+- - '1'
+  - Has the neurodata undergone, or will it undergo, technical transformation; will it be used in an AI or machine-learning
+    system; or may neurodata-derived information persist in a model or computational infrastructure? Apply the triggers
+    and exceptions in Annexure 1 §7.2. Examples include feature extraction, dimensionality reduction, embedding
+    generation, predictive modelling, synthetic-data generation or AI-model training.
+  - 'No'
+  - Record why none of these triggers applies. Retain the tier and safeguards established under Tool 1 / Supplementary
+    Table 6. Record “Tool 3 (Supplementary Tool 8) not required for this activity” and return to the referring Tool
+    at its next applicable step. Reassess if the activity or object changes.
+- - ''
+  - ''
+  - 'Yes'
+  - Record the applicable trigger. If an exception under Annexure 1 §7.2 is established for this particular object
+    and activity, document the exception and return to the referring Tool. Do not apply that exception to AI activities
+    requiring assessment under Supplementary Table 7 Step 10. Otherwise, continue to Step 2.
+- - ''
+  - ''
+  - Unsure
+  - Obtain clarification of the processing, AI activity or possible computational persistence. Do not mark the activity
+    as exempt while applicability remains uncertain. Pause this assessment and return to Step 1 when the answer
+    is established.
+- - '2'
+  - What form of transformation has occurred or is proposed? Examples include feature vectors, embeddings, connectivity
+    measures, reconstructed signals, classifiers, predictions, synthetic neurodata, trained models, model gradients,
+    or other derived representations.
+  - One or more forms or activities identified
+  - Record the transformation or activity, purpose, source neurodata, technical method and resulting or assessed
+    artefact. Identify its version and any retained intermediate representations requiring separate assessment.
+    Continue to Step 3.
+- - ''
+  - ''
+  - Other, but sufficiently described
+  - Describe the activity and artefact in technical terms sufficient to assess exposure, even if no listed category
+    fits. Continue to Step 3.
+- - ''
+  - ''
+  - Unclear
+  - Obtain a description from the technical lead, recipient or provider. Pause progression until the activity and
+    assessed object can be identified. Return to Step 2. If essential information cannot be obtained, select Final
+    Decision Outcome 4 below.
+- - '3'
+  - 'Can the resulting artefact circulate, be accessed, queried or be deployed independently of the source neurodata?
+    Example: a trained model, embedding repository or predictive classifier is shared without distributing the original
+    EEG or MRI dataset.'
+  - 'Yes'
+  - Record the intended recipients, access mechanisms and deployment environment. Identify the controls needed when
+    the artefact is used without the source data. Continue to Step 4. Independent circulation does not itself determine
+    a tier.
+- - ''
+  - ''
+  - 'No'
+  - Record how the artefact remains connected to, or controlled with, the source neurodata. Continue to Step 4.
+- - ''
+  - ''
+  - Unsure
+  - Record independent circulation as possible pending technical confirmation. Request confirmation of the architecture
+    and access arrangements. Continue to Step 4, retaining the unresolved issue for the Final Decision.
+- - '4'
+  - 'Can the resulting artefact, alone or with information reasonably available to the intended recipient, identify
+    or trace a participant or re-establish linkage to the source neurodata? Examples: an embedding or latent representation
+    unique to a participant; a synthetic dataset that reproduces training records; a model that memorises participant-level
+    signals; outputs that carry source identifiers or acquisition metadata.'
+  - 'Yes'
+  - Record the identification or tracing mechanism and supporting evidence. Flag the finding for classification
+    under Tool 1 / Supplementary Table 6 and retain applicable identification and linkage safeguards. Continue to
+    Step 5; do not determine the final tier from this answer alone.
+  - __CHANGED__
+- - ''
+  - ''
+  - 'No'
+  - Record the supporting evidence and the additional information considered. Continue to Step 5. Absence of identification
+    does not establish absence of inference or computational persistence.
+- - ''
+  - ''
+  - Unknown
+  - Record the unresolved identification or linkage question and request technical assessment. Apply the relevant
+    provisional safeguards under Tool 1 / Supplementary Table 6. Continue to Step 5 and retain the uncertainty for
+    the Final Decision.
+- - '5'
+  - 'Can the artefact reveal, predict, reconstruct or profile neurological, cognitive, emotional or behavioural
+    characteristics of an individual or group, even without directly identifying a participant?Distinguish ordinary
+    aggregate description from material group-level Functional Exposure under Annexure 1 §2.1. Example: an EEG-derived
+    embedding predicts cognitive decline, or a model output classifies stress, attention or neurological status.'
+  - 'Yes'
+  - Record the capability, affected individuals or group, supporting evidence and relevant access conditions. Record
+    a candidate Tier 4 condition and apply Tier 4 safeguards provisionally, retaining any higher applicable safeguards.
+    Continue to Step 6.
+- - ''
+  - ''
+  - 'No'
+  - Record the evidence supporting this conclusion and its limitations. Continue to Step 6.
+- - ''
+  - ''
+  - Unknown
+  - Record the unresolved inferential, reconstructive or profiling capability. Apply provisional Tier 4 safeguards,
+    retaining any higher applicable safeguards. Request the technical assessment needed to resolve the question.
+    Continue to Step 6.
+- - '6'
+  - Has neural information become, or may it reasonably have become, computationally persistent within a model,
+    shared embedding, model gradient, synthetic-data generator, or other infrastructure in a manner capable of supporting
+    continuing inference, reconstruction, extraction or profiling? Model incorporation alone is not sufficient;
+    consider whether information derived from the neurodata may persist and create continuing functional exposure.
+  - 'Yes'
+  - Record a candidate Tier 5 condition and the evidence of continuing functional exposure. Apply Tier 5 safeguards
+    provisionally pending completion of the assessment. Continue to Step 7. Confirm Tier 5 only if the completed
+    assessment meets Outcome 3.
+- - ''
+  - ''
+  - 'No'
+  - Record the technical evidence supporting the absence of continuing computational exposure and its limitations.
+    Do not assign Tier 5 solely because model incorporation occurred. Continue to Step 7.
+- - ''
+  - ''
+  - Unknown
+  - Record provisional Tier 5 and the unresolved persistence or exposure question. Apply Tier 5 safeguards provisionally
+    and request specialist assessment. Continue to Step 7. If material uncertainty remains at the Final Decision,
+    select Outcome 4 rather than confirming Tier 5.
+- - '7'
+  - 'Has the artefact or model been evaluated, where technically relevant, for memorisation, training-data extraction,
+    model inversion, membership inference or other forms of information leakage, under the intended access and release
+    conditions? Where public or unrestricted release is proposed, apply the anonymity assessment: (1) likelihood
+    of direct extraction of participant-level information from the artefact (weights, embeddings, generator); (2)
+    likelihood of obtaining participant-level information through queries or outputs, considering all means reasonably
+    likely to be used by any member of the public; (3) documentation of the methods, thresholds, versions and residual
+    risk (cf. EDPB Opinion 28/2024). Example: testing assesses whether prompts, queries or attacks can recover participant-related
+    neural information or determine whether particular records contributed to model training.'
+  - Yes—material exposure was identified
+  - Record the methods, findings, artefact version and tested access conditions. Update the findings at Steps 4–6
+    as indicated by the evidence. Record a candidate Tier 5 condition where leakage demonstrates continuing model-associated
+    or computationally persistent exposure. Continue to Step 8. Record ‘Public release not supported’.
+  - __CHANGED__
+- - ''
+  - ''
+  - Yes—no material exposure was identified
+  - 'Record the testing scope, methods, thresholds, artefact version and access conditions. Where the tested conditions
+    include public release and steps (1)–(3) are documented, record ‘Anonymity assessment documented: public release
+    may be considered at Tool 2 (Supplementary Table 7) Step 3’. Do not treat the result as proof of absence of
+    exposure beyond those conditions or automatically remove an earlier finding. Continue to Step 8.'
+  - __CHANGED__
+- - ''
+  - ''
+  - Not tested or unknown
+  - Obtain a technical assessment of whether testing is relevant, proportionate and feasible. Record required testing
+    or alternative evidence, the responsible person and any remaining uncertainty. Retain applicable provisional
+    safeguards and continue to Step 8. If material exposure cannot be assessed reliably, select Outcome 4 at the
+    Final Decision. Record ‘Public release not supported’.
+  - __CHANGED__
+- - ''
+  - ''
+  - Not technically applicable
+  - Record the technical justification and responsible reviewer. Continue to Step 8. This answer does not resolve
+    other exposure findings. Record ‘Public release not supported’.
+  - __CHANGED__
+- - '8'
+  - Are the provenance and transformation history of the artefact sufficiently documented? Consider the source neurodata,
+    lawful provenance, preprocessing, training purpose, model architecture, training or fine-tuning procedure, model
+    version, vendors, cloud providers, sub processors and subsequent modifications.
+  - 'Yes'
+  - Preserve or reference the provenance and version records. Continue to Step 9.
+- - ''
+  - ''
+  - 'No'
+  - Identify the missing records and request them from the responsible parties. Record whether each gap affects
+    the assessment or proposed use. Continue to Step 9, carrying unresolved gaps to the Final Decision. Do not approve
+    affected sharing or deployment while essential provenance remains unresolved.
+- - ''
+  - ''
+  - Unknown
+  - Obtain information from the technical team, recipient, vendor or provider. Record the outstanding provenance
+    questions and responsible person. Continue to Step 9, carrying unresolved gaps to the Final Decision.
+- - '9'
+  - Will the proposed access or deployment conditions materially affect functional exposure? Consider downloadable
+    copies, public release, API or query access, external hosting, fine-tuning, transfer learning, model merging,
+    distillation, commercial deployment or access by additional recipients.
+  - 'Yes'
+  - Record the conditions, their effect on exposure and the safeguards required. Revisit Steps 4–7 if those conditions
+    change the evidence supporting an answer. Mark Supplementary Table 7 for completion or update where an external
+    transfer or access pathway is involved. Continue to Step 9A
+- - ''
+  - ''
+  - 'No'
+  - Record the assessed access and deployment conditions and why they do not materially change exposure. Continue
+    to Step 9A.
+- - ''
+  - ''
+  - Unknown
+  - Obtain clarification of intended access, hosting and deployment. Do not approve the unresolved arrangement.
+    Return to Step 9 when the conditions are established. If material uncertainty remains, select Final Decision
+    Outcome 4.
+- - 9A
+  - Have the proposed outputs, including features, embeddings, synthetic outputs, and model weights, been assessed
+    against applicable authorisation and release conditions?
+  - 'Yes'
+  - Record the assessment, applicable conditions, responsible reviewer and approval status. Mark outstanding approvals
+    as pending and withhold release until required approvals are obtained. Continue to Step 10.
+- - ''
+  - ''
+  - 'No'
+  - Identify the required output or release assessment and responsible reviewer. Withhold release pending that assessment
+    and any required approval. Continue to Step 10 with the requirement recorded as outstanding.
+- - ''
+  - ''
+  - Uncertain
+  - Obtain confirmation of the applicable conditions and whether they have been assessed. Withhold release while
+    unresolved. Continue to Step 10, retaining the uncertainty for the Final Decision.
+- - '10'
+  - 'Are retention, withdrawal, deletion, decommissioning and, where technically feasible, model-unlearning procedures
+    documented and capable of implementation? Example: the project specifies how model versions and embeddings will
+    be retained, how access will be terminated, whether derived artefacts can be deleted and what alternative controls
+    will apply if reliable unlearning is not technically feasible.'
+  - 'Yes'
+  - Record the applicable triggers, responsible parties, procedures, timeframes and verification requirements. Assess
+    the effects of EHDS opt-out, consent withdrawal, erasure requests and contractual termination separately, including
+    their implications for previously authorised processing. Continue to Step 11.
+- - ''
+  - ''
+  - Partly
+  - Record unavailable controls and their consequences. Obtain review of proportionate alternatives, such as access
+    withdrawal, version retirement, decommissioning, output restrictions or prohibition of further training. Record
+    accepted alternatives, outstanding implementation actions and responsible parties. Continue to Step 11. Do not
+    treat a proposed alternative as an implemented safeguard.
+- - ''
+  - ''
+  - No or unknown
+  - Obtain specialist technical and governance review of the limitations and possible alternative safeguards. Withhold
+    external sharing or deployment pending that review. Continue to Step 11 with the review requirement recorded
+    as outstanding.
+- - '11'
+  - 'Can the identified functional exposure be managed through proportionate legal, institutional, repository, technical
+    and contractual safeguards throughout the proposed use and deployment? Example: An fMRI-derived predictive model
+    remains capable of neurological inference, but access is limited to approved researchers within a secure environment;
+    queries and outputs are monitored; unauthorised profiling, retraining and onward sharing are contractually prohibited;
+    and audit, incident-response, retention and model-decommissioning procedures are documented and enforceable.'
+  - 'Yes'
+  - Record the safeguards and supporting assessment. Proceed to the Final Decision. Any unresolved issue from an
+    earlier step remains applicable.
+- - ''
+  - ''
+  - Only after additional safeguards
+  - Record each safeguard, responsible party and implementation evidence required. Proceed to the Final Decision,
+    identifying any suitable tier outcome separately from outstanding implementation conditions. Do not begin the
+    affected activity until the required safeguards are implemented and verified.
+- - ''
+  - ''
+  - Unsure
+  - Record the unresolved governance question and required review. Select Final Decision Outcome 4.
+- - ''
+  - ''
+  - 'No'
+  - Record why the exposure cannot be managed under the proposed arrangement. Select Final Decision Outcome 5.
+- - 'Final Decision: Select and document one outcome Reassessment and implementation: If the assessment changes
+    the provisional tier, return to the Neurodata Governance Decision Tool (Supplementary Table 6). If it affects
+    an existing or proposed transfer or access pathway, repeat the Neurodata Transfer and Access Decision Tool (Supplementary
+    Table 7). The resulting governance determinations should then be implemented through the MDTAA Clause Selection
+    Tool (Supplementary Table 9) where contractual governance is required.'
+- - ''
+  - Outcome
+  - Decision criterion and required action
+  - ''
+- - '1'
+  - Retain the existing Tier
+  - Select where documented evidence supports the existing classification of the assessed artefact, no new or increased
+    exposure requires a higher tier, and the applicable safeguards remain suitable. Record the tier, supporting
+    evidence, limitations and any outstanding implementation conditions. Do not convert a candidate or provisional
+    tier into a confirmed tier through this outcome. Resolve material classification uncertainty through Outcome
+    4. If returning to an unfinished Tool 1 / Supplementary Table 6 assessment, resume at its next applicable step
+    and complete Steps 5 and 6. Complete or update Tool 2 / Supplementary Table 7 where an external pathway is involved.
+  - ''
+- - '2'
+  - Refer for Tier 4 classification / re-assessment
+  - 'Select where a derived artefact supports identification, tracing or material inference, reconstruction or profiling
+    consistent with Table 6 Step 4, and the assessment provides sufficient evidence that Tier 5 criteria are not
+    met. Record the evidence and apply Tier 4 safeguards provisionally. Return to Tool 1 / Supplementary Table 6
+    at Step 3, follow the Tier 4 pathway and complete Steps 5 and 6. Document resolution of any candidate or provisional
+    Tier 5 finding addressed by this assessment. Absence of evidence alone does not resolve material uncertainty.
+    Do not automatically lower a previously confirmed Tier 5: apply the documented reassessment and approval requirements
+    in Annexure 3 §10.3. Complete or update Tool 2 / Supplementary Table 7 using the resulting classification and
+    safeguards where an external pathway is involved.'
+  - ''
+- - '3'
+  - Confirm Tier 5 classification
+  - Select where the completed assessment demonstrates continuing functional exposure through neural information
+    persisting within a model or computational infrastructure. Model incorporation alone is insufficient. Record
+    the evidence and confirm Tier 5 finding. Return to Tool 1 / Supplementary Table 6 at Step 2B, record Tier 5
+    as confirmed and continue from Step 3, including Steps 5 and 6, to identify cumulative safeguards. Reference
+    this completed Tool 3 / Supplementary Table 8 assessment; do not restart it solely because Tool 1 / Supplementary
+    Table 6 refers to it. Complete or update Tool 2 / Supplementary Table 7 where an external pathway is involved.
+  - ''
+- - '4'
+  - Specialist review required
+  - Select where material questions about exposure, persistence, testing, provenance, authorisation conditions,
+    deployment or lifecycle controls remain unresolved. Record each unresolved question, required evidence and responsible
+    reviewer. Retain the applicable protective provisional tier and safeguards. Where continuing computational exposure
+    remains materially uncertain, retain provisional Tier 5 safeguards. Do not begin the activity that depends on
+    resolution of the outstanding issue. Following review, return to the affected step, update dependent answers
+    and reconsider the Final Decision.
+  - ''
+- - '5'
+  - Do not proceed in the current form
+  - Select where exposure cannot be managed proportionately, essential provenance or oversight cannot be obtained,
+    required lifecycle controls or acceptable alternatives cannot be implemented, or the proposed activity cannot
+    satisfy applicable conditions. Record the reasons and retain the assessment and established tier findings. Do
+    not commence or continue the affected activity in its assessed form. If the artefact, model, access arrangement
+    or purpose is redesigned, repeat the affected assessments before proceeding.
+  - ''
+T9:
+- - Step
+  - Scientist-facing question
+  - If YES
+  - If NO
+- - 1. Baseline governance module
+  - 'Is the MDTAA being used to govern the processing, access, transfer or reuse of neurodata or a governed derivative
+    artefact? Example: A university intends to provide an external collaborator with controlled access to coded
+    EEG recordings under an MDTAA.'
+  - Activate the Baseline Governance Module. Identify the parties, assessed objects and activities governed by the
+    arrangement. Continue to Step 2 (Articles 3–7, 9–10 and 14–17; Schedules A and B; Annexure 4, section 5.1.)
+  - Record “MDTAA Clause Selection Tool not applicable”. Identify whether another agreement or governance mechanism
+    is required. End this Tool.
+- - 2. Cross-Border Transfer Module
+  - 'Does the arrangement involve international transfer, storage in another jurisdiction or remote access from
+    another legal jurisdiction? Example: MRI data collected in South Africa will remain on a South African server
+    but will be accessed remotely by researchers in Germany.'
+  - 'Activate the Cross-Border Transfer Module. Record the originating, receiving, hosting and remotely accessing
+    jurisdictions, the pathway class from Tool 2 (Supplementary Table 7) Step 6A and the restrictions recorded at
+    Step 6B. Activate the Transfer-Instrument Module corresponding to the origin regime (MDTAA Part III: T-EU, T-UK,
+    T-CH, T-BR, T-AR, T-ZA, T-NG, T-KE, T-RW, T-CA, T-US or T-GEN) and record the mandatory instrument in Schedule
+    A Part E.5. Continue to Step 3. (Core Articles 12, 13 and 13A; the activated Transfer-Instrument Module; Annexure
+    2; Schedule C, where applicable.)'
+  - Do not activate this module on the basis of this step. Continue to Step 3.
+  - __CHANGED__
+- - 3. Supplementary Safeguards Module
+  - Did the Neuro-TADT identify supplementary safeguards as a condition for proceeding? Examples include enhanced
+    encryption, controlled access, local storage, additional oversight or restrictions on government access.
+  - Activate the Supplementary Safeguards Module. Specify each safeguard identified by Tool 2 / Supplementary Table
+    7, the responsible party and the evidence required to verify implementation. Continue to Step 4. (Article 13A;
+    Schedule C; relevant Annexures as identified by the Neuro-TADT).
+  - Retain the baseline safeguards and all other safeguards required by the preceding assessments. Continue to Step
+    4.
+- - 4. Enhanced Neurodata Protection Module
+  - 'Does Tool 1 / Supplementary Table 6 assessment require Tier 3, Tier 4 or Tier 5 safeguards, whether under a
+    confirmed classification or provisionally pending further assessment? Example: Raw intracranial recordings containing
+    persistent participant and device identifiers have been classified as Tier 3 and require enhanced access, security
+    and accountability controls.'
+  - Activate the Enhanced Neurodata Protection Module. Incorporate the safeguards required for the applicable Tier
+    3, Tier 4 or Tier 5 classification, retaining safeguards associated with other conditions that remain present.
+    Mark the selection as provisional where the classification remains provisional. Continue to Step 5. (Articles
+    10A and 11A; Annexure 1; Annexure 5; Schedule B-D, where applicable).
+  - Retain the safeguards required for the applicable tier and any separately identified conditions. Continue to
+    Step 5.
+- - 5. Derivative Neurodata Module
+  - 'Does the arrangement involve features, embeddings, connectivity measures, predictions, reconstructed signals,
+    synthetic neurodata or other transformed neural representations? Example: The recipient will generate and retain
+    fMRI-derived embeddings and functional-connectivity measures rather than receiving only the original imaging
+    dataset.'
+  - Activate the Derivative Neurodata Module. Specify the governed artefacts, permitted transformations and uses,
+    access conditions and prohibited activities. Incorporate applicable findings from Tool 3 / Supplementary Table
+    8 or reference the documented exception under Annexure 1 §7.2. Continue to Step 6. (Article 10B; Annexure 3;
+    Article 11B where deletion or unlearning is implicated.)
+  - Do not activate this module on the basis of this step. Continue to Step 6.
+- - 6. AI and Model Governance Module
+  - 'Will neurodata or derivative artefacts be used to train, fine-tune, validate, benchmark, query or deploy an
+    AI or machine-learning system? Example: An external research team will use EEG recordings to fine-tune and validate
+    a machine-learning model for predicting cognitive impairment.'
+  - Activate the AI and Model Governance Module. Specify authorised AI activities, systems or models, technical
+    environments, access restrictions and oversight requirements. Incorporate applicable conditions from Tools 2
+    and 3 / SupplementaryTables 7 and 8. Module selection does not itself establish Tier 5. Continue to Step 7.
+    (Article 6A; relevant provisions in Schedule D where applicable).
+  - Do not activate this module on the basis of this step. Continue to Step 7.
+- - 7. Controlled Access, Repository and Infrastructure Module
+  - 'Will access or processing occur through a repository, secure enclave, trusted research environment, federated
+    system, cloud platform, vendor environment or other controlled infrastructure? Example: Researchers will analyse
+    participant-level MRI data inside a trusted research environment that permits approved queries but prohibits
+    downloading the underlying data.'
+  - Activate the Controlled Access, Repository and Infrastructure Module. Specify the infrastructure, access model,
+    administrators, providers, security controls and output or download restrictions. Continue to Step 7A. (Articles
+    6B, 10A, 10B, and 13A;  Annexures 2 and 5; Schedules C and D, where applicable.)
+  - Do not activate this module on the basis of this step. Continue to Step 7A.
+- - 7A. Statutory Access Conditions
+  - Does the arrangement operate under an EHDS permit or another statutory authorisation?
+  - Record the statutory authorisation, its status and its applicable conditions in Schedules C and D, as relevant.
+    Identify the selected provisions that implement each condition; use Step 19 for any additional provisions required.
+    Record any pending authorisation or unresolved condition as outstanding. Continue to Step 8.
+  - Reference the determination made under Tool 2 / Supplementary Table 7 Step 7A that no such authorisation is
+    required. Continue to Step 8.
+- - 8. Onward Transfer and Sub-Processor Module
+  - 'May the recipient appoint sub-processors or provide the neurodata, derivatives or model-associated artefacts
+    to additional recipients? Example: The receiving university proposes to use a cloud provider for processing
+    and to share derived embeddings with another consortium partner.'
+  - Activate the Onward Transfer and Subprocessor Module. Specify permitted recipients or recipient categories,
+    purposes, approval conditions and safeguards that must continue throughout the onward arrangement. Distinguish
+    existing permission from permission requiring further approval and check consistency with upstream conditions.
+    Continue to Step 9. (Article 8; SCC Annex III where applicable).
+  - Record that onward transfer or appointment of sub-processors is not permitted under the assessed arrangement.
+    Continue to Step 9 to specify the applicable prohibition and any approval procedure.
+- - 9, No Onward Transfer Module
+  - 'Must onward transfer, third-party access, subcontracting, cloud replication or redistribution be prohibited
+    unless prior approval is obtained? Example: The recipient may analyse the EEG data internally but may not upload
+    it to another repository, engage a new cloud vendor or share it with another collaborator without prior written
+    approval.'
+  - Activate the No Onward Transfer Module. Specify the prohibited activities and any expressly permitted exceptions
+    or prior-approval procedure. Reconcile these restrictions with Step 8 so that permitted onward activities and
+    prohibited activities are clearly distinguished. Continue to Step 10. (Articles 8).
+  - Confirm that any permitted onward activities and their conditions have been addressed at Step 8. If Step 8 was
+    also answered “No”, clarify the onward-sharing position and revise Step 8 or Step 9 before continuing. Continue
+    to Step 10.
+- - 10. Commercial Use and Intellectual Property module
+  - 'Does the arrangement involve a commercial partner, product development, licensing, intellectual-property generation
+    or another anticipated commercial use? Example: A medical-device company will use transferred neurodata to develop
+    and commercialise an algorithm for detecting neurological deterioration.'
+  - Activate the Commercial Use and Intellectual Property Module. Specify permitted commercial activities, if any,
+    together with ownership, licensing, publication and benefit-allocation conditions. Do not treat the involvement
+    of a commercial partner or the creation of intellectual property as permission for commercial use. Continue
+    to Step 11. (Article 3A; Schedule B where applicable).
+  - Do not activate this module on the basis of this step. Continue to Step 11.
+- - 11. Research Use Only Module
+  - 'Must use of the neurodata and resulting artefacts be restricted to the approved non-commercial research purposes?
+    Example: A university consortium may use the data only for the approved academic study and may not use them
+    for product development, commercial licensing, employment screening or insurance assessment.'
+  - Activate the Research Use Only Module. Specify the approved non-commercial research purposes, authorised users
+    and prohibited uses. Check consistency with Step 10. Where both modules apply, ensure that intellectual-property
+    or commercial-partner provisions do not authorise prohibited commercial use. Continue to Step 12. (Articles
+    3–6 and 10; incorporated SCC purpose-limitation provisions; Schedules A and B; Schedules C and D, where applicable.)
+  - Do not activate the Research Use Only Module. Specify the other authorised purposes and applicable restrictions;
+    this answer does not permit unrestricted use. Continue to Step 12.
+- - 12. Dataset Linkage Module
+  - 'Will the neurodata be linked with genomic, clinical, behavioural, wearable, consumer, administrative, public-register
+    or other datasets? Example: Pseudonymised EEG recordings will be linked with genomic variants and electronic
+    health records to investigate predictors of neurodegenerative disease.'
+  - Activate the Dataset Linkage Module. Specify authorised datasets, linkage purposes, responsible parties, reassessment
+    requirements and restrictions on further linkage. Incorporate the classification and pathway requirements identified
+    through Tool 2 / Supplementary Table 7 Step 9 and the resulting Table 6 assessment. Continue to Step 13. (Article
+    4.2(b); Articles 10A and 10B; Annexure 1, section 6.1(a); Annexure 2, sections 7.1(j) and 8.1(f); Annexure 3,
+    sections 7(e) and 10.1(e); Schedule B, Parts B–D and I; Schedule C, Parts H–I and K; Schedule D, Part H, where
+    applicable.)
+  - Record that dataset linkage is outside the assessed arrangement and requires reassessment before introduction.
+    Continue to Step 13.
+- - 13. Permitted Inference and Prohibited Use Module
+  - 'Can the neurodata or governed artefact support sensitive inference, reconstruction or profiling, or are particular
+    inferences or uses required to be prohibited? Examples include cognitive profiling, emotional inference, reconstruction
+    of neural activity, employment screening or insurance use. Example: The approved project permits inference concerning
+    cognitive fatigue but prohibits emotional profiling, employment screening, insurance assessment and reconstruction
+    of unrelated mental states.'
+  - Activate the Permitted Inference and Prohibited Use Module. Specify authorised analyses, prohibited inferences
+    and decisions, and output-review requirements. Distinguish technically possible activities from activities that
+    are authorised. Continue to Step 14. (Article 3A; Articles 6A, 10.6, 10A and 10B; Annexure 1, sections 2–4;
+    Annexure 3, sections 7–8 and 12; Schedule B, Parts C and I; Schedule C, Parts H–I; Schedule D, Parts D–E, where
+    applicable.)
+  - Retain baseline purpose limitations and all existing use restrictions. Continue to Step 14.
+- - 14. Enhanced Audit and Monitoring Module
+  - 'Do the assigned tier, Neuro-TADT outcome, AI use, recipient environment or identified uncertainty require enhanced
+    audit, monitoring or incident reporting? Example: Access to a Tier 5 model must be logged continuously, with
+    quarterly access reviews, documented model-version changes and immediate reporting of attempted extraction or
+    inversion attacks.'
+  - Activate the Enhanced Audit and Monitoring Module. Specify logging, reporting, inspection, testing and audit
+    requirements, including frequency and responsible parties. Continue to Step 15. (Articles 6, 6A.9, 13A and 15;
+    Annexure 2, sections 6–8; Annexure 3, sections 7–10; Annexure 5; Schedule C, Parts I and K; Schedule D, Parts
+    F and H, where applicable.)
+  - Retain baseline audit, monitoring and incident-reporting obligations. Continue to Step 15.
+- - 15. Return, Deletion and Certification Module
+  - 'Must neurodata, copies or derivative artefacts be returned, deleted or certified as destroyed at the end of
+    the project, following withdrawal or after another specified event? Example: At project completion, the recipient
+    must delete all local EEG copies and derived feature files and provide written certification of deletion within
+    30 days.'
+  - Activate the Return, Deletion and Certification Module. Specify the objects and copies covered, applicable triggers,
+    timeframes, responsible parties, verification evidence and permitted archival exceptions. Continue to Step 16
+    to address any retained model or persistent artefact separately. (Article 6 and incorporated SCC Clause 8.5;
+    Articles 10, 11B and 15; Annexure 3, sections 7–10; Annexure 5; Schedule B, Parts D and I; Schedule C, Parts
+    I and K; Schedule D, Parts G–H, where applicable.)
+  - Record the authorised retention period, purpose and applicable conditions. Do not treat this answer as permission
+    for indefinite retention or as displacing mandatory deletion obligations. Continue to Step 16.
+- - 16. Persistent Artefact, Model Retention and Unlearning Module
+  - 'Does the arrangement involve a model, embedding or computational artefact that may persist after the source
+    neurodata are deleted, returned or withdrawn? Example: A predictive model trained on participant neurodata will
+    remain operational after the source dataset is deleted, requiring documented model-retention, version-retirement,
+    decommissioning and technically feasible unlearning procedures.'
+  - Activate the Persistent Artefact, Model Retention and Unlearning Module. Specify retention, version retirement,
+    access withdrawal, decommissioning, deletion and technically feasible unlearning procedures, including approved
+    alternatives where necessary. Reconcile these provisions with Step 15 and the findings of Table 8. Continue
+    to Step 17. (Articles 6A, 10B and 11B; Annexure 1, section 3.5; Annexure 3, sections 8–10; Schedule B, Parts
+    H–I; Schedule C, Parts G–I and K; Schedule D, Parts E, G and H, where applicable.)
+  - Do not activate this module on the basis of this step. Continue to Step 17.
+- - 17. Community, Collective and Indigenous Data Governance Module
+  - 'Does the project involve an Indigenous community, defined population, patient group or other collective with
+    relevant governance authority, cultural interests or community-approved conditions? Example: Neuroimaging data
+    were collected from an Indigenous community whose recognised governance body requires continuing approval of
+    secondary uses and representation on the data-access committee.'
+  - Activate the Community, Collective and Indigenous Data Governance Module. Specify the relevant governance body
+    or representatives, consultation requirements, permissions, access conditions and continuing governance arrangements.
+    Continue to Step 18. (Article 3A; Articles 5A and 9, where applicable; Schedule A, Parts A–D; Schedule B, Part
+    I; Schedule D, Part B, where a Data Access Committee exercises continuing authority; Annexure 4, section 5.17.)
+  - Do not activate this module on the basis of this step. Continue to Step 18.
+- - 18. Benefit Sharing and Capacity Development Module
+  - 'Does the arrangement require benefit-sharing, local analytical access, training, infrastructure support, co-authorship,
+    technology transfer or other capacity-development commitments? Example: An international collaborator receiving
+    neurodata from a lower-resourced institution must provide local researchers with analytical training, access
+    to computing infrastructure, opportunities for co-authorship and participation in downstream model development.'
+  - Activate the Benefit Sharing and Capacity Development Module. Specify the commitments, beneficiaries, responsible
+    parties, timeframes and evidence of fulfilment. Continue to Step 19. (Article 3A; Schedule A, Parts A–B; Schedule
+    B, Part I; Annexure 4, sections 5.10, 5.17 and 5.18, as applicable.)
+  - Do not activate this module on the basis of this step. Continue to Step 19.
+- - 19. Optional Project-Specific Module
+  - 'Are additional jurisdictional, institutional, funder, community or project-specific requirements not addressed
+    adequately by the preceding modules? Examples include export controls, device regulation, cybersecurity certification,
+    publication review or specialised funder conditions. Example: A brain–computer interface project must comply
+    with medical-device requirements, cybersecurity certification conditions and a funder obligation requiring public
+    release of specified aggregate findings.'
+  - Activate the Optional Project-Specific Module. Specify requirements not adequately addressed by the other selected
+    modules, including any outstanding implementation provisions identified at Step 7A. Identify the source of each
+    requirement and how it relates to the other MDTAA provisions. Continue to Step 20. (Articles 4–5 and 18; Schedules
+    A–D; relevant Annexures and SCC Annexes I–III, as applicable; Annexure 4, section 5.19.)
+  - Do not activate this module. Continue to Step 20.
+- - 20. Contractual Coordination and Precedence Module
+  - 'Will the MDTAA operate alongside other legal or governance instruments? Examples include Standard Contractual
+    Clauses, a Data Use Agreement, repository terms, institutional agreements, cloud contracts or funder conditions.
+    Example: The transfer is governed simultaneously by the MDTAA, European Union Standard Contractual Clauses,
+    a repository-access agreement, an institutional Data Use Agreement and the recipient’s cloud-services contract.'
+  - Activate the Contractual Coordination and Precedence Module. Identify the other governing instruments, applicable
+    mandatory requirements and the procedure for resolving inconsistencies. Record relevant expiry or termination
+    dates and surviving permissions or obligations. Refer proposed retention, reuse, onward transfer or model persistence
+    beyond those dates for review where required; do not presume that expiry automatically ends all downstream permissions
+    or obligations. Proceed to Final Decision and Implementation. (Articles 3B, 18 and 19; Schedules A–D; SCC Annexes
+    I–III, where incorporated; Annexure 4, sections 2.7 and 5.20.)
+  - Record the basis for concluding that no additional governing instrument applies. Confirm that the MDTAA remains
+    consistent with applicable mandatory law and institutional requirements. If another governing instrument is
+    identified, revise this answer to “Yes”. Proceed to Final Decision and Implementation.
+- - 'Final Decision and Implementation: After completing Steps 1–20 Interpretive note: Selection of an MDTAA module
+    does not establish that the underlying processing or transfer is lawful or that the resulting agreement is enforceable
+    in every jurisdiction. Applicable mandatory law and authorised legal, regulatory, ethics, institutional and
+    repository determinations continue to govern.'
+- - 1.Compile and record
+  - Compile the Baseline Governance Module and all additional modules selected. Record each selection, its trigger,
+    the responsible party and the provisions implementing it. Complete the relevant schedules, annexures and project-specific
+    fields.
+  - ''
+  - ''
+- - 2. Check consistency
+  - Check the selected provisions against Tables 6–8 and other applicable instruments. Resolve conflicting permissions
+    or restrictions, particularly between Steps 8–9, 10–11 and 15–16. Return to the relevant assessment or selection
+    step where clarification is required.
+  - ''
+  - ''
+- - 3. Review and finalize
+  - Obtain required legal, ethics, institutional, repository or regulatory review. Do not finalise or execute the
+    MDTAA while mandatory review or another prerequisite remains unresolved. Record the approved agreement version
+    and outstanding implementation conditions.
+  - ''
+  - ''
+- - 4, Implement and reassess
+  - Do not commence the relevant activity until required approvals and safeguards are in place. Reapply the affected
+    assessments and module-selection steps when material changes alter the object, tier, purpose, recipients, jurisdictions,
+    infrastructure, access arrangements or required safeguards.
+  - ''
+  - ''
