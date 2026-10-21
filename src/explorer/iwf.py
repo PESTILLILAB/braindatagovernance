@@ -73,12 +73,12 @@ def html():
 '''
 
 CSS = '''
-.iwf-wrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
-@media (max-width:980px){.iwf-wrap{grid-template-columns:1fr}}
-.iwf-fig{margin:0} #iwf{min-width:760px;width:100%;height:auto;display:block;cursor:default}
+.iwf-wrap{display:block}
+.iwf-fig{--w:min(1560px,100vw - 32px);width:var(--w);margin-left:calc((100% - var(--w))/2)}
+#iwf{min-width:1180px;width:100%;height:auto;display:block;cursor:default}
 .iwf-legend{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;font-size:.85rem;color:var(--muted);margin-top:8px}
 .iwf-legend span{display:inline-flex;align-items:center;gap:6px} .sw.fwd{border:0;height:2px;background:var(--accent);width:24px} .sw.loop{border:0;height:2px;background:var(--loop);width:24px}
-.iwf-side{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;position:sticky;top:12px;font-size:.92rem;min-height:200px}
+.iwf-side{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 20px;margin-top:16px;font-size:1rem;min-height:120px;max-width:none;scroll-margin-top:12px}
 .iwf-side h3{margin:0 0 2px;font-size:1.05rem} .iwf-side .k{font-family:var(--mono);color:var(--accent);font-size:.8rem} .iwf-side p{margin:.5rem 0;max-width:none} .iwf-side h4{margin:.8rem 0 .2rem;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .iwf-side .links a{display:inline-block;margin:2px 6px 2px 0;font-size:.85rem;cursor:pointer;color:var(--accent);text-decoration:underline dotted}
 .iwf-empty{color:var(--muted)} .iwf-empty b{color:var(--fg)}
@@ -93,10 +93,10 @@ const D=window.IWF;const NS='http://www.w3.org/2000/svg';
 const el=(n,a,t)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;return e;};
 const wrap=(s,m)=>{const w=s.split(' '),L=[],c=[];for(const x of w){c.push(x);if(c.join(' ').length>m){c.pop();L.push(c.join(' '));c.length=0;c.push(x);}}if(c.length)L.push(c.join(' '));return L;};
 const svg=document.getElementById('iwf');if(!svg)return;
-const PX0=20,PW=300,PG=26,PY=20,NH=46,GAP=10,HEAD=58;
+const PX0=20,PW=330,PG=28,PY=20,NH=52,GAP=10,HEAD=62;
 const byP={};D.nodes.forEach(n=>{(byP[n.p]=byP[n.p]||[]).push(n)});
 const maxGates=Math.max(...Object.values(byP).map(a=>a.length));
-const outH=Math.max(...D.panels.map(p=>p.out.lines.length))*18+30;
+const outH=Math.max(...D.panels.map(p=>p.out.lines.length))*19+32;
 const PH=HEAD+16+maxGates*(NH+GAP)+28+outH+36;
 const W=PX0*2+4*PW+3*PG,H=PY+PH+150;
 svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
@@ -105,19 +105,19 @@ const pos={},nodeEl={},edgeEls=[];
 D.panels.forEach((p,i)=>{const x=PX0+i*(PW+PG);
  svg.appendChild(el('rect',{x,y:PY,width:PW,height:PH,rx:10,fill:'var(--panel)',stroke:'var(--accent)','stroke-width':'1.4'}));
  svg.appendChild(el('path',{d:`M${x},${PY+10} a10,10 0 0 1 10,-10 h${PW-20} a10,10 0 0 1 10,10 v${HEAD-10} h-${PW} z`,fill:'var(--tier)'}));
- svg.appendChild(el('text',{x:x+14,y:PY+24,'font-size':'15','font-weight':'700',fill:'var(--fg)'},p.title));
- svg.appendChild(el('text',{x:x+14,y:PY+43,'font-size':'11',fill:'var(--muted)'},p.sub));
+ svg.appendChild(el('text',{x:x+14,y:PY+24,'font-size':'17','font-weight':'700',fill:'var(--fg)'},p.title));
+ svg.appendChild(el('text',{x:x+14,y:PY+46,'font-size':'12.5',fill:'var(--muted)'},p.sub));
  let y=PY+HEAD+16;
  byP[p.id].forEach(n=>{const g=el('g',{class:'node','data-id':n.id});g.appendChild(el('rect',{x:x+12,y,width:PW-24,height:NH,rx:NH/2,fill:'var(--panel)',stroke:'var(--line)','stroke-width':'1.4'}));
-   g.appendChild(el('text',{x:x+28,y:y+NH/2+5,'font-size':'12','font-weight':'700',fill:'var(--accent)','font-family':'var(--mono)'},n.step));
-   const tx=x+40+Math.max(3,n.step.length)*8;const L=wrap(n.title,28).slice(0,2);const y0=L.length>1?y+NH/2-2:y+NH/2+4;L.forEach((s,k)=>g.appendChild(el('text',{x:tx,y:y0+k*14,'font-size':'11.5',fill:'var(--fg)'},s)));
+   g.appendChild(el('text',{x:x+28,y:y+NH/2+5,'font-size':'13','font-weight':'700',fill:'var(--accent)','font-family':'var(--mono)'},n.step));
+   const tx=x+42+Math.max(3,n.step.length)*8.5;const L=wrap(n.title,28).slice(0,2);const y0=L.length>1?y+NH/2-2:y+NH/2+5;L.forEach((s,k)=>g.appendChild(el('text',{x:tx,y:y0+k*16,'font-size':'13',fill:'var(--fg)'},s)));
    svg.appendChild(g);pos[n.id]={x:x+12,y,w:PW-24,h:NH};nodeEl[n.id]=g;y+=NH+GAP;});
  const oy=PY+HEAD+16+maxGates*(NH+GAP)+8;const o=p.out;const g=el('g',{class:'node','data-id':o.id});
  g.appendChild(el('rect',{x:x+12,y:oy,width:PW-24,height:outH,rx:6,fill:'var(--tier)',stroke:'var(--accent)','stroke-width':'1.4'}));
- g.appendChild(el('text',{x:x+22,y:oy+15,'font-size':'10','font-weight':'700',fill:'var(--muted)','letter-spacing':'1'},o.label.toUpperCase()));
- o.lines.forEach((s,k)=>g.appendChild(el('text',{x:x+22,y:oy+32+k*18,'font-size':'11.5','font-weight':'600',fill:'var(--fg)'},s)));
+ g.appendChild(el('text',{x:x+22,y:oy+15,'font-size':'11','font-weight':'700',fill:'var(--muted)','letter-spacing':'1'},o.label.toUpperCase()));
+ o.lines.forEach((s,k)=>g.appendChild(el('text',{x:x+22,y:oy+34+k*19,'font-size':'13','font-weight':'600',fill:'var(--fg)'},s)));
  svg.appendChild(g);pos[o.id]={x:x+12,y:oy,w:PW-24,h:outH};nodeEl[o.id]=g;
- svg.appendChild(el('text',{x:x+14,y:PY+PH-12,'font-size':'10.5',fill:'var(--muted)'},'Records to: '+p.rec));
+ svg.appendChild(el('text',{x:x+14,y:PY+PH-12,'font-size':'11.5',fill:'var(--muted)'},'Records to: '+p.rec));
 });
 // edges
 const pIdx={t1:0,t2:1,t3:2,t4:3};const pOf=id=>id.slice(0,2);
@@ -131,7 +131,7 @@ D.edges.forEach(e=>{const [a,b,k,lb]=e;const A=pos[a],B=pos[b];let d,lab;const p
  const col={seq:'var(--line)',fwd:'var(--accent)',loop:'var(--loop)'}[k];
  const path=el('path',{d,fill:'none',stroke:col,'stroke-width':k==='seq'?'1.6':'2','stroke-dasharray':k==='loop'?'7 5':'','marker-end':`url(#iwf-m-${k})`,class:'edge','data-a':a,'data-b':b});
  svg.insertBefore(path,svg.firstChild.nextSibling);edgeEls.push(path);
- if(lb&&lab){const t=el('text',{x:lab[0],y:lab[1],'font-size':'10.5','text-anchor':'middle',fill:col,class:'edge','data-a':a,'data-b':b},lb);svg.appendChild(t);}
+ if(lb&&lab){const t=el('text',{x:lab[0],y:lab[1],'font-size':'11.5','text-anchor':'middle',fill:col,class:'edge','data-a':a,'data-b':b},lb);svg.appendChild(t);}
 });
 // interaction
 const side=document.getElementById('iwf-side'),tip=document.getElementById('iwf-tip');
@@ -143,6 +143,7 @@ function select(id){const {set,links}=neighbours(id);svg.classList.add('focus');
  svg.querySelectorAll('.edge').forEach(e=>e.classList.toggle('on',e.dataset.a===id||e.dataset.b===id));
  const n=info(id);const lk=links.map(l=>`<a data-go="${l.id}">${l.dir} ${title(l.id)}${l.lb?' <em>('+l.lb+')</em>':''}</a>`).join('');
  side.innerHTML=`<div class="k">${n.step?'Step '+n.step:'Output'}</div><h3>${n.title}</h3><p>${n.text||''}</p>${n.effect?'<h4>What the answers do</h4><p>'+n.effect+'</p>':''}${n.why?'<h4>Why it is here</h4><p>'+n.why+'</p>':''}<h4>Connected steps</h4><div class="links">${lk||'—'}</div>`;
+ const r=side.getBoundingClientRect();if(r.top>window.innerHeight-160||r.top<0)side.scrollIntoView({behavior:'smooth',block:'nearest'});
  side.querySelectorAll('a[data-go]').forEach(a=>a.addEventListener('click',()=>select(a.dataset.go)));
  if(window.innerWidth<980)side.scrollIntoView({behavior:'smooth',block:'nearest'});}
 function reset(){svg.classList.remove('focus');Object.values(nodeEl).forEach(g=>g.classList.remove('on','sel'));svg.querySelectorAll('.edge').forEach(e=>e.classList.remove('on'));side.innerHTML='<div class="iwf-empty"><b>Select a step</b><p>The explanation appears here: what the step asks, what each answer does, why it is in the workflow, and which steps are connected to it.</p></div>';}
