@@ -11,6 +11,7 @@ if [ "$1" = "pdf" ]; then
   python3 src/explorer/make_pdfs.py
   node src/explorer/topdf.js _build/pdf toolkit/pdf
   node src/explorer/tierfig.js _build/pdf toolkit/pdf
+  node src/explorer/wffig.js
   cp -r toolkit/pdf _site/toolkit/
 fi
 echo "Preview: python3 -m http.server 8000 -d _site   →  http://localhost:8000/"

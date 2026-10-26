@@ -14,11 +14,11 @@ def tiers_html(standalone=False):
     return f'''<div class="tierfig">
 <div class="tierhead"><div>Risk category</div><div>Risk tier &amp; description</div><div>Illustrative artefacts requiring assessment</div></div>
 <div class="tiergrid">
- <div class="tcat tcat1"><b>Conventional privacy-based risk</b><span>Tiers 1, 1b, 2 and 3</span><p>Risk linked primarily to identifiability and individual privacy. Tier 1b is assessed from the recipient’s perspective.</p></div>
+ <div class="tcat tcat1"><b>Conventional privacy-based risk</b><span>Tiers 1, 2 and 3</span><p>Risk linked primarily to aggregation, participant linkage, identifiability and traceability.</p></div>
  <div class="tcat tcat2"><b>Post-transformation functional-exposure tiers</b><span>Tiers 4 and 5</span><p>Risk driven by the capacity to support inference, profiling or harm, independent of identifiability.</p></div>
  <div class="tiers">{rows}</div>
 </div>
-<div class="tkey"><b>Key principle</b> Tier assignment is informed by functional exposure; legal status remains determined under applicable law. The highest applicable tier governs; an Unknown answer takes the more protective tier; participant status (Step 0B) can raise the minimum tier.</div>
+<div class="tkey"><b>Key principle</b> Tier assignment is informed by functional exposure; legal status remains determined under applicable law. The highest applicable tier governs; safeguards are cumulative; an Unknown answer is governed under the more protective tier until resolved; incorporation into a model triggers assessment but does not by itself establish Tier 5.</div>
 </div>'''
 
 TIER_CSS = '''

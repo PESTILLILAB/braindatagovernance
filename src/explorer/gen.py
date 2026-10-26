@@ -45,10 +45,10 @@ def tool_html(key, title, cols):
     return '\n'.join(out)
 
 tools = [
- ('T6','Tool 1 — Neurodata Governance Decision Tool ','Assigns a functional-exposure tier (5, 4, 3, 2, 1b, 1) to the specific object for the specific recipient. Highest tier governs; Unknown resolves upward; Step 0B can raise the minimum tier.'),
- ('T7','Tool 2 — Neurodata Transfer and Access Decision Tool, Neuro-TADT','Asks whether the proposed pathway can carry the tier’s safeguards: recipient type (including the gated public-release branch), matrix class (Step 6A), origin- and destination-side restrictions (Step 6B), exporter and importer checks, linkage, AI use, purpose, onward sharing and safeguards. Four outcomes.'),
- ('T8','Tool 3 — Derivative and Embedding Governance Decision Tool','Reassesses derivatives and models for identification, inference and persistence; Step 7 holds the leakage and anonymity assessment that gates public release. Five outcomes.'),
- ('T9','Tool 4 — MDTAA Clause Selection Tool','Maps the recorded tier, pathway conditions and transformation findings to the modules of the Modular Neurodata Transfer and Access Agreement, including the transfer-instrument module for the origin regime.'),
+ ('T6','Tool 1 — Neurodata Governance Decision Tool','Assigns a provisional functional-exposure tier (5, 4, 3, 2, 1) to the particular object or artefact and identifies the baseline safeguards. It opens with an applicability checkpoint on statutory access regimes and impact assessments. The highest applicable tier governs; an Unknown answer takes the more protective tier; a tier is confirmed only when all applicable steps and required reviews are complete.'),
+ ('T7','Tool 2 — Neurodata Transfer and Access Decision Tool, Neuro-TADT','Asks whether the proposed pathway can carry the tier’s safeguards. Step 3 splits the tool into a controlled-access pathway (Steps 4A–12A) and a public-release pathway (Steps 4B–12B); both share the jurisdiction, lawful-basis and statutory-authorisation checks (Steps 6, 7 and 7A) and the implementation check (Step 13). Four outcomes.'),
+ ('T8','Tool 3 — Derivative and Embedding Governance Decision Tool','Reassesses features, embeddings, synthetic data, predictions and trained models for identification, inference, computational persistence and leakage, then checks provenance, release conditions and lifecycle controls. Five outcomes: retain the tier, refer for Tier 4, confirm Tier 5, specialist review, or do not proceed.'),
+ ('T9','Tool 4 — MDTAA Clause Selection Tool','Maps the recorded tier, pathway conditions and transformation findings to the modules of the Modular Neurodata Transfer and Access Agreement; Step 1A covers public releases governed by repository terms or a public licence rather than an MDTAA.'),
 ]
 tool_tabs = ''.join(f'<button class="sub" data-sub="toolkit" data-id="t{i+1}">Tool {i+1}</button>' for i in range(4))
 PDFS={'T6': 'Tool1_Neurodata_Governance_Decision_Tool.pdf', 'T7': 'Tool2_Neurodata_Transfer_and_Access_Decision_Tool.pdf', 'T8': 'Tool3_Derivative_and_Embedding_Governance_Decision_Tool.pdf', 'T9': 'Tool4_MDTAA_Clause_Selection_Tool.pdf'}
@@ -79,7 +79,7 @@ def scen_html(s):
 <h3>{E(s["title"])}</h3>
 <p class="lead">{E(s["setting"])}</p>
 <div class="parties"><div><b>Data provider</b>{E(s["exporter"])}</div><div><b>Recipient</b>{E(s["importer"])}</div><div><b>Data</b>{E(s["datadesc"])}</div></div>
-<div class="facts"><div><b>Origin regime</b>{E(s["origin"])}</div><div><b>Destination</b>{E(s["dest"])}</div><div><b>Access mode</b>{E(s["access"])}</div><div><b>Determination</b><span class="{"negtxt" if s["verdict_new"].lower().startswith("do not") else "postxt"}">{E(s["verdict_new"])}</span></div></div>
+<div class="facts"><div><b>Origin regime</b>{E(s["origin"])}</div><div><b>Destination</b>{E(s["dest"])}</div><div><b>Access mode</b>{E(s["access"])}</div><div><b>Determination</b><span class="{"negtxt" if (s["verdict_new"].lower().startswith("do not") or s["verdict_new"].lower().startswith("specialist")) else "postxt"}">{E(s["verdict_new"])}</span></div></div>
 <h4>Path through the tools</h4>
 {strip_html(s)}
 <h4>Step-by-step</h4>
@@ -87,7 +87,7 @@ def scen_html(s):
 <div class="two"><div><h4>Legal points that decide the case</h4><ul>{legal}</ul></div><div><h4>Questions to put to counsel</h4><ul>{counsel}</ul></div></div>
 </section>'''
 
-ex_tabs=''.join(f'<button class="excard{" neg" if s["verdict_new"].lower().startswith("do not") else ""}" data-sub="examples" data-id="{s["id"]}" title="{E(s["verdict_new"])}"><span class="exname">{E(s["short"])}</span><span class="exmeta">{E(s["region"])}</span></button>' for s in SCENARIOS)
+ex_tabs=''.join(f'<button class="excard{" neg" if (s["verdict_new"].lower().startswith("do not") or s["verdict_new"].lower().startswith("specialist")) else ""}" data-sub="examples" data-id="{s["id"]}" title="{E(s["verdict_new"])}"><span class="exname">{E(s["short"])}</span><span class="exmeta">{E(s["region"])}</span></button>' for s in SCENARIOS)
 ex_panels=''.join(scen_html(s) for s in SCENARIOS)
 
 page = f'''<!doctype html>
@@ -184,8 +184,8 @@ a{{color:var(--accent)}}
 <p class="lead" style="font-size:1.2rem;max-width:60ch">Four tools that take a collaboration from “what are these data?” to the clauses its agreement needs.</p>
 <div class="grid">
 <div class="card"><h3>1 · Classify</h3><p>What can the data reveal or enable, for this recipient? Tool 1 assigns a tier by functional exposure.</p></div>
-<div class="card"><h3>2 · Test the pathway</h3><p>Can the proposed transfer or access carry the safeguards that tier requires, under the law at both ends? Tool 2 decides: proceed, proceed with conditions, redesign, or do not proceed.</p></div>
-<div class="card"><h3>3 · Reassess derivatives and models</h3><p>Features, embeddings, synthetic data and model weights are reassessed before release. Tool 3 applies the anonymity test as the gate.</p></div>
+<div class="card"><h3>2 · Test the pathway</h3><p>Can the proposed transfer, access or public release carry the safeguards that tier requires? Tool 2 decides: proceed, proceed after safeguards, redesign, or do not proceed.</p></div>
+<div class="card"><h3>3 · Reassess derivatives and models</h3><p>Features, embeddings, synthetic data and model weights are reassessed for identification, inference, persistence and leakage before they circulate. Tool 3 retains the tier, refers to Tier 4 or 5, or stops.</p></div>
 <div class="card"><h3>4 · Select the clauses</h3><p>Tool 4 maps the results to the modules of the Modular Neurodata Transfer and Access Agreement (MDTAA).</p></div>
 </div>
 <p><a class="dl" href="#toolkit">Open the tools</a> <a class="dl" href="#workflow">See the workflow</a> <a class="dl" href="#examples">Sixteen worked examples</a></p>
@@ -201,21 +201,21 @@ a{{color:var(--accent)}}
 <p class="lead">Each tool is a sequence of questions. Click a step to expand its answer rows and required actions; the search box filters steps by text.</p>
 <div class="controls"><input type="search" id="toolsearch" placeholder="Filter steps (e.g. public release, Tier 4, EHDS)"><button class="sub" id="expandall">Expand all</button><button class="sub" id="collapseall">Collapse all</button></div>
 <div class="card downloads"><h3>Downloads</h3><p class="lead">Print-ready PDFs (A4 landscape) of the four tools, the workflow figure and the tier framework.</p>
-<div class="dls"><a class="dl" href="pdf/Toolkit_Tools_1-4.pdf" download>All four tools (PDF, 46 pp.)</a><a class="dl" href="pdf/Tool1_Neurodata_Governance_Decision_Tool.pdf" download>Tool 1 (PDF)</a><a class="dl" href="pdf/Tool2_Neurodata_Transfer_and_Access_Decision_Tool.pdf" download>Tool 2 (PDF)</a><a class="dl" href="pdf/Tool3_Derivative_and_Embedding_Governance_Decision_Tool.pdf" download>Tool 3 (PDF)</a><a class="dl" href="pdf/Tool4_MDTAA_Clause_Selection_Tool.pdf" download>Tool 4 (PDF)</a><a class="dl" href="pdf/Figure_Workflow_Toolkit.png" download>Workflow figure (PNG)</a><a class="dl" href="pdf/Figure_Workflow_Toolkit.svg" download>Workflow figure (SVG)</a><a class="dl" href="pdf/Figure_Tiers.png" download>Tier figure (PNG)</a><a class="dl" href="pdf/Figure_Tiers.pdf" download>Tier figure (PDF)</a></div></div>
+<div class="dls"><a class="dl" href="pdf/Toolkit_Tools_1-4.pdf" download>All four tools (PDF, 48 pp.)</a><a class="dl" href="pdf/Tool1_Neurodata_Governance_Decision_Tool.pdf" download>Tool 1 (PDF)</a><a class="dl" href="pdf/Tool2_Neurodata_Transfer_and_Access_Decision_Tool.pdf" download>Tool 2 (PDF)</a><a class="dl" href="pdf/Tool3_Derivative_and_Embedding_Governance_Decision_Tool.pdf" download>Tool 3 (PDF)</a><a class="dl" href="pdf/Tool4_MDTAA_Clause_Selection_Tool.pdf" download>Tool 4 (PDF)</a><a class="dl" href="pdf/Figure_Workflow_Toolkit.png" download>Workflow figure (PNG)</a><a class="dl" href="pdf/Figure_Workflow_Toolkit.svg" download>Workflow figure (SVG)</a><a class="dl" href="pdf/Figure_Tiers.png" download>Tier figure (PNG)</a><a class="dl" href="pdf/Figure_Tiers.pdf" download>Tier figure (PDF)</a></div></div>
 <div class="subtabs" data-group="toolkit">{tool_tabs}</div>
 {tool_panels}
 </section>
 
 <section class="panel" id="panel-workflow">
 <h2>Workflow</h2>
-<p class="lead">The four tools are used in sequence: classify the object, assess the pathway, reassess any transformation, then select the contract modules. Linkage, AI use and material changes loop back to earlier tools.</p>
+<p class="lead">The four tools are used in sequence: classify the object, assess the pathway (controlled access or public release), reassess any transformation, then select the contract modules. Linkage, AI use and material changes loop back to earlier tools.</p>
 <p><a class="dl" href="pdf/Figure_Workflow_Toolkit.png" download>Download figure (PNG)</a> <a class="dl" href="pdf/Figure_Workflow_Toolkit.svg" download>Download figure (SVG)</a></p>
 {iwf.html()}
 </section>
 
 <section class="panel" id="panel-examples">
 <h2>Sixteen worked examples</h2>
-<p class="lead">Realistic arrangements drawn from current practice in the sampled regions; a red dot marks the cases that end in “do not proceed”. Click one to open it below the list: parties, data, the path through the four tools, the legal points that decide the case and the questions to put to counsel.</p>
+<p class="lead">Realistic arrangements drawn from current practice in the sampled regions; a red dot marks the cases that end in “do not proceed” or cannot be classified without specialist review. Click one to open it below the list: parties, data, the path through the four tools, the legal points that decide the case and the questions to put to counsel.</p>
 <div class="excards" data-group="examples">{ex_tabs}</div>
 {ex_panels}
 </section>

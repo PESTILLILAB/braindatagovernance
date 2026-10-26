@@ -1,7 +1,7 @@
 # Worked examples shown in the Toolkit explorer (Examples tab). Order = display order.
 # Fields: id (unique, e.g. s17), short (card title), region, title, setting (the story), exporter, importer,
-# datadesc, data, origin, dest, access, tools (one block per tool with its steps), verdict_new (the determination;
-# starting with "Do not" shows it in red), legal (list of legal points), counsel (questions for counsel).
+# datadesc, data, origin, dest, access, tools (one block per tool with its steps; step labels follow Supplementary Tables 6–9, revision of 26 October 2026),
+# verdict_new (the determination; starting with "Do not" shows it in red), legal (list of legal points), counsel (questions for counsel).
 - id: s1
   short: Germany → OpenNeuro (open deposit)
   region: Europe → North America
@@ -22,91 +22,104 @@
   dest: United States (public repository)
   access: Downloadable copy, public
   tools:
-  - tool: Tool 1
-    result: Tier 1b for the public; Tier 2 for the lab's own copy. Confirmed.
-    steps:
-    - step: 0B
-      answer: 'No'
-      note: Consenting adults; no vulnerability flag.
-    - step: 2A
-      answer: 'No'
-      note: The object is a dataset, not a model.
-    - step: '5'
-      answer: 'No'
-      note: Defaced; headers and dates removed; tool and version recorded.
-    - step: '6'
-      answer: No (public) / Yes (lab)
-      note: Key not available to OpenNeuro or its users; lab retains it.
-    - step: '7'
-      answer: 'No'
-      note: Participant-level, so candidate Tier 1b.
-    - step: '8'
-      answer: 'No'
-      note: 'Disclosure-risk assessment for the public: healthy cohort, no rare diagnoses, residual-risk literature
-        noted.'
-  - tool: Tool 2
-    result: Outcome 1 — Proceed. Licence recorded; re-identification ban; takedown and response procedure documented.
-    steps:
-    - step: '1'
-      answer: Repository deposit
-      note: ''
-    - step: '3'
-      answer: Public or unrestricted release
-      note: 'Permitted: Tool 1 holds a confirmed Tier 1b finding for the public.'
-    - step: '5'
-      answer: Downloadable copy
-      note: ''
-    - step: '6'
-      answer: 'Yes'
-      note: Hosting in the United States.
-    - step: 6A
-      answer: North American governance unit
-      note: No transfer mechanism required for data anonymous to the recipient; DPF would be unavailable to a university
-        anyway.
-    - step: 6B
-      answer: 'No'
-      note: No prohibition, localisation, authorisation, sanctions or permit.
-    - step: 7(i)
-      answer: 'Yes'
-      note: Art. 9(2)(j) GDPR + §27 BDSG; consent covers open release (Open Brain Consent); ethics approval on file.
-    - step: 7(ii)
-      answer: 'Yes'
-      note: OpenNeuro terms recorded; no GDPR obligations on the repository.
-    - step: 9 / 10 / 11
-      answer: 'No'
-      note: ''
-    - step: '12'
-      answer: Public release
-      note: Onward use governed by CC0 plus the repository's re-identification prohibition.
-    - step: '13'
-      answer: 'Yes'
-      note: De-identification, licence terms, takedown procedure.
-  - tool: Tool 3
-    result: Not required.
-    steps:
-    - step: '1'
-      answer: 'No'
-      note: No transformation by the depositor.
-  - tool: Tool 4
-    result: Not required.
-    steps:
-    - step: '1'
-      answer: 'No'
-      note: No bilateral agreement for a public deposit.
-  old: 'Tool 1: Step 6 ''Yes'' (key exists) → Tier 2 → controlled access and a DUA, incompatible with CC0; or Step
-    7 → ''Unclassified — specialist review''. Tool 2: Step 3 ''unknown recipients'' → Outcome 4.'
-  verdict_old: Blocked / false barrier
-  verdict_new: Proceed (conditions documented)
+    - tool: Tool 1 (the deposited copy)
+      result: Unclassified — specialist review required. The deposited copy is participant-level, de-identified
+        and non-linkable by OpenNeuro or its users, and Tool 1 has no tier for that case; the lab’s own copy, which
+        keeps the key, is Tier 2.
+      steps:
+        - step: Check
+          answer: Completed
+          note: GDPR Art. 9(2)(j), §27 BDSG; university ethics approval; no EHDS or DPIA requirement identified
+            for the deposit.
+        - step: '1'
+          answer: 'Yes'
+          note: Structural and task fMRI in BIDS.
+        - step: 2A
+          answer: 'No'
+          note: A dataset, not a model.
+        - step: '3'
+          answer: 'No'
+          note: Original neurodata, not a derivative.
+        - step: '5'
+          answer: 'No'
+          note: Defaced; headers and dates removed; tool and version recorded.
+        - step: '6'
+          answer: No (deposited copy)
+          note: No code, repository record or key is available to OpenNeuro or downstream users; the lab’s copy
+            answers Yes and is Tier 2.
+        - step: '7'
+          answer: 'No'
+          note: 'Participant-level records remain, so the object is not aggregate-only: “Reassessment required”;
+            Steps 3–6 confirmed; “Unclassified — specialist review required” recorded.'
+        - step: Final
+          answer: Provisional
+          note: Lab copy Tier 2; deposited copy referred for specialist governance review with the disclosure-risk
+            evidence (healthy cohort, no rare diagnoses, residual-risk literature).
+    - tool: Tool 2 (public-release pathway)
+      result: Outcome 4 — Do not proceed until specialist review resolves the classification; the public-release
+        pathway is otherwise ready to complete.
+      steps:
+        - step: '1'
+          answer: Repository deposit; public/open-access release
+          note: ''
+        - step: '2'
+          answer: 'No'
+          note: Tool 1 could not establish a tier for the deposited copy and requires specialist review → Final
+            Decision Outcome 4.
+        - step: '3'
+          answer: Public/open-access release proposed
+          note: Object and version, releasing organisation (the lab), repository (OpenNeuro) and licence (CC0) recorded
+            for the review.
+        - step: 4B
+          answer: 'Yes'
+          note: OpenNeuro, Stanford University and its hosting provider identified.
+        - step: '5'
+          answer: Public download/open-access repository release
+          note: Direct download and redistribution enabled; no registration or embargo.
+        - step: '6'
+          answer: Public-release pathway
+          note: Germany (origin and releasing organisation), United States (repository); future downloaders unknown
+            by design.
+        - step: '7'
+          answer: 'Yes'
+          note: Art. 9(2)(j) + §27 BDSG; Open Brain Consent covers worldwide release; ethics approval; release authority
+            recorded.
+        - step: 7A
+          answer: 'No'
+          note: No EHDS permit or statutory access authorisation.
+        - step: 8B
+          answer: Pending
+          note: Depends on the tier the specialist review assigns.
+    - tool: Tool 3
+      result: Not required.
+      steps:
+        - step: '1'
+          answer: 'No'
+          note: Routine preprocessing only; no separately governed derivative (Annexure 1 §7.2).
+    - tool: Tool 4
+      result: 'Step 1A: no MDTAA with the public; the release is governed by OpenNeuro’s terms and CC0.'
+      steps:
+        - step: '1'
+          answer: 'No'
+          note: No bilateral agreement with downstream users.
+        - step: 1A
+          answer: 'Yes'
+          note: Repository terms and CC0 recorded; no separate MDTAA with OpenNeuro required. End of tool.
+  verdict_new: Specialist review required (Tool 1 cannot assign a tier)
   legal:
-  - 'CJEU C-413/23 P (EDPS v SRB, 4 Sept 2025): pseudonymised data may be non-personal for a recipient without means
-    of re-identification.'
-  - Residual re-identification risk after defacing (Schwarz 2019; Steeg 2024) must be weighed in the Step 8 assessment.
-  - EU–US DPF is available only to FTC/DOT-regulated organisations; irrelevant for anonymous data, decisive if the
-    data were personal.
+    - 'Tool 1 has no tier for participant-level data that are de-identified and non-linkable by the recipient: Step
+      7 “No” records “Unclassified — specialist review required”. The review weighs the residual re-identification
+      risk of defaced images and the recipient’s means.'
+    - 'CJEU C-413/23 P (EDPS v SRB, 4 Sept 2025): pseudonymised data may be non-personal for a recipient without
+      means of re-identification.'
+    - Residual re-identification risk after defacing (Schwarz 2019; Steeg 2024) must be weighed in the specialist
+      review.
+    - EU–US DPF is available only to FTC/DOT-regulated organisations; irrelevant for anonymous data, decisive if
+      the data were personal.
   counsel:
-  - Does the consent text cover open, worldwide release and commercial reuse?
-  - Is the defacing method adequate for 7T or high-resolution T1 images?
-  - Who answers a re-identification report, and how fast?
+    - Does the consent text cover open, worldwide release and commercial reuse?
+    - Is the defacing method adequate for 7T or high-resolution T1 images?
+    - Who answers a re-identification report, and how fast?
 - id: s2
   short: Nigeria → Germany (federated, public weights)
   region: Africa → Europe
@@ -127,127 +140,200 @@
   dest: Germany (GDPR); public release
   access: Federated / query-only, then public weights
   tools:
-  - tool: Tool 1
-    result: Tier 2, confirmed; nothing below Tier 2 is available because of Step 0B.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Patients in a dependent relationship; some minors → minimum tier uplifted by one.
-    - step: 2A
-      answer: 'No'
-      note: Dataset, not a model.
-    - step: '5'
-      answer: Yes → strip → No
-      note: Device IDs and timestamps gave Tier 3; after stripping, reassessed.
-    - step: '6'
-      answer: 'Yes'
-      note: Hospital holds the key; data stay in the hospital.
-  - tool: Tool 2 (training pathway)
-    result: Outcome 2 — Proceed after the 6B prerequisites are documented; cannot reach Outcome 1 until then.
-    steps:
-    - step: '3'
-      answer: Named consortium + cloud aggregator
-      note: Aggregation server location recorded.
-    - step: '5'
-      answer: Federated / query-only
-      note: Raw EEG stays; gradients leave.
-    - step: '6'
-      answer: 'Yes'
-      note: Gradients received in Germany.
-    - step: 6A
-      answer: Class B
-      note: 'Nigeria → Germany: standard instrument under origin law; MDTAA module T-NG marked.'
-    - step: 6B
-      answer: 'Yes: (c) and (e)'
-      note: NDPA s. 41(2) record and NDPC-recognised safeguard; NHREC clearance for the international collaboration.
-    - step: 7(i)
-      answer: Pending
-      note: s. 30 sensitive-data basis; instrument from 6A; authority under consent and ethics.
-    - step: 7(ii)
-      answer: 'Yes'
-      note: 'German importer: Art. 9(2)(j) + §27 BDSG for gradients, treated as personal data pending Tool 3.'
-    - step: '10'
-      answer: 'Yes'
-      note: AI training → Tool 3 required before this pass can finish.
-  - tool: Tool 3 (weights)
-    result: 'Released weights: Outcome 1 with the documented anonymity assessment. Development checkpoints and gradients:
-      Tier 5 confirmed, controlled.'
-    steps:
-    - step: '1'
-      answer: 'Yes'
-      note: Model training and persistence.
-    - step: '3'
-      answer: 'Yes'
-      note: Weights circulate independently.
-    - step: '4'
-      answer: Unknown → test
-      note: Can the weights trace a participant?
-    - step: '5'
-      answer: 'No'
-      note: Seizure detection is the authorised purpose; no excess inference.
-    - step: '6'
-      answer: 'Yes'
-      note: Persistence possible → candidate Tier 5.
-    - step: '7'
-      answer: Tested, no material exposure
-      note: Extraction, membership-inference and query tests documented for public release.
-    - step: 9 / 9A
-      answer: Public release flagged
-      note: Output-release conditions assessed.
-    - step: '10'
-      answer: 'Yes'
-      note: Checkpoint retirement and unlearning plan.
-  - tool: Tool 2 (release pathway)
-    result: Outcome 1 — Release with licence (no re-identification, no retraining for employment or insurance screening)
-      and takedown procedure.
-    steps:
-    - step: '3'
-      answer: Public release
-      note: Permitted because Tool 3 Step 7 holds the documented assessment.
-    - step: 6B(d)
-      answer: 'No'
-      note: No US party; DOJ programme not engaged.
-    - step: '12'
-      answer: Public release
-      note: Model licence with field-of-use limits.
-  - tool: Tool 4
-    result: MDTAA executed with the Nigeria transfer-instrument module; no EU SCC material.
-    steps:
-    - step: '2'
-      answer: Cross-border + T-NG
-      note: ''
-    - step: '6'
-      answer: AI and model governance
-      note: ''
-    - step: '7'
-      answer: Controlled access
-      note: ''
-    - step: '13'
-      answer: Permitted inference
-      note: Seizure detection only.
-    - step: '16'
-      answer: Persistent artefacts and unlearning
-      note: ''
-    - step: '18'
-      answer: Benefit sharing
-      note: Local analytical access and co-authorship.
-    - step: '20'
-      answer: Coordination; governing law
-      note: Nigerian or German law chosen from the menu.
-  old: Tool 2 Step 3 'unknown recipients' for the public weights → Outcome 4; the paper's own example could not
-    be completed. Step 7's generic 'Yes' would also have let the training pathway reach Outcome 1 without the NDPA
-    or NHREC checks.
-  verdict_old: Blocked
-  verdict_new: Proceed in two gated passes
+    - tool: Tool 1 (hospital EEG)
+      result: Tier 2, confirmed, after device identifiers and timestamps are stripped; Tier 3 while they remain.
+      steps:
+        - step: Check
+          answer: Completed
+          note: NDPA 2023 (sensitive data, s. 30); NHREC ethics clearance; NDPC filing duties for a controller of
+            major importance.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: The dataset itself has not been incorporated into a model; the weights are assessed separately below.
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: Yes → stripped → No
+          note: Device identifiers and timestamps in the headers gave Tier 3; after stripping, reassessed.
+        - step: '6'
+          answer: 'Yes'
+          note: Hospital holds the key; data never leave the hospital.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (training pathway, controlled access)
+      result: Outcome 2 — Proceed after the NDPA transfer basis and NHREC clearance are documented and the cloud
+        safeguards are verified.
+      steps:
+        - step: '1'
+          answer: Share with another institution; cloud-hosted access; AI platform access
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: Tier 2.
+        - step: '3'
+          answer: Named controlled-access recipients
+          note: German consortium and the commercial cloud aggregator.
+        - step: 4A
+          answer: 'Yes'
+          note: Consortium members, cloud provider and sub-processors listed.
+        - step: '5'
+          answer: Query-only or federated access
+          note: Raw EEG stays in Lagos; gradients leave.
+        - step: '6'
+          answer: 'Yes'
+          note: Gradients received in Germany and on the aggregation server.
+        - step: '7'
+          answer: Pending
+          note: NDPA ss. 41–43 transfer basis (adequacy, approved safeguard or s. 43 condition) recorded under s.
+            41(2); s. 30 sensitive-data basis; NHREC clearance naming the German parties; German side Art. 9(2)(j)
+            + §27 BDSG.
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8A
+          answer: 'Yes'
+          note: Consortium governance and cloud controls documented; audit logging to be verified at Step 13.
+        - step: 9A
+          answer: 'No'
+          note: ''
+        - step: 10A
+          answer: 'Yes'
+          note: Model training → Tool 3 completed for the weights before this pass can finish.
+        - step: 11A
+          answer: 'No'
+          note: Seizure detection is the approved purpose.
+        - step: 12A
+          answer: 'Yes'
+          note: Cloud aggregator as sub-processor; onward transfer otherwise prohibited.
+        - step: '13'
+          answer: No, but they can be implemented
+          note: Gradient encryption, access logging, aggregation-server location.
+    - tool: Tool 3 (released weights)
+      result: Outcome 1 — Retain the existing tier for the released weights (Tier 1 after documented leakage testing);
+        development checkpoints and gradients remain under Tier 5 safeguards.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: Model training and persistence; AI activity flagged by Tool 2 Step 10A, so no exemption.
+        - step: '2'
+          answer: Trained model, gradients, checkpoints
+          note: ''
+        - step: '3'
+          answer: 'Yes'
+          note: Weights circulate independently.
+        - step: '4'
+          answer: Unknown → tested → No
+          note: Extraction and membership-inference tests.
+        - step: '5'
+          answer: 'No'
+          note: Seizure detection; no inference beyond the authorised purpose.
+        - step: '6'
+          answer: Yes → revised after testing
+          note: Persistence possible in principle; candidate Tier 5 pending Step 7.
+        - step: '7'
+          answer: Yes — no material exposure identified
+          note: Extraction, inversion and membership-inference tests documented for the public-release conditions.
+        - step: '8'
+          answer: 'Yes'
+          note: Provenance, versions, vendors recorded.
+        - step: '9'
+          answer: 'Yes'
+          note: Public release changes exposure → Tool 2 public-release pathway marked.
+        - step: 9A
+          answer: 'Yes'
+          note: Outputs assessed against NHREC and consortium release conditions.
+        - step: '10'
+          answer: 'Yes'
+          note: Checkpoint retirement and unlearning plan.
+        - step: '11'
+          answer: 'Yes'
+          note: ''
+    - tool: Tool 2 (release pathway, public)
+      result: Outcome 1 — Release the weights under a model licence (no re-identification; no retraining for employment
+        or insurance screening) with a takedown procedure.
+      steps:
+        - step: '3'
+          answer: Public/open-access release proposed
+          note: Weights v1.0, consortium as releasing organisation, public model hub, licence.
+        - step: 4B
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Public download
+          note: ''
+        - step: '6'
+          answer: Public-release pathway
+          note: Germany and Nigeria as origins; hub hosting jurisdiction; downloaders unknown by design.
+        - step: '7'
+          answer: 'Yes'
+          note: 'Release authority: NHREC approval names the public release; consortium approval.'
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8B
+          answer: 'Yes'
+          note: 'Safeguards operate at release: tested model, licence terms, model card.'
+        - step: 9B
+          answer: 'No'
+          note: ''
+        - step: 10B
+          answer: 'Yes'
+          note: AI reuse foreseeable; Tool 3 completed for the weights.
+        - step: 11B
+          answer: Yes → narrowed
+          note: Field-of-use licence limits reuse to the authorised scope.
+        - step: 12B
+          answer: 'Yes'
+          note: Redistribution permitted under the licence.
+        - step: '13'
+          answer: 'Yes'
+          note: ''
+    - tool: Tool 4
+      result: MDTAA between the hospital, the consortium and the aggregator; the public release sits outside it
+        (Step 1A).
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: Nigeria → Germany; NDPA transfer basis recorded.
+        - step: '6'
+          answer: 'Yes'
+          note: AI and model governance.
+        - step: '7'
+          answer: 'Yes'
+          note: Federated infrastructure and cloud aggregator.
+        - step: '8'
+          answer: 'Yes'
+          note: Cloud aggregator as sub-processor.
+        - step: '13'
+          answer: 'Yes'
+          note: Seizure detection only.
+        - step: '16'
+          answer: 'Yes'
+          note: Checkpoint retention and unlearning.
+        - step: '18'
+          answer: 'Yes'
+          note: Local analytical access, training and co-authorship.
+        - step: '20'
+          answer: 'Yes'
+          note: Coordination with the cloud contract and hub terms; governing law chosen.
+  verdict_new: 'Proceed in two passes: training (Outcome 2), then release (Outcome 1)'
   legal:
-  - 'NDPA 2023 ss. 41–43: adequacy, appropriate safeguards or a s. 43 condition; record the basis (s. 41(2)); GAID
-    2025 instruments and filings [verify current NDPC list].'
-  - EDPB Opinion 28/2024 provides the model-anonymity test used at Tool 3 Step 7.
-  - Gradients can be personal data (membership inference); treat as such until tested.
+    - 'NDPA 2023 ss. 41–43: adequacy, appropriate safeguards or a s. 43 condition; record the basis (s. 41(2));
+      GAID 2025 instruments and filings [verify current NDPC list].'
+    - EDPB Opinion 28/2024 provides the model-anonymity test applied at Tool 3 Step 7.
+    - Gradients can be personal data (membership inference); treat as such until tested.
   counsel:
-  - Has the NDPC designated any adequate country or approved instrument that covers Germany?
-  - Does the NHREC approval name the German parties and the public release?
-  - Which model licence terms are enforceable against downstream users?
+    - Has the NDPC designated any adequate country or approved instrument that covers Germany?
+    - Does the NHREC approval name the German parties and the public release?
+    - Which model licence terms are enforceable against downstream users?
 - id: s3
   short: South Africa → UK (downloadable copy)
   region: Africa → Europe
@@ -267,77 +353,114 @@
   dest: United Kingdom (UK GDPR)
   access: Downloadable copy
   tools:
-  - tool: Tool 1
-    result: Tier 2, confirmed.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Patients; dependent relationship → uplift.
-    - step: '5'
-      answer: 'No'
-      note: Defaced; headers removed.
-    - step: '6'
-      answer: 'Yes'
-      note: UKZN holds the key; York could request re-linkage for follow-up.
-  - tool: Tool 2
-    result: Outcome 2 — Proceed once the s. 57 authorisation (or documented s. 72(1)(a) assessment) and the agreement
-      are in place.
-    steps:
-    - step: '3'
-      answer: Named institution
-      note: ''
-    - step: '5'
-      answer: Downloadable copy
-      note: ''
-    - step: 6A
-      answer: Class B
-      note: South Africa → UK.
-    - step: 6B
-      answer: 'Yes: (c)'
-      note: 'POPIA s. 57(1)(d): health data to a country without an adequacy finding → prior authorisation from
-        the Information Regulator, unless s. 72(1)(a) adequacy is documented.'
-    - step: 7(i)
-      answer: Pending
-      note: s. 72(1)(a) binding agreement with substantially similar protections and onward-transfer clause; NHREC-registered
-        REC approval; SA DTA 1.1 language.
-    - step: 7(ii)
-      answer: 'Yes'
-      note: 'York: UK GDPR Art. 9(2)(j) + DPA 2018 Sch. 1 para 4.'
-    - step: '13'
-      answer: No, but can be implemented
-      note: Encryption, role-based access, audit log.
-  - tool: Tool 3
-    result: Not required (reassess if models are built).
-    steps:
-    - step: '1'
-      answer: 'No'
-      note: Analysis only, no model release planned.
-  - tool: Tool 4
-    result: MDTAA with the South Africa module; EU SCC articles not activated.
-    steps:
-    - step: '2'
-      answer: Cross-border + T-ZA
-      note: Schedule ZA adopts SA DTA 1.1 s. 72 undertakings.
-    - step: '4'
-      answer: Enhanced protection
-      note: Tier 2 with 0B uplift.
-    - step: '9'
-      answer: No onward transfer
-      note: Without UKZN's written approval.
-    - step: '20'
-      answer: Governing law
-      note: South African law selected; no EU court clause.
-  old: Step 7's single question accepted 'Yes' without surfacing POPIA s. 57; the contract would have carried SCC
-    Clause 17/18 (EU Member State law and courts).
-  verdict_old: Gap / contract unusable
-  verdict_new: Proceed after authorisation
+    - tool: Tool 1
+      result: Tier 2, confirmed.
+      steps:
+        - step: Check
+          answer: Completed
+          note: POPIA s. 26 special personal information; s. 57 prior authorisation flagged; NHREC-registered REC
+            approval.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: Defaced; headers removed.
+        - step: '6'
+          answer: 'Yes'
+          note: The South African group holds the key; the UK group could request re-linkage for follow-up.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: Outcome 2 — Proceed once the s. 57 authorisation (or a documented s. 72(1)(a) assessment) and the
+        agreement are in place and the safeguards are verified.
+      steps:
+        - step: '1'
+          answer: Share with another institution; international transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: South Africa → United Kingdom.
+        - step: '7'
+          answer: Pending
+          note: POPIA s. 72(1)(a) binding agreement with substantially similar protections and an onward-transfer
+            clause, or s. 57(1)(d) prior authorisation from the Information Regulator; REC approval; UK side UK
+            GDPR Art. 9(2)(j) + DPA 2018 Sch. 1 para 4.
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8A
+          answer: 'Yes'
+          note: UK university controls documented.
+        - step: 9A
+          answer: 'No'
+          note: ''
+        - step: 10A
+          answer: 'No'
+          note: ''
+        - step: 11A
+          answer: 'No'
+          note: ''
+        - step: 12A
+          answer: 'No'
+          note: Onward transfer prohibited without written approval.
+        - step: '13'
+          answer: No, but they can be implemented
+          note: Encryption, role-based access, audit log.
+    - tool: Tool 3
+      result: Not required (reassess if models are built).
+      steps:
+        - step: '1'
+          answer: 'No'
+          note: Analysis only; no model release planned.
+    - tool: Tool 4
+      result: MDTAA with the cross-border, enhanced-protection and no-onward-transfer modules.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: s. 72 undertakings carried into Schedule C.
+        - step: '4'
+          answer: 'Yes'
+          note: Tier 2 safeguards.
+        - step: '9'
+          answer: 'Yes'
+          note: No onward transfer without written approval.
+        - step: '11'
+          answer: 'Yes'
+          note: Research use only.
+        - step: '20'
+          answer: 'Yes'
+          note: Governing law and forum agreed; no EU SCC material.
+  verdict_new: Proceed after the Information Regulator’s authorisation
   legal:
-  - POPIA s. 72(1)(a)–(e) transfer grounds; s. 57(1)(d) prior authorisation; s. 26 special personal information.
-  - No South African adequacy list exists; institutions either apply under s. 57 or document s. 72(1)(a).
-  - NHREC Guidelines 3rd ed. (2024).
+    - POPIA s. 72(1)(a)–(e) transfer grounds; s. 57(1)(d) prior authorisation; s. 26 special personal information.
+    - No South African adequacy list exists; institutions either apply under s. 57 or document s. 72(1)(a).
+    - NHREC Guidelines 3rd ed. (2024).
   counsel:
-  - Will the Regulator treat the UK as providing adequate protection for s. 57 purposes?
-  - Does the DTA's onward-transfer clause satisfy s. 72(1)(a)(ii)?
+    - Will the Regulator treat the UK as providing adequate protection for s. 57 purposes?
+    - Does the DTA's onward-transfer clause satisfy s. 72(1)(a)(ii)?
 - id: s4
   short: Brazil → United States (public-health database)
   region: Latin America → North America
@@ -358,86 +481,146 @@
   dest: United States
   access: Downloadable copy
   tools:
-  - tool: Tool 1
-    result: Tier 2, confirmed.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Patients.
-    - step: '6'
-      answer: 'Yes'
-      note: Hospital holds the key.
-  - tool: Tool 2
-    result: 'Outcome 3 — Redesign: analysis inside the Brazilian environment (remote or federated access) with export
-      of results only; or re-base the dataset outside art. 13.'
-    steps:
-    - step: '3'
-      answer: Named institution
-      note: ''
-    - step: 6A
-      answer: North American governance unit
-      note: US not ANPD-adequate; standard instrument needed.
-    - step: 6B
-      answer: 'Yes: (a)'
-      note: 'LGPD art. 13 §2: a research body may not transfer a public-health study database to any third party.
-        Also (c): CONEP approval of the international collaboration.'
-  - tool: Tool 2 (redesigned)
-    result: Outcome 2 — Proceed after CONEP approval and the access environment are documented.
-    steps:
-    - step: '5'
-      answer: Remote access, no download
-      note: UT Austin analysts work in the hospital's secure environment.
-    - step: '6'
-      answer: 'Yes'
-      note: Remote access from the US.
-    - step: 6A
-      answer: Governance unit
-      note: ''
-    - step: 6B
-      answer: (c)
-      note: CONEP approval; ANPD standard clauses for any residual transfer of personal data (results are anonymised).
-    - step: 7(i)
-      answer: 'Yes'
-      note: art. 11 II(c) for the Brazilian research body; consent scope checked.
-    - step: 7(ii)
-      answer: 'Yes'
-      note: IRB; HIPAA not engaged.
-  - tool: Tool 3
-    result: Outcome 4 until output-release review is done; model stays inside the environment.
-    steps:
-    - step: '1'
-      answer: 'Yes'
-      note: Classifier trained inside the environment.
-    - step: 9A
-      answer: Pending
-      note: Release conditions for model and results.
-  - tool: Tool 4
-    result: MDTAA with the Brazil module; EU SCC Clause 8 not incorporated.
-    steps:
-    - step: '2'
-      answer: Cross-border + T-BR
-      note: ANPD standard clauses attached unmodified; §6(a) art. 13 warranty.
-    - step: '7'
-      answer: Controlled access
-      note: ''
-    - step: 7A
-      answer: Statutory conditions
-      note: CONEP conditions recorded.
-    - step: '20'
-      answer: Governing law
-      note: Brazilian law.
-  old: A PI with CEP approval and consent answered Step 7 'Yes' and received Outcome 1 — a false reassurance, because
-    art. 13 §2 forbids the transfer outright.
-  verdict_old: False reassurance
+    - tool: Tool 1
+      result: Tier 2, confirmed.
+      steps:
+        - step: Check
+          answer: Completed
+          note: LGPD art. 13 (public-health study database) and art. 11; CEP/CONEP approval.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: Hospital holds the key.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (downloadable copy, as proposed)
+      result: 'Outcome 3 — Redesign: a lawful pathway for export of the database cannot be established.'
+      steps:
+        - step: '1'
+          answer: International transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: Brazil → United States.
+        - step: '7'
+          answer: 'No'
+          note: 'LGPD art. 13 §2: a research body may not transfer a public-health study database to any third party;
+            the US university is not a Brazilian research body and cannot use the art. 11 II(c) basis. No lawful
+            pathway for the copy → Outcome 3 (an alternative access model can provide the protection).'
+    - tool: 'Tool 2 (redesigned: remote access, results only)'
+      result: Outcome 2 — Proceed after CONEP approval and the access environment are documented.
+      steps:
+        - step: '1'
+          answer: Cloud-hosted access
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Remote or controlled access without downloading
+          note: US analysts work inside the hospital’s secure environment.
+        - step: '6'
+          answer: 'Yes'
+          note: Remote access from the United States.
+        - step: '7'
+          answer: 'Yes'
+          note: art. 11 II(c) for the Brazilian research body; consent scope checked; CONEP approval of the international
+            collaboration; IRB on the US side; ANPD standard clauses for any residual transfer of personal data.
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8A
+          answer: 'Yes'
+          note: Secure environment with output review.
+        - step: 9A
+          answer: 'No'
+          note: ''
+        - step: 10A
+          answer: 'Yes'
+          note: Classifier trained inside the environment → Tool 3.
+        - step: 11A
+          answer: 'No'
+          note: ''
+        - step: 12A
+          answer: 'No'
+          note: ''
+        - step: '13'
+          answer: No, but they can be implemented
+          note: ''
+    - tool: Tool 3
+      result: Outcome 4 — Specialist review until the output-release conditions are assessed; the model stays inside
+        the environment.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: Classifier trained inside the environment.
+        - step: '2'
+          answer: Trained model
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: Model remains in the environment.
+        - step: 9A
+          answer: 'No'
+          note: Release assessment for model and results outstanding.
+    - tool: Tool 4
+      result: MDTAA with the cross-border, controlled-access and statutory-conditions modules; ANPD standard clauses
+        attached unmodified.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: AI and model governance.
+        - step: '7'
+          answer: 'Yes'
+          note: Controlled access.
+        - step: 7A
+          answer: 'Yes'
+          note: CONEP conditions recorded.
+        - step: '20'
+          answer: 'Yes'
+          note: Coordination with the ANPD standard clauses; Brazilian law.
   verdict_new: Redesign, then Proceed
   legal:
-  - LGPD art. 13 caput and §2; art. 5 XVIII (research body must be Brazil-seated); art. 11 II(c) unavailable to
-    the US recipient.
-  - 'Res. CD/ANPD 19/2024: standard clauses mandatory and unmodifiable; adaptation period ended 23 Aug 2025.'
-  - EU–Brazil mutual adequacy (26 Jan 2026) does not help a US destination.
+    - LGPD art. 13 caput and §2; art. 5 XVIII (research body must be Brazil-seated); art. 11 II(c) unavailable to
+      the US recipient.
+    - 'Res. CD/ANPD 19/2024: standard clauses mandatory and unmodifiable; adaptation period ended 23 Aug 2025.'
+    - EU–Brazil mutual adequacy (26 Jan 2026) does not help a US destination.
   counsel:
-  - Is the dataset an art. 13 public-health study database, or a clinical research dataset outside art. 13?
-  - Does CONEP require a specific international-collaboration approval for remote access?
+    - Is the dataset an art. 13 public-health study database, or a clinical research dataset outside art. 13?
+    - Does CONEP require a specific international-collaboration approval for remote access?
 - id: s5
   short: Texas hospital → Berlin (HIPAA de-identified)
   region: North America → Europe
@@ -455,70 +638,120 @@
   dest: Germany (GDPR)
   access: Downloadable copy
   tools:
-  - tool: Tool 1
-    result: Tier 1b for Charité (recipient-relative), Tier 2 for the hospital; with the 0B uplift, Tier 2 governs
-      the pathway.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Surgical patients → uplift.
-    - step: '5'
-      answer: 'No'
-      note: Identifiers removed per 45 CFR 164.514(b).
-    - step: '6'
-      answer: No (Charité) / Yes (hospital)
-      note: Key stays in Texas.
-  - tool: Tool 2
-    result: Outcome 1 — Proceed, with the recipient-relative status recorded in Schedule B.
-    steps:
-    - step: '3'
-      answer: Named institution
-      note: ''
-    - step: 6A
-      answer: Governance unit → EU
-      note: No US transfer mechanism; import into the EU needs no mechanism.
-    - step: 6B
-      answer: '(d) screened: No'
-      note: Germany is not a country of concern under 28 CFR 202.
-    - step: 7(i)
-      answer: 'Yes'
-      note: IRB approval; de-identification determination documented; no DUA needed (would be needed for a Limited
-        Data Set).
-    - step: 7(ii)
-      answer: 'Yes'
-      note: 'Charité: Art. 9(2)(j) basis recorded in case the data are personal for it.'
-  - tool: Tool 3
-    result: Outcome 1 for internal use; release gate applies later.
-    steps:
-    - step: '1'
-      answer: 'Yes'
-      note: Charité will train models.
-    - step: '7'
-      answer: To be tested before any release
-      note: ''
-  - tool: Tool 4
-    result: MDTAA with the US module.
-    steps:
-    - step: '2'
-      answer: Cross-border + T-US
-      note: HIPAA status and DSP screening recorded.
-    - step: '6'
-      answer: AI and model governance
-      note: ''
-    - step: '20'
-      answer: Governing law
-      note: Texas law; Article 14.1 public-university liability limitation completed.
-  old: Worked adequately (Tier 2, Outcome 1), but the 'lawful basis' wording was foreign to a US user and the recipient-relative
-    status was not recordable.
-  verdict_old: Works (wording caveats)
+    - tool: Tool 1
+      result: 'Tier 2, confirmed: the hospital keeps the re-identification key, so the data remain participant-linkable
+        even though Charité cannot link them.'
+      steps:
+        - step: Check
+          answer: Completed
+          note: HIPAA de-identification determination (45 CFR 164.514(b)); IRB; no DUA needed for a de-identified
+            set.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: All 18 HIPAA identifiers removed; dates shifted.
+        - step: '6'
+          answer: 'Yes'
+          note: Key held in Texas; custody and restrictions recorded without disclosing the key.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: Outcome 1 — Proceed.
+      steps:
+        - step: '1'
+          answer: Share with another institution; international transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: United States → Germany.
+        - step: '7'
+          answer: 'Yes'
+          note: IRB approval; de-identification determination; DOJ Data Security Program screening (Germany is not
+            a country of concern under 28 CFR 202); Charité Art. 9(2)(j) basis recorded in case the data are personal
+            for it.
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8A
+          answer: 'Yes'
+          note: ''
+        - step: 9A
+          answer: 'No'
+          note: ''
+        - step: 10A
+          answer: 'Yes'
+          note: Charité will train models → Tool 3.
+        - step: 11A
+          answer: 'No'
+          note: ''
+        - step: 12A
+          answer: 'No'
+          note: ''
+        - step: '13'
+          answer: 'Yes'
+          note: Encrypted transfer, role-based access, audit logging.
+    - tool: Tool 3
+      result: Outcome 1 — Retain the tier for internal model development; leakage testing (Step 7) before any release.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: Charité will train models.
+        - step: '3'
+          answer: 'No'
+          note: Models stay within Charité for now.
+        - step: '7'
+          answer: Not tested or unknown
+          note: Testing required before any release; recorded as outstanding.
+        - step: '9'
+          answer: 'No'
+          note: Internal use only at this stage.
+    - tool: Tool 4
+      result: MDTAA with the cross-border, AI and research-use modules.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: HIPAA status and DSP screening recorded.
+        - step: '6'
+          answer: 'Yes'
+          note: AI and model governance.
+        - step: '11'
+          answer: 'Yes'
+          note: Research use only.
+        - step: '20'
+          answer: 'Yes'
+          note: Texas law; public-university liability limitation.
   verdict_new: Proceed
   legal:
-  - 45 CFR 164.514(b) de-identification; 164.514(e) Limited Data Set DUA if dates were retained.
-  - 'OHRP 2008 coded private information guidance: not human-subjects research for the recipient without the key.'
-  - 28 CFR Part 202 applies only to countries of concern and covered persons.
+    - 45 CFR 164.514(b) de-identification; 164.514(e) Limited Data Set DUA if dates were retained.
+    - 'OHRP 2008 coded private information guidance: not human-subjects research for the recipient without the key.'
+    - 28 CFR Part 202 applies only to countries of concern and covered persons.
   counsel:
-  - Would date-shifted timestamps plus seizure-onset times be identifying in combination with publications?
-  - Does Charité need a DPIA for intracranial recordings?
+    - Would date-shifted timestamps plus seizure-onset times be identifying in combination with publications?
+    - Does Charité need a DPIA for intracranial recordings?
 - id: s6
   short: United States → Cuba
   region: North America → Latin America
@@ -536,63 +769,112 @@
   dest: Cuba
   access: Downloadable copy requested
   tools:
-  - tool: Tool 1
-    result: Tier 2, confirmed.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Older adults, some with impairment → uplift.
-    - step: '6'
-      answer: 'Yes'
-      note: Key held in Austin.
-  - tool: Tool 2
-    result: Outcome 2 or 3 — Proceed only after screening documents that the transaction is exempt or licensed;
-      otherwise redesign to remote analysis with aggregate outputs.
-    steps:
-    - step: '3'
-      answer: Named institution
-      note: ''
-    - step: 6A
-      answer: Governance unit → LAC
-      note: ''
-    - step: 6B
-      answer: 'Yes: (d)'
-      note: Cuba is a country of concern under 28 CFR Part 202 (DOJ Data Security Program); personal health data
-        threshold 10,000 and biometric identifiers 1,000 must be checked; covered-person rules; OFAC Cuban Assets
-        Control Regulations govern the collaboration; EAR for software.
-    - step: 7(i)
-      answer: Pending
-      note: Screening memorandum; OFAC general licence basis; IRB consent scope for international sharing.
-  - tool: Tool 3
-    result: Not required.
-    steps:
-    - step: '1'
-      answer: 'No'
-      note: ''
-  - tool: Tool 4
-    result: MDTAA with the US module.
-    steps:
-    - step: '2'
-      answer: Cross-border + T-US
-      note: Screening record in Schedule US.
-    - step: '9'
-      answer: No onward transfer
-      note: ''
-    - step: '19'
-      answer: Project-specific
-      note: Export-control and licence conditions.
-  old: No sanctions or national-security question anywhere in Tool 2; Step 7 'Yes' → Outcome 1. Export controls
-    appeared only as an optional example at Tool 4 Step 19.
-  verdict_old: False reassurance
+    - tool: Tool 1
+      result: Tier 2, confirmed.
+      steps:
+        - step: Check
+          answer: Completed
+          note: Common Rule and IRB; DOJ Data Security Program (28 CFR Part 202) and OFAC Cuban Assets Control Regulations
+            flagged as applicable regimes.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: Key held in Austin.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: Outcome 2 — Proceed only after screening documents that the transaction is exempt or licensed; otherwise
+        Outcome 3, redesign to remote analysis with aggregate outputs.
+      steps:
+        - step: '1'
+          answer: International transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: Cuban Neuroscience Center.
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: United States → Cuba.
+        - step: '7'
+          answer: Pending
+          note: 'Cuba is a country of concern under 28 CFR Part 202: bulk thresholds (personal health data 10,000;
+            biometric identifiers 1,000) and covered-person rules checked; OFAC general-licence basis; IRB consent
+            scope for international sharing; screening memorandum required before Step 13.'
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8A
+          answer: Unsure
+          note: Evidence from CNEURO on safeguards requested.
+        - step: 9A
+          answer: 'No'
+          note: ''
+        - step: 10A
+          answer: 'No'
+          note: ''
+        - step: 11A
+          answer: 'No'
+          note: ''
+        - step: 12A
+          answer: 'No'
+          note: ''
+        - step: '13'
+          answer: No, but they can be implemented
+          note: ''
+    - tool: Tool 3
+      result: Not required.
+      steps:
+        - step: '1'
+          answer: 'No'
+          note: ''
+    - tool: Tool 4
+      result: MDTAA with the cross-border, no-onward-transfer and project-specific modules.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: Screening record in Schedule C.
+        - step: '9'
+          answer: 'Yes'
+          note: No onward transfer.
+        - step: '19'
+          answer: 'Yes'
+          note: Export-control and licence conditions.
+        - step: '20'
+          answer: 'Yes'
+          note: ''
   verdict_new: Proceed after screening (or redesign)
   legal:
-  - 28 CFR Part 202, effective 8 April 2025; affirmative obligations from 5 October 2025; countries of concern include
-    Cuba and Venezuela.
-  - OFAC 31 CFR Part 515; research exemptions and general licences.
-  - Thresholds are counted over the preceding 12 months across transactions.
+    - 28 CFR Part 202, effective 8 April 2025; affirmative obligations from 5 October 2025; countries of concern
+      include Cuba and Venezuela.
+    - OFAC 31 CFR Part 515; research exemptions and general licences.
+    - Thresholds are counted over the preceding 12 months across transactions.
   counsel:
-  - Does the cohort size and data type meet a bulk threshold, and is any recipient a 'covered person'?
-  - Which OFAC general licence covers the collaboration and the data exchange?
+    - Does the cohort size and data type meet a bulk threshold, and is any recipient a 'covered person'?
+    - Which OFAC general licence covers the collaboration and the data exchange?
 - id: s7
   short: Québec → France (secure enclave)
   region: North America → Europe
@@ -611,78 +893,122 @@
   dest: France (GDPR; CNIL MR-004; HDS)
   access: Remote access, no download
   tools:
-  - tool: Tool 1
-    result: Tier 2, confirmed; reassessed after linkage (Step 9) — remains Tier 2 but identifiability from genomics
-      recorded.
-    steps:
-    - step: 0B
-      answer: 'No'
-      note: ''
-    - step: '5'
-      answer: 'No'
-      note: Defaced 7T images; residual risk noted.
-    - step: '6'
-      answer: 'Yes'
-      note: McGill holds the key.
-  - tool: Tool 2
-    result: Outcome 2 — Proceed after the s. 17 PIA and agreement are documented.
-    steps:
-    - step: '3'
-      answer: Named institution
-      note: ''
-    - step: '5'
-      answer: Remote access without download
-      note: ''
-    - step: '6'
-      answer: 'Yes'
-      note: Remote access from France counts as communication outside Québec.
-    - step: 6A
-      answer: Governance unit → EU
-      note: ''
-    - step: 6B
-      answer: (c)
-      note: 'Law 25 s. 17: privacy impact assessment before communication outside Québec and a written agreement;
-        s. 21 PIA if no consent; REB approval.'
-    - step: 7(ii)
-      answer: 'Yes'
-      note: 'ICM: Art. 9(2)(j) + MR-004 compliance; no French hosting, so HDS certification not triggered.'
-    - step: '9'
-      answer: 'Yes'
-      note: Linkage with genomics → Tool 1 reapplied; dataset-linkage module.
-  - tool: Tool 3
-    result: Outcome 1 — retain Tier 2 for exported summary results; models stay inside the enclave.
-    steps:
-    - step: '1'
-      answer: 'Yes'
-      note: Features and models derived inside the enclave.
-    - step: 9A
-      answer: 'Yes'
-      note: Output review before export of results.
-  - tool: Tool 4
-    result: MDTAA with the Canada module.
-    steps:
-    - step: '2'
-      answer: Cross-border + T-CA
-      note: s. 17 PIA referenced in Schedule C.
-    - step: '7'
-      answer: Controlled access
-      note: Enclave rules.
-    - step: '12'
-      answer: Dataset linkage
-      note: ''
-    - step: '14'
-      answer: Enhanced audit
-      note: ''
-  old: Reached Outcome 2 but named no regime; PIAs mentioned only generically; HDS/MR-004 not surfaced.
-  verdict_old: Works / gap
-  verdict_new: Proceed after PIA
+    - tool: Tool 1
+      result: 'Tier 2, confirmed; reapplied after the planned genomic linkage (Tool 2 Step 9A): Tier 2 remains,
+        with the added identifiability from genomics recorded.'
+      steps:
+        - step: Check
+          answer: Completed
+          note: Québec Law 25 s. 17 PIA before communication outside Québec; REB approval under TCPS2; CNIL MR-004
+            on the French side.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: Defaced 7T images; residual risk noted.
+        - step: '6'
+          answer: 'Yes'
+          note: McGill holds the key.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: Outcome 2 — Proceed after the s. 17 PIA and the written agreement are documented.
+      steps:
+        - step: '1'
+          answer: Share with another institution; cloud-hosted access
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Remote or controlled access without downloading
+          note: Montréal secure enclave; outputs reviewed before export.
+        - step: '6'
+          answer: 'Yes'
+          note: Remote access from France is a communication outside Québec.
+        - step: '7'
+          answer: Pending
+          note: Law 25 s. 17 PIA, equivalent-protection finding and written agreement; s. 21 if no consent; REB
+            approval; ICM Art. 9(2)(j) + MR-004.
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8A
+          answer: 'Yes'
+          note: Enclave rules.
+        - step: 9A
+          answer: 'Yes'
+          note: Linkage with genomic variants → Tool 1 reapplied to the linked object before linkage.
+        - step: 10A
+          answer: 'Yes'
+          note: Models trained inside the enclave → Tool 3.
+        - step: 11A
+          answer: 'No'
+          note: ''
+        - step: 12A
+          answer: 'No'
+          note: ''
+        - step: '13'
+          answer: No, but they can be implemented
+          note: ''
+    - tool: Tool 3
+      result: Outcome 1 — Retain Tier 2; models stay inside the enclave and only reviewed summary results leave.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: Features and models derived inside the enclave.
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '9'
+          answer: 'No'
+          note: Enclave conditions unchanged.
+        - step: 9A
+          answer: 'Yes'
+          note: Output review before export of results.
+    - tool: Tool 4
+      result: MDTAA with the cross-border, controlled-access, linkage and audit modules.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: s. 17 PIA referenced in Schedule C.
+        - step: '7'
+          answer: 'Yes'
+          note: Enclave rules.
+        - step: '12'
+          answer: 'Yes'
+          note: Dataset linkage.
+        - step: '14'
+          answer: 'Yes'
+          note: Enhanced audit.
+        - step: '20'
+          answer: 'Yes'
+          note: ''
+  verdict_new: Proceed after the privacy impact assessment
   legal:
-  - Québec Law 25 s. 17 (PIA, equivalent protection, written agreement) and s. 21 (research without consent).
-  - CNIL reference methodology MR-004; HDS certification (CSP L.1111-8) if health data are hosted in France.
-  - TCPS2 REB approval.
+    - Québec Law 25 s. 17 (PIA, equivalent protection, written agreement) and s. 21 (research without consent).
+    - CNIL reference methodology MR-004; HDS certification (CSP L.1111-8) if health data are hosted in France.
+    - TCPS2 REB approval.
   counsel:
-  - Does the public-sector Act's equivalent of s. 17 apply to McGill as a public body?
-  - Does any caching in France amount to hosting under HDS rules?
+    - Does the public-sector Act's equivalent of s. 17 apply to McGill as a public body?
+    - Does any caching in France amount to hosting under HDS rules?
 - id: s8
   short: Finland → Germany (Findata)
   region: Europe → Europe
@@ -700,63 +1026,110 @@
   dest: Germany
   access: Remote secure environment; results only
   tools:
-  - tool: Tool 1
-    result: Tier 2 inside Kapseli; exported results assessed separately (Tier 1).
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Patients.
-    - step: '6'
-      answer: 'Yes'
-      note: Findata pseudonymises; key held by Findata.
-  - tool: Tool 2
-    result: Outcome 1 — Proceed within the permit.
-    steps:
-    - step: '5'
-      answer: Remote or controlled access without downloading
-      note: ''
-    - step: 6A
-      answer: Class A1
-      note: 'Finland → Germany: same legal space; no transfer mechanism.'
-    - step: 6B
-      answer: 'No'
-      note: ''
-    - step: 7A
-      answer: 'Yes'
-      note: Findata data permit; conditions recorded.
-    - step: '12'
-      answer: 'No'
-      note: Only anonymised results leave after Findata review.
-  - tool: Tool 3
-    result: Outcome 1 — Tier 1 for released results; models remain in the environment unless separately reviewed.
-    steps:
-    - step: '1'
-      answer: 'Yes'
-      note: Models trained in Kapseli.
-    - step: 9A
-      answer: 'Yes'
-      note: Findata anonymisation review of outputs.
-  - tool: Tool 4
-    result: MDTAA used as the consortium's internal agreement; no transfer-instrument module needed.
-    steps:
-    - step: '7'
-      answer: Controlled access
-      note: ''
-    - step: 7A
-      answer: Statutory access conditions
-      note: Permit conditions implemented.
-    - step: '20'
-      answer: Coordination
-      note: Findata terms prevail.
-  old: Worked well; the only weakness was that Step 7A named the EHDS (not in force until 2029) rather than Findata-type
-    regimes.
-  verdict_old: Works
+    - tool: Tool 1
+      result: Tier 2 inside Kapseli; the exported results are assessed separately and reach Tier 1 after Findata’s
+        anonymisation review.
+      steps:
+        - step: Check
+          answer: Completed
+          note: Act on Secondary Use 552/2019; Findata data permit; EHDS secondary-use chapter not yet applicable.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: Findata pseudonymises and holds the key.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: Outcome 1 — Proceed within the permit.
+      steps:
+        - step: '1'
+          answer: Cloud-hosted access
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Remote or controlled access without downloading
+          note: Kapseli.
+        - step: '6'
+          answer: 'Yes'
+          note: Remote access from Germany; no transfer mechanism needed inside the EU.
+        - step: '7'
+          answer: 'Yes'
+          note: Permit conditions; registry controllers’ lawful basis under the Act.
+        - step: 7A
+          answer: 'Yes'
+          note: 'Findata data permit: purpose, users, duration and release conditions recorded.'
+        - step: 8A
+          answer: 'Yes'
+          note: ''
+        - step: 9A
+          answer: 'No'
+          note: ''
+        - step: 10A
+          answer: 'Yes'
+          note: Models trained in Kapseli → Tool 3.
+        - step: 11A
+          answer: 'No'
+          note: ''
+        - step: 12A
+          answer: 'No'
+          note: Only anonymised results leave after Findata review.
+        - step: '13'
+          answer: 'Yes'
+          note: ''
+    - tool: Tool 3
+      result: Outcome 1 — Retain the tier; released results are Tier 1 after review; models remain in the environment
+        unless separately reviewed.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: Models trained in Kapseli.
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: 9A
+          answer: 'Yes'
+          note: Findata anonymisation review of outputs.
+    - tool: Tool 4
+      result: MDTAA used as the consortium’s internal agreement; permit terms prevail.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '7'
+          answer: 'Yes'
+          note: Controlled access.
+        - step: 7A
+          answer: 'Yes'
+          note: Permit conditions implemented.
+        - step: '20'
+          answer: 'Yes'
+          note: Findata terms prevail.
   verdict_new: Proceed
   legal:
-  - Act on Secondary Use of Health and Social Data 552/2019.
-  - EHDS secondary-use chapter applies from 26 March 2029 (2031 for some categories).
+    - Act on Secondary Use of Health and Social Data 552/2019.
+    - EHDS secondary-use chapter applies from 26 March 2029 (2031 for some categories).
   counsel:
-  - Does the permit cover model training and the export of model weights, or only statistical results?
+    - Does the permit cover model training and the export of model weights, or only statistical results?
 - id: s9
   short: Chile → Spain (adolescents, consumer EEG)
   region: Latin America → Europe
@@ -775,70 +1148,137 @@
   dest: Spain (GDPR; LOPDGDD)
   access: Downloadable copy
   tools:
-  - tool: Tool 1
-    result: Tier 2, confirmed; minimum Tier 2 regardless of de-identification.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Minors → uplift; assent and parental consent recorded.
-    - step: '5'
-      answer: 'No'
-      note: ''
-    - step: '6'
-      answer: 'Yes'
-      note: University holds the key.
-  - tool: Tool 2
-    result: Outcome 2 — Proceed after consent scope and the Chilean transfer basis are documented; re-run on 1 Dec
-      2026.
-    steps:
-    - step: 6A
-      answer: Class B (from Dec 2026) / consent-based (until then)
-      note: Chile → Spain; the matrix entry should be date-stamped.
-    - step: 6B
-      answer: 'Yes: (f) and neuro-specific flag'
-      note: Constitutional protection of brain activity (Law 21.383); Supreme Court Emotiv ruling on deletion of
-        neural data; from 1 Dec 2026 Agency rules on transfers and minors.
-    - step: 7(i)
-      answer: Pending
-      note: Consent of parents and assent; ethics approval; from Dec 2026 the new transfer mechanism.
-    - step: 7(ii)
-      answer: 'Yes'
-      note: 'Spain: Art. 9(2)(j) + LOPDGDD DA 17ª; minors'' consent at 14 for the Spanish side.'
-  - tool: Tool 3
-    result: Outcome 2 — Refer Tier 4 for the classifier outputs.
-    steps:
-    - step: '1'
-      answer: 'Yes'
-      note: Attention classifiers.
-    - step: '5'
-      answer: 'Yes'
-      note: Attention/emotion inference → candidate Tier 4; permitted-inference module needed.
-  - tool: Tool 4
-    result: MDTAA with the generic module and a dated reassessment trigger.
-    steps:
-    - step: '2'
-      answer: Cross-border + T-GEN (Chile)
-      note: Until the 2026 regime is in force.
-    - step: '4'
-      answer: Enhanced protection
-      note: ''
-    - step: '13'
-      answer: Permitted inference
-      note: Attention only; no emotional profiling.
-    - step: '15'
-      answer: Return and deletion
-      note: Deletion on request, reflecting the Emotiv precedent.
-  old: No question about minors; no neuro-specific law checkpoint; Step 7 'Yes' → Outcome 1.
-  verdict_old: Gap
-  verdict_new: Proceed after consent and basis documented
+    - tool: Tool 1
+      result: Tier 2, confirmed; the classifier outputs are referred to Tier 4 by Tool 3.
+      steps:
+        - step: Check
+          answer: Completed
+          note: Law 19.628 until 30 Nov 2026, Law 21.719 from 1 Dec 2026; constitutional protection of brain activity;
+            parental consent and adolescent assent; ethics committee approval.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: University holds the key.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: Outcome 2 — Proceed after consent scope and the Chilean transfer basis are documented; re-run on 1
+        December 2026.
+      steps:
+        - step: '1'
+          answer: International transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: Chile → Spain.
+        - step: '7'
+          answer: Pending
+          note: Consent of parents and assent; ethics approval covering export; transfer basis under Law 19.628
+            now and the Agency’s rules from December 2026; Spain Art. 9(2)(j) + LOPDGDD; minors’ consent at 14 on
+            the Spanish side.
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8A
+          answer: 'Yes'
+          note: ''
+        - step: 9A
+          answer: 'No'
+          note: ''
+        - step: 10A
+          answer: 'Yes'
+          note: Attention classifiers → Tool 3.
+        - step: 11A
+          answer: 'No'
+          note: ''
+        - step: 12A
+          answer: 'No'
+          note: ''
+        - step: '13'
+          answer: No, but they can be implemented
+          note: ''
+    - tool: Tool 3
+      result: Outcome 2 — Refer the classifier outputs for Tier 4; permitted-inference terms required.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: Attention classifiers.
+        - step: '2'
+          answer: Classifiers and predictions
+          note: ''
+        - step: '3'
+          answer: 'Yes'
+          note: ''
+        - step: '4'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'Yes'
+          note: Attention and emotion inference → candidate Tier 4.
+        - step: '6'
+          answer: 'No'
+          note: ''
+        - step: '11'
+          answer: Only after additional safeguards
+          note: Output review; no emotional profiling.
+    - tool: Tool 4
+      result: MDTAA with enhanced protection, permitted-inference and deletion modules, and a dated reassessment
+        trigger.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '4'
+          answer: 'Yes'
+          note: Tier 2, Tier 4 outputs.
+        - step: '13'
+          answer: 'Yes'
+          note: Attention only; no emotional profiling.
+        - step: '15'
+          answer: 'Yes'
+          note: Deletion on request, reflecting the Emotiv precedent.
+        - step: '19'
+          answer: 'Yes'
+          note: Reassessment when Law 21.719 enters into force.
+        - step: '20'
+          answer: 'Yes'
+          note: ''
+  verdict_new: Proceed after consent scope and the Chilean transfer basis are documented
   legal:
-  - Law 21.719 published 13 Dec 2024, in force 1 Dec 2026 (Agencia de Protección de Datos Personales).
-  - Constitution art. 19 No. 1 as amended by Law 21.383 (2021); Corte Suprema Rol 105.065-2023 (Girardi v Emotiv),
-    9 Aug 2023.
-  - GDPR Art. 8 and LOPDGDD art. 7 (minors' consent at 14 in Spain).
+    - Law 21.719 published 13 Dec 2024, in force 1 Dec 2026 (Agencia de Protección de Datos Personales).
+    - Constitution art. 19 No. 1 as amended by Law 21.383 (2021); Corte Suprema Rol 105.065-2023 (Girardi v Emotiv),
+      9 Aug 2023.
+    - GDPR Art. 8 and LOPDGDD art. 7 (minors' consent at 14 in Spain).
   counsel:
-  - What transfer basis applies under Law 19.628 before December 2026?
-  - Does the Chilean ethics approval cover export of raw neural data from minors?
+    - What transfer basis applies under Law 19.628 before December 2026?
+    - Does the Chilean ethics approval cover export of raw neural data from minors?
 - id: s10
   short: Kenya → UK (cloud-hosted clinical EEG)
   region: Africa → Europe
@@ -857,70 +1297,114 @@
   dest: United Kingdom (UK GDPR)
   access: Cloud-hosted copy in the UK
   tools:
-  - tool: Tool 1
-    result: Tier 2, confirmed.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Children, patients → uplift.
-    - step: '6'
-      answer: 'Yes'
-      note: KEMRI holds the key.
-  - tool: Tool 2
-    result: Outcome 2 — Proceed after a serving copy is retained in Kenya, the ODPC/NACOSTI steps are documented
-      and the reg. 41 instrument is executed.
-    steps:
-    - step: '3'
-      answer: Named institution + cloud provider
-      note: ''
-    - step: '5'
-      answer: Downloadable copy (cloud)
-      note: ''
-    - step: 6A
-      answer: Class B
-      note: Kenya → UK.
-    - step: 6B
-      answer: 'Yes: (b), (c), (e)'
-      note: 'Reg. 26: health-care data must be processed via a Kenyan data centre or a serving copy kept in Kenya;
-        sensitive-data transfer needs explicit consent under s. 49 or an approved safeguard (reg. 41/46); ODPC registration;
-        NACOSTI permit and KEMRI SERU approval; reg. 47 onward-transfer condition.'
-    - step: 7(i)
-      answer: Pending
-      note: Reg. 41 binding instrument (this agreement) or reg. 42 deemed safeguards; consent scope for export.
-    - step: 7(ii)
-      answer: 'Yes'
-      note: 'Oxford: UK GDPR Art. 9(2)(j) + DPA 2018 Sch. 1 para 4; cloud contract terms.'
-  - tool: Tool 3
-    result: Not required.
-    steps:
-    - step: '1'
-      answer: 'No'
-      note: Analysis only at this stage.
-  - tool: Tool 4
-    result: MDTAA with the Kenya module.
-    steps:
-    - step: '2'
-      answer: Cross-border + T-KE
-      note: Schedule KE records reg. 26 serving copy and reg. 47 undertaking.
-    - step: '8'
-      answer: Onward transfer / sub-processor
-      note: Cloud provider listed.
-    - step: '18'
-      answer: Benefit sharing
-      note: Local analytical access and training.
-    - step: '20'
-      answer: Governing law
-      note: Kenyan law.
-  old: No localisation question; Step 7 'Yes' → Outcome 1 while reg. 26 would be breached by a UK-only hosting arrangement.
-  verdict_old: False reassurance
-  verdict_new: Proceed after serving copy and permits
+    - tool: Tool 1
+      result: Tier 2, confirmed.
+      steps:
+        - step: Check
+          answer: Completed
+          note: Kenya DPA 2019 ss. 48–49 and General Regulations 2021 (reg. 26 serving copy; regs 40–48 transfers);
+            ODPC registration; NACOSTI permit; KEMRI SERU approval.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: KEMRI holds the key.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: Outcome 2 — Proceed after a serving copy is retained in Kenya, the ODPC and NACOSTI steps are documented
+        and the reg. 41 instrument is executed.
+      steps:
+        - step: '1'
+          answer: International transfer; cloud-hosted access
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipients
+          note: Oxford and the cloud provider.
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: Cloud-hosted copy in a UK region.
+        - step: '6'
+          answer: 'Yes'
+          note: Kenya → United Kingdom; cloud provider location recorded.
+        - step: '7'
+          answer: Pending
+          note: Reg. 26 serving copy in Kenya; explicit consent under s. 49 or an approved safeguard (reg. 41 binding
+            instrument or reg. 42); ODPC registration; NACOSTI permit; SERU approval; Oxford UK GDPR Art. 9(2)(j)
+            + DPA 2018 Sch. 1 para 4.
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8A
+          answer: 'Yes'
+          note: Oxford and cloud-provider controls documented.
+        - step: 9A
+          answer: 'No'
+          note: ''
+        - step: 10A
+          answer: 'No'
+          note: ''
+        - step: 11A
+          answer: 'No'
+          note: ''
+        - step: 12A
+          answer: 'Yes'
+          note: Cloud provider as sub-processor; reg. 47 onward-transfer condition.
+        - step: '13'
+          answer: No, but they can be implemented
+          note: ''
+    - tool: Tool 3
+      result: Not required.
+      steps:
+        - step: '1'
+          answer: 'No'
+          note: Analysis only at this stage.
+    - tool: Tool 4
+      result: MDTAA with cross-border, sub-processor and benefit-sharing modules.
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: Reg. 26 serving copy and reg. 47 undertaking in Schedule C.
+        - step: '7'
+          answer: 'Yes'
+          note: Cloud infrastructure.
+        - step: '8'
+          answer: 'Yes'
+          note: Cloud provider listed.
+        - step: '18'
+          answer: 'Yes'
+          note: Local analytical access and training.
+        - step: '20'
+          answer: 'Yes'
+          note: Kenyan law.
+  verdict_new: Proceed after the serving copy and permits
   legal:
-  - Kenya Data Protection (General) Regulations 2021 regs 26, 40–48.
-  - Reg. 42 deems states that ratified the Malabo Convention to provide appropriate safeguards (the UK has not).
-  - Kenya DPA 2019 ss. 48–49.
+    - Kenya Data Protection (General) Regulations 2021 regs 26, 40–48.
+    - Reg. 42 deems states that ratified the Malabo Convention to provide appropriate safeguards (the UK has not).
+    - Kenya DPA 2019 ss. 48–49.
   counsel:
-  - Does 'provision of health care' in reg. 26 cover a research cohort drawn from hospital records?
-  - Is a serving copy in a Kenyan commercial data centre acceptable to KEMRI's governance?
+    - Does 'provision of health care' in reg. 26 cover a research cohort drawn from hospital records?
+    - Is a serving copy in a Kenyan commercial data centre acceptable to KEMRI's governance?
 - id: s11
   short: Argentina → Spain (adequacy)
   region: Latin America → Europe
@@ -928,7 +1412,7 @@
   setting: A CONICET-affiliated neuroscience institute in Buenos Aires shares pseudonymised MEG and structural MRI
     from 150 adults with a Spanish university for a joint study of language processing. Argentina holds a European
     Commission adequacy decision and recognises the EU as adequate under its own law, so no transfer instrument
-    is needed in either direction; the example shows the simplest pathway in the matrix.
+    is needed in either direction; the example shows the simplest pathway in the legal landscape.
   exporter: CONICET institute (controller under Law 25.326; registered database with the AAIP; institutional ethics
     committee).
   importer: Spanish public university (controller under GDPR and LOPDGDD; Art. 9(2)(j) research basis).
@@ -939,69 +1423,107 @@
   dest: Spain (GDPR)
   access: Downloadable copy
   tools:
-  - tool: Tool 1
-    result: Tier 2, confirmed.
-    steps:
-    - step: 0B
-      answer: 'No'
-      note: Consenting adults.
-    - step: '5'
-      answer: 'No'
-      note: Defaced; headers removed.
-    - step: '6'
-      answer: 'Yes'
-      note: Institute holds the key.
-  - tool: Tool 2
-    result: Outcome 1 — Proceed.
-    steps:
-    - step: '3'
-      answer: Named institution
-      note: ''
-    - step: '5'
-      answer: Downloadable copy
-      note: ''
-    - step: 6A
-      answer: Class A2
-      note: 'Argentina → Spain: AAIP recognises the EU as adequate; EU recognises Argentina. No instrument required;
-        record both decisions.'
-    - step: 6B
-      answer: 'No'
-      note: No restriction; AAIP database registration confirmed.
-    - step: 7(i)
-      answer: 'Yes'
-      note: Consent and ethics approval cover the collaboration; Law 25.326 art. 12 satisfied by adequacy.
-    - step: 7(ii)
-      answer: 'Yes'
-      note: 'Spain: Art. 9(2)(j) + LOPDGDD DA 17ª.'
-    - step: '13'
-      answer: 'Yes'
-      note: Encryption, access control, DUA.
-  - tool: Tool 3
-    result: Not required.
-    steps:
-    - step: '1'
-      answer: 'No'
-      note: No models planned.
-  - tool: Tool 4
-    result: Short MDTAA; governing law chosen by the parties.
-    steps:
-    - step: '1'
-      answer: Baseline
-      note: ''
-    - step: '2'
-      answer: Cross-border (adequacy recorded)
-      note: No transfer-instrument module; adequacy references in Schedule A E.5.
-    - step: '11'
-      answer: Research use only
-      note: ''
+    - tool: Tool 1
+      result: Tier 2, confirmed.
+      steps:
+        - step: Check
+          answer: Completed
+          note: Law 25.326 (AAIP database registration; art. 7 sensitive data; art. 12 transfer); institutional
+            ethics approval.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: Defaced; headers removed.
+        - step: '6'
+          answer: 'Yes'
+          note: Institute holds the key.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: Outcome 1 — Proceed.
+      steps:
+        - step: '1'
+          answer: International transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: Argentina → Spain.
+        - step: '7'
+          answer: 'Yes'
+          note: 'Mutual adequacy: the AAIP recognises the EU and the EU recognises Argentina, so no transfer instrument
+            is needed; both decisions recorded; consent and ethics approval cover the collaboration; Spain Art.
+            9(2)(j) + LOPDGDD.'
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8A
+          answer: 'Yes'
+          note: ''
+        - step: 9A
+          answer: 'No'
+          note: ''
+        - step: 10A
+          answer: 'No'
+          note: ''
+        - step: 11A
+          answer: 'No'
+          note: ''
+        - step: 12A
+          answer: 'No'
+          note: ''
+        - step: '13'
+          answer: 'Yes'
+          note: Encryption, access control, data use agreement.
+    - tool: Tool 3
+      result: Not required.
+      steps:
+        - step: '1'
+          answer: 'No'
+          note: No models planned.
+    - tool: Tool 4
+      result: 'Short MDTAA: baseline, cross-border (adequacy recorded) and research-use modules.'
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: Adequacy decisions recorded; no transfer instrument.
+        - step: '11'
+          answer: 'Yes'
+          note: Research use only.
+        - step: '20'
+          answer: 'Yes'
+          note: ''
   verdict_new: Proceed
   legal:
-  - EU adequacy decision for Argentina (2003, confirmed in the 2024 review); AAIP list of adequate jurisdictions
-    includes the EU/EEA.
-  - Law 25.326 art. 12 (international transfer) and art. 7 (sensitive data).
+    - EU adequacy decision for Argentina (2003, confirmed in the 2024 review); AAIP list of adequate jurisdictions
+      includes the EU/EEA.
+    - Law 25.326 art. 12 (international transfer) and art. 7 (sensitive data).
   counsel:
-  - Does the AAIP database registration describe the international transfer?
-  - Is a replacement Argentine data-protection law in force at the time of transfer?
+    - Does the AAIP database registration describe the international transfer?
+    - Is a replacement Argentine data-protection law in force at the time of transfer?
 - id: s12
   short: Libya → Italy (no lawful pathway)
   region: Africa → Europe
@@ -1009,8 +1531,8 @@
   setting: A neurorehabilitation clinic in Benghazi treating stroke and traumatic brain injury patients is approached
     by an Italian university to supply EEG recordings together with video of therapy sessions for a gait-and-attention
     study. Libya has no comprehensive data-protection law or supervisory authority, the clinic has no research ethics
-    committee of its own, and the videos are directly identifying. The matrix codes Libya pathways as Class E (insufficient
-    legal certainty).
+    committee of its own, and the videos are directly identifying. The legal landscape codes Libya pathways as Class
+    E (insufficient legal certainty).
   exporter: Private neurorehabilitation clinic in Benghazi, Libya (no data-protection statute; no research ethics
     committee; patient consent forms cover treatment only).
   importer: Italian public university (controller under GDPR; Garante authorisation requirements for health research
@@ -1022,66 +1544,82 @@
   dest: Italy (GDPR; Garante art. 110)
   access: Downloadable copy requested
   tools:
-  - tool: Tool 1
-    result: Tier 3, confirmed.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Patients, some with cognitive impairment → uplift.
-    - step: '5'
-      answer: 'Yes'
-      note: Faces in video, names and dates of birth in notes → Tier 3.
-    - step: '6'
-      answer: 'Yes'
-      note: Clinic records link everything.
-  - tool: Tool 2
-    result: Outcome 4 — Do not proceed. Specialist review may propose a redesign (ethics review through a recognised
-      committee, de-identification, analysis in place with results only).
-    steps:
-    - step: '3'
-      answer: Named institution
-      note: ''
-    - step: '5'
-      answer: Downloadable copy
-      note: ''
-    - step: 6A
-      answer: Class E
-      note: 'Libya → Italy: insufficient legal certainty; default Outcome 4 unless origin-jurisdiction counsel documents
-        a lawful mechanism.'
-    - step: 6B
-      answer: Unsure
-      note: No regulator to authorise; no research-permit system; no ethics review in the origin country.
-    - step: 7(i)
-      answer: 'No'
-      note: No lawful basis under any origin regime can be documented; treatment consent does not cover research
-        export; the clinic has no authority to release identified records.
-    - step: 7(ii)
-      answer: 'No'
-      note: Italian importer would need an art. 110 authorisation or ethics-committee route that cannot be satisfied
-        without an origin-side ethics approval.
-  - tool: Tool 3
-    result: Not reached.
-    steps:
-    - step: '1'
-      answer: —
-      note: Not reached.
-  - tool: Tool 4
-    result: Not reached.
-    steps:
-    - step: '1'
-      answer: —
-      note: No agreement can be compiled while Outcome 4 stands.
+    - tool: Tool 1
+      result: Tier 3, confirmed.
+      steps:
+        - step: Check
+          answer: Completed
+          note: No data-protection statute or supervisory authority in the origin jurisdiction; no research ethics
+            committee; Italian side Garante art. 110 route.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'Yes'
+          note: Faces in video, names and dates of birth in the notes → Tier 3.
+        - step: '6'
+          answer: 'Yes'
+          note: Clinic records link everything; Tier 3 governs.
+        - step: Final
+          answer: Tier 3, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: Outcome 4 — Do not proceed. Specialist review may propose a redesign (recognised ethics review, de-identification,
+        analysis in place with results only).
+      steps:
+        - step: '1'
+          answer: International transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: Libya → Italy.
+        - step: '7'
+          answer: 'No'
+          note: No lawful basis under any origin regime can be documented; treatment consent does not cover research
+            export; the clinic has no authority to release identified records; the Italian importer’s art. 110 route
+            depends on an origin-side ethics approval that does not exist → no applicable lawful pathway → Outcome
+            4.
+    - tool: Tool 3
+      result: Not reached.
+      steps:
+        - step: '1'
+          answer: —
+          note: Not reached.
+    - tool: Tool 4
+      result: Not reached.
+      steps:
+        - step: '1'
+          answer: —
+          note: No agreement can be compiled while Outcome 4 stands.
   verdict_new: Do not proceed
   legal:
-  - 'Class E in the compatibility matrix: no statutory transfer regime, no supervisory authority, no research-governance
-    framework to anchor consent or ethics approval.'
-  - GDPR does not restrict imports, but the Italian controller still needs a lawful basis and an ethics route that
-    depends on origin-side approval; Garante authorisation art. 110 Privacy Code.
-  - Identified video of patients is biometric and health data of the highest sensitivity in every regime.
+    - 'Class E in the legal landscape: no statutory transfer regime, no supervisory authority, no research-governance
+      framework to anchor consent or ethics approval.'
+    - GDPR does not restrict imports, but the Italian controller still needs a lawful basis and an ethics route
+      that depends on origin-side approval; Garante authorisation art. 110 Privacy Code.
+    - Identified video of patients is biometric and health data of the highest sensitivity in every regime.
   counsel:
-  - Is there a recognised ethics committee in Libya or a regional committee that could review the study?
-  - Could the clinic de-identify (EEG only, no video, no notes) and would that change the Tool 1 tier enough to
-    permit a redesign?
+    - Is there a recognised ethics committee in Libya or a regional committee that could review the study?
+    - Could the clinic de-identify (EEG only, no video, no notes) and would that change the Tool 1 tier enough to
+      permit a redesign?
 - id: s13
   short: Consumer neurotech → Dutch lab (consent scope)
   region: North America → Europe
@@ -1101,66 +1639,83 @@
   dest: Netherlands (GDPR; UAVG)
   access: Downloadable copy
   tools:
-  - tool: Tool 1
-    result: Tier 3, confirmed (Tier 2 after stripping identifiers, with 0B uplift).
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Minors among users; consumers in a dependent relationship with the service → uplift.
-    - step: '5'
-      answer: 'Yes'
-      note: Device IDs and hashed e-mails; sessions linkable to accounts → Tier 3 unless stripped.
-    - step: '6'
-      answer: 'Yes'
-      note: Company holds account mapping.
-  - tool: Tool 2
-    result: 'Outcome 4 — Do not proceed in the proposed form. Redesign: prospective opt-in research consent in the
-      app for new sessions; or company-side aggregation to Tier 1 statistics.'
-    steps:
-    - step: '3'
-      answer: Named institution
-      note: ''
-    - step: 6A
-      answer: Governance unit → EU
-      note: Consumer-privacy regime; EU import needs no mechanism but importer basis required.
-    - step: 6B
-      answer: 'Yes: neuro-specific flag'
-      note: 'CCPA/CPRA: neural data are sensitive; purpose limitation and opt-out/limit rights; data-protection
-        assessment required before sale/sharing of sensitive data.'
-    - step: 7(i)
-      answer: 'No'
-      note: Privacy-policy consent for ‘product improvement’ does not cover research transfer; ‘sale/sharing’ of
-        sensitive personal information to a third party without the required notices; EU users’ data were collected
-        without a GDPR research basis.
-    - step: 7(ii)
-      answer: 'No'
-      note: Dutch university cannot establish a lawful basis for data of EU residents collected without research
-        consent; re-consent of 50,000 users is impractical.
-    - step: '11'
-      answer: 'Yes'
-      note: Materially different purpose; approvals cannot be obtained.
-  - tool: Tool 3
-    result: Not reached.
-    steps:
-    - step: '1'
-      answer: —
-      note: Not reached.
-  - tool: Tool 4
-    result: Not reached.
-    steps:
-    - step: '1'
-      answer: —
-      note: Not reached.
+    - tool: Tool 1
+      result: Tier 3, confirmed (Tier 2 after identifiers are stripped).
+      steps:
+        - step: Check
+          answer: Completed
+          note: 'CCPA/CPRA: neural data are sensitive personal information; risk-assessment regulations; GDPR for
+            EU residents.'
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'Yes'
+          note: Device IDs and hashed e-mails; sessions linkable to accounts → Tier 3 unless stripped.
+        - step: '6'
+          answer: 'Yes'
+          note: Company holds the account mapping.
+        - step: Final
+          answer: Tier 3, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: 'Outcome 4 — Do not proceed in the proposed form. Redesign: prospective opt-in research consent in
+        the app for new sessions, or company-side aggregation to Tier 1 statistics.'
+      steps:
+        - step: '1'
+          answer: International transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: United States → Netherlands.
+        - step: '7'
+          answer: 'No'
+          note: Privacy-policy consent for “product improvement” does not cover research transfer; sale or sharing
+            of sensitive personal information without the required notices; EU users’ data were collected without
+            a GDPR research basis and the Dutch university cannot establish one; re-consent of 50,000 users is impractical.
+        - step: 11A
+          answer: 'Yes'
+          note: Materially different purpose; the required approvals cannot be obtained → Outcome 4.
+    - tool: Tool 3
+      result: Not reached.
+      steps:
+        - step: '1'
+          answer: —
+          note: Not reached.
+    - tool: Tool 4
+      result: Not reached.
+      steps:
+        - step: '1'
+          answer: —
+          note: Not reached.
   verdict_new: Do not proceed (redesign with new consent)
   legal:
-  - 'California SB 1223 (2024): neural data are sensitive personal information under the CCPA/CPRA; purpose limitation,
-    right to limit, risk-assessment regulations in force from 2026.'
-  - GDPR Arts 6, 9 and 14 for EU residents; purpose compatibility test Art. 6(4); minors’ consent Art. 8.
-  - Consumer neurotechnology sits outside HIPAA and the Common Rule, so no research exemption applies.
+    - 'California SB 1223 (2024): neural data are sensitive personal information under the CCPA/CPRA; purpose limitation,
+      right to limit, risk-assessment regulations in force from 2026.'
+    - GDPR Arts 6, 9 and 14 for EU residents; purpose compatibility test Art. 6(4); minors’ consent Art. 8.
+    - Consumer neurotechnology sits outside HIPAA and the Common Rule, so no research exemption applies.
   counsel:
-  - Can the company lawfully run a prospective in-app research consent and share only newly consented sessions?
-  - Would company-side aggregation (no participant-level records) satisfy Tier 1 and the CCPA de-identification
-    standard?
+    - Can the company lawfully run a prospective in-app research consent and share only newly consented sessions?
+    - Would company-side aggregation (no participant-level records) satisfy Tier 1 and the CCPA de-identification
+      standard?
 - id: s14
   short: Ontario hospital → device company (commercial)
   region: North America → North America
@@ -1181,64 +1736,82 @@
   dest: United States (commercial)
   access: Downloadable identified copy for commercial development
   tools:
-  - tool: Tool 1
-    result: Tier 3, confirmed.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Patients; minors → uplift.
-    - step: '5'
-      answer: 'Yes'
-      note: Names, health-card numbers, device serials → Tier 3.
-    - step: '6'
-      answer: 'Yes'
-      note: Hospital holds all links.
-  - tool: Tool 2
-    result: 'Outcome 4 — Do not proceed. Redesign offered: de-identified dataset under a s. 44 research agreement
-      for a defined research question, with commercial use governed separately (Tool 4 Step 10) and benefit sharing.'
-    steps:
-    - step: '3'
-      answer: Commercial partner
-      note: ''
-    - step: '5'
-      answer: Downloadable copy
-      note: ''
-    - step: 6A
-      answer: Governance unit
-      note: 'Ontario → US: PHIPA research disclosure rules; no adequacy concept; accountability by contract.'
-    - step: 6B
-      answer: 'Yes: (c)'
-      note: 'PHIPA s. 44: disclosure for research only under an REB-approved research plan and a written research
-        agreement; identified disclosure requires that de-identified data would not serve the purpose; commercial
-        product development is not ‘research’ in the required sense.'
-    - step: 7(i)
-      answer: 'No'
-      note: No REB-approved research plan covering commercial development; consent did not contemplate commercial
-        use; de-identification would serve the purpose, so identified disclosure is not justifiable.
-    - step: '11'
-      answer: 'Yes'
-      note: Commercial purpose materially different; approvals cannot be obtained in this form.
-  - tool: Tool 3
-    result: Not reached.
-    steps:
-    - step: '1'
-      answer: —
-      note: Not reached.
-  - tool: Tool 4
-    result: Not reached.
-    steps:
-    - step: '1'
-      answer: —
-      note: Not reached; a redesigned arrangement would activate Steps 2, 4, 6, 10 and 18.
+    - tool: Tool 1
+      result: Tier 3, confirmed.
+      steps:
+        - step: Check
+          answer: Completed
+          note: PHIPA s. 44 research disclosure (research plan, REB approval, written agreement, necessity of identifying
+            information); PIPEDA for the commercial recipient; TCPS2.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'Yes'
+          note: Names, health-card numbers, device serials → Tier 3.
+        - step: '6'
+          answer: 'Yes'
+          note: Hospital holds all links.
+        - step: Final
+          answer: Tier 3, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: 'Outcome 4 — Do not proceed. Redesign offered: a de-identified dataset under a s. 44 research agreement
+        for a defined research question, with commercial use governed separately (Tool 4 Step 10) and benefit sharing.'
+      steps:
+        - step: '1'
+          answer: International transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: Commercial partner.
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: Ontario → United States.
+        - step: '7'
+          answer: 'No'
+          note: No REB-approved research plan covering commercial development; consent did not contemplate commercial
+            use; de-identified data would serve the purpose, so identified disclosure cannot be justified under
+            s. 44.
+        - step: 11A
+          answer: 'Yes'
+          note: Commercial purpose materially different; approvals cannot be obtained in this form → Outcome 4.
+    - tool: Tool 3
+      result: Not reached.
+      steps:
+        - step: '1'
+          answer: —
+          note: Not reached.
+    - tool: Tool 4
+      result: Not reached; a redesigned arrangement would activate Steps 2, 4, 6, 10 and 18.
+      steps:
+        - step: '1'
+          answer: —
+          note: Not reached.
   verdict_new: Do not proceed (redesign as de-identified research disclosure)
   legal:
-  - 'PHIPA (Ontario) s. 44 research disclosure: research plan, REB approval, written agreement, and the requirement
-    that identifying information be necessary.'
-  - PIPEDA accountability principle for any cross-border disclosure by a commercial recipient.
-  - TCPS2 Chapter 5 (privacy) and Chapter 9 where Indigenous participants are involved.
+    - 'PHIPA (Ontario) s. 44 research disclosure: research plan, REB approval, written agreement, and the requirement
+      that identifying information be necessary.'
+    - PIPEDA accountability principle for any cross-border disclosure by a commercial recipient.
+    - TCPS2 Chapter 5 (privacy) and Chapter 9 where Indigenous participants are involved.
   counsel:
-  - Would a de-identified Limited-Data-Set-style extract serve the company’s stated purpose?
-  - How are commercial benefit, IP and future resale handled if a redesigned research agreement is executed?
+    - Would a de-identified Limited-Data-Set-style extract serve the company’s stated purpose?
+    - How are commercial benefit, IP and future resale handled if a redesigned research agreement is executed?
 - id: s15
   short: Dutch lab → public model hub (leakage)
   region: Europe → public release
@@ -1256,68 +1829,128 @@
   dest: Public release (model hub)
   access: Public download
   tools:
-  - tool: Tool 1
-    result: Tier 5, provisional.
-    steps:
-    - step: 2A
-      answer: 'Yes'
-      note: The object is a model → candidate Tier 5; Tool 3 required.
-    - step: 2B
-      answer: 'Yes'
-      note: Reasonable possibility of persistence → provisional Tier 5.
-  - tool: Tool 3
-    result: 'Outcome 5 — Do not proceed in the current form. Confirm Tier 5. Redesign: retrain with the rare-type
-      records excluded and differential-privacy training, re-test; or gated access with query limits instead of
-      weight release.'
-    steps:
-    - step: '1'
-      answer: 'Yes'
-      note: Model training and public release.
-    - step: '3'
-      answer: 'Yes'
-      note: Weights circulate independently.
-    - step: '4'
-      answer: 'Yes'
-      note: Extraction tests reproduce near-verbatim training segments for rare seizure types.
-    - step: '6'
-      answer: 'Yes'
-      note: Computational persistence confirmed.
-    - step: '7'
-      answer: Tested — material exposure identified
-      note: Membership inference above threshold; extraction of recognisable segments. Public release not supported.
-    - step: '10'
-      answer: Partly
-      note: Unlearning not reliable for the affected records; retraining without rare-type records proposed.
-    - step: '11'
-      answer: 'No'
-      note: Exposure cannot be managed for a public release.
-  - tool: Tool 2
-    result: Outcome 3 — Redesign (gated access) or wait for a re-tested model.
-    steps:
-    - step: '3'
-      answer: Public release
-      note: 'Not permitted: Tool 3 Step 7 records material exposure. Outcome 3 (redesign to gated access) recorded
-        for the current weights.'
-  - tool: Tool 4
-    result: Agreement only for the gated-access alternative.
-    steps:
-    - step: '6'
-      answer: AI and model governance
-      note: For the gated alternative.
-    - step: '16'
-      answer: Persistent artefacts
-      note: Checkpoint retirement; re-test before any future release.
+    - tool: Tool 1
+      result: Tier 5, provisional, pending Tool 3; confirmed Tier 5 after Tool 3.
+      steps:
+        - step: Check
+          answer: Completed
+          note: GDPR Art. 9; UAVG art. 24 covers training, not dissemination; METC approval scope.
+        - step: '1'
+          answer: 'Yes'
+          note: A model trained on clinical EEG.
+        - step: 2A
+          answer: 'Yes'
+          note: The object is the trained model → Tool 3 required.
+        - step: 2B
+          answer: 'Yes'
+          note: Reasonable possibility that neural information persists → provisional Tier 5.
+        - step: '3'
+          answer: 'Yes'
+          note: Derived object.
+        - step: '4'
+          answer: Unknown → Tool 3
+          note: ''
+        - step: Final
+          answer: Tier 5, provisional
+          note: ''
+    - tool: Tool 3
+      result: 'Outcome 5 — Do not proceed in the current form; Tier 5 confirmed for these weights. Redesign: retrain
+        with the rare-type records excluded and differential-privacy training, then re-test; or gated access with
+        query limits instead of weight release.'
+      steps:
+        - step: '1'
+          answer: 'Yes'
+          note: Model training and public release.
+        - step: '2'
+          answer: Trained generative model; checkpoints
+          note: ''
+        - step: '3'
+          answer: 'Yes'
+          note: Weights circulate independently.
+        - step: '4'
+          answer: 'Yes'
+          note: Extraction tests reproduce near-verbatim training segments for rare seizure types.
+        - step: '5'
+          answer: 'Yes'
+          note: Seizure characteristics inferable.
+        - step: '6'
+          answer: 'Yes'
+          note: Computational persistence confirmed → Tier 5.
+        - step: '7'
+          answer: Yes — material exposure identified
+          note: Membership inference above threshold; extraction of recognisable segments.
+        - step: '8'
+          answer: 'Yes'
+          note: ''
+        - step: '9'
+          answer: 'Yes'
+          note: Public release would maximise exposure → Tool 2 public-release pathway marked.
+        - step: '10'
+          answer: Partly
+          note: Unlearning not reliable for the affected records; retraining without them proposed.
+        - step: '11'
+          answer: 'No'
+          note: Exposure cannot be managed for a public release → Outcome 5.
+    - tool: Tool 2 (public-release pathway)
+      result: 'Outcome 3 — Redesign: gated access, or wait for a retrained and re-tested model.'
+      steps:
+        - step: '1'
+          answer: Public/open-access release
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: Tier 5, confirmed by Tool 3.
+        - step: '3'
+          answer: Public/open-access release proposed
+          note: ''
+        - step: 4B
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Public download
+          note: ''
+        - step: '6'
+          answer: Public-release pathway
+          note: ''
+        - step: '7'
+          answer: 'Yes'
+          note: Training basis documented; release authority not yet established.
+        - step: 7A
+          answer: 'No'
+          note: ''
+        - step: 8B
+          answer: No, but controlled access or another release model could preserve them
+          note: Tier 5 safeguards cannot survive a public weight release → Outcome 3.
+    - tool: Tool 4
+      result: Agreement only for the gated-access alternative.
+      steps:
+        - step: '1'
+          answer: Yes (gated alternative)
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: AI and model governance.
+        - step: '7'
+          answer: 'Yes'
+          note: Gated access infrastructure.
+        - step: '14'
+          answer: 'Yes'
+          note: Enhanced audit.
+        - step: '16'
+          answer: 'Yes'
+          note: Checkpoint retirement; re-test before any future release.
   verdict_new: Do not proceed in current form (retrain or gate)
   legal:
-  - 'EDPB Opinion 28/2024: a model is anonymous only if extraction of personal data and extraction through queries
-    are both unlikely by means reasonably likely to be used; documented testing required.'
-  - GDPR Art. 9 continues to apply to a model from which health data can be extracted; public release would be an
-    unlawful disclosure.
-  - Dutch UAVG art. 24 (scientific research exception) covers training, not public dissemination of extractable
-    data.
+    - 'EDPB Opinion 28/2024: a model is anonymous only if extraction of personal data and extraction through queries
+      are both unlikely by means reasonably likely to be used; documented testing required.'
+    - GDPR Art. 9 continues to apply to a model from which health data can be extracted; public release would be
+      an unlawful disclosure.
+    - Dutch UAVG art. 24 (scientific research exception) covers training, not public dissemination of extractable
+      data.
   counsel:
-  - Which leakage thresholds and attack models does the lab’s data-protection officer accept as the anonymity standard?
-  - Does the METC approval cover synthetic-data generation and release, or only internal benchmarking?
+    - Which leakage thresholds and attack models does the lab’s data-protection officer accept as the anonymity
+      standard?
+    - Does the METC approval cover synthetic-data generation and release, or only internal benchmarking?
 - id: s16
   short: Egypt → UK (licence unavailable)
   region: Africa → Europe
@@ -1326,7 +1959,7 @@
   setting: Cairo University’s neurology department wants to send pseudonymised EEG and clinical data from 300 epilepsy
     patients to a London university for a genetics-of-epilepsy project. Egypt’s Personal Data Protection Law requires
     a licence from the Personal Data Protection Center for cross-border transfer of personal data, and the Center’s
-    licensing procedure is not fully operational, so the prerequisite recorded at Step 6B cannot be satisfied.
+    licensing procedure is not fully operational, so the lawful-pathway check at Tool 2 Step 7 cannot be satisfied.
   exporter: Cairo University Hospitals, neurology department (controller under Law 151/2020; faculty research ethics
     committee; Ministry of Health research approvals).
   importer: UK university research institute (controller under UK GDPR; HRA/REC approval for the UK arm; genomic
@@ -1338,59 +1971,81 @@
   dest: United Kingdom (UK GDPR)
   access: Downloadable copy
   tools:
-  - tool: Tool 1
-    result: Tier 2, confirmed.
-    steps:
-    - step: 0B
-      answer: 'Yes'
-      note: Patients; children → uplift.
-    - step: '5'
-      answer: 'No'
-      note: Identifiers removed.
-    - step: '6'
-      answer: 'Yes'
-      note: Cairo holds the key.
-  - tool: Tool 2
-    result: 'Outcome 4 — Do not proceed until the licence can be obtained. Redesign recorded: analysis in Cairo
-      with export of aggregate results, or sequencing performed in Egypt with results-only exchange.'
-    steps:
-    - step: '3'
-      answer: Named institution
-      note: ''
-    - step: 6A
-      answer: Class B
-      note: Egypt → UK in the matrix; standard instrument under origin law.
-    - step: 6B
-      answer: 'Yes: (c)'
-      note: 'Law 151/2020 art. 14: cross-border transfer only with a licence or permit from the Personal Data Protection
-        Center; health data are sensitive data requiring a licence to process. The Center’s licensing procedure
-        is not operational [verify current status].'
-    - step: 7(i)
-      answer: 'No'
-      note: Required licence cannot be obtained; no alternative mechanism in the statute; consent does not substitute
-        for the licence.
-    - step: '9'
-      answer: 'Yes'
-      note: Genomic linkage planned → would require re-tiering (Tier 2 remains, identifiability increases).
-  - tool: Tool 3
-    result: Not reached.
-    steps:
-    - step: '1'
-      answer: 'No'
-      note: Not reached for the transfer; relevant only to the redesigned analysis.
-  - tool: Tool 4
-    result: Not reached.
-    steps:
-    - step: '1'
-      answer: —
-      note: Not reached.
+    - tool: Tool 1
+      result: Tier 2, confirmed.
+      steps:
+        - step: Check
+          answer: Completed
+          note: Egypt Law 151/2020 arts 12, 14–15 (PDPC licence for cross-border transfer and for processing sensitive
+            data); faculty ethics committee; Ministry of Health approvals.
+        - step: '1'
+          answer: 'Yes'
+          note: ''
+        - step: 2A
+          answer: 'No'
+          note: ''
+        - step: '3'
+          answer: 'No'
+          note: ''
+        - step: '5'
+          answer: 'No'
+          note: Identifiers removed.
+        - step: '6'
+          answer: 'Yes'
+          note: Cairo holds the key.
+        - step: Final
+          answer: Tier 2, confirmed
+          note: ''
+    - tool: Tool 2 (controlled access)
+      result: 'Outcome 4 — Do not proceed until the licence can be obtained. Redesign recorded: analysis in Cairo
+        with export of aggregate results, or sequencing performed in Egypt with results-only exchange.'
+      steps:
+        - step: '1'
+          answer: International transfer
+          note: ''
+        - step: '2'
+          answer: 'Yes'
+          note: ''
+        - step: '3'
+          answer: Named controlled-access recipient
+          note: ''
+        - step: 4A
+          answer: 'Yes'
+          note: ''
+        - step: '5'
+          answer: Downloadable copy
+          note: ''
+        - step: '6'
+          answer: 'Yes'
+          note: Egypt → United Kingdom.
+        - step: '7'
+          answer: 'No'
+          note: 'Law 151/2020 art. 14: cross-border transfer only with a licence or permit from the Personal Data
+            Protection Center, whose licensing procedure is not operational [verify current status]; no alternative
+            mechanism in the statute; consent does not substitute → Outcome 4.'
+        - step: 9A
+          answer: 'Yes'
+          note: Genomic linkage planned → would require Tool 1 to be reapplied to the linked object (Tier 2 remains;
+            identifiability increases).
+    - tool: Tool 3
+      result: Not reached for the transfer; relevant only to the redesigned analysis.
+      steps:
+        - step: '1'
+          answer: 'No'
+          note: Not reached.
+    - tool: Tool 4
+      result: Not reached.
+      steps:
+        - step: '1'
+          answer: —
+          note: Not reached.
   verdict_new: Do not proceed (licence prerequisite unmet)
   legal:
-  - Egypt Law 151/2020 arts 14–15 (cross-border transfer requires PDPC licence or permit); art. 12 sensitive data;
-    executive regulations and Center operations [verify status].
-  - 'UK GDPR import: no mechanism needed, but the UK controller must not induce an unlawful export.'
-  - Genomic linkage raises identifiability and triggers Tool 2 Step 9.
+    - Egypt Law 151/2020 arts 14–15 (cross-border transfer requires PDPC licence or permit); art. 12 sensitive data;
+      executive regulations and Center operations [verify status].
+    - 'UK GDPR import: no mechanism needed, but the UK controller must not induce an unlawful export.'
+    - Genomic linkage raises identifiability and triggers Tool 2 Step 9A.
   counsel:
-  - Has the Personal Data Protection Center begun issuing cross-border licences, and what is the application route
-    for research?
-  - Can the genetics work be re-designed so that only aggregate or non-personal results cross the border?
+    - Has the Personal Data Protection Center begun issuing cross-border licences, and what is the application route
+      for research?
+    - Can the genetics work be re-designed so that only aggregate or non-personal results cross the border?

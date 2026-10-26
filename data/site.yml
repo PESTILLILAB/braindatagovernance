@@ -6,10 +6,10 @@ maintainer: Pestilli Laboratory, The University of Texas at Austin
 funder: Funded by Wellcome. Powered by INCF.
 contact_email: pestilli@utexas.edu
 github: https://github.com/pestillilab/braindatagovernance
-github_label: github.com/pestillilab/braindatagovernance
+github_label: GitHub repository
 community_url: https://bridge.incf.org/
 community_label: bridge.incf.org
-toolkit_version: '1.0'
+toolkit_version: '1.1'
 toolkit_date: October 2026
 legal_content_date: 31 December 2025
 copyright_year: 2026   # shown in the footer; leave as the launch year or update yearly

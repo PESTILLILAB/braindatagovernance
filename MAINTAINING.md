@@ -23,7 +23,7 @@ leading slash (`[About](/about/)`, `href: /products/#ezgov`) so they work from a
 | Partner institutions | `data/partners.yml` |
 | How to cite | `data/citations.yml` |
 | Menu and sub-menus | `data/nav.yml` |
-| Home page text, impact strip | `content/index.md` (its front matter: `hero`, `why`, `vision`, `build`, `impact`, `band`) |
+| Home page text, numbers | `content/index.md` (its front matter; see section 4) |
 | Support the work page | `content/support.md` |
 | Text of any other page | `content/<page>.md` |
 | A new page | new `content/<name>.md` |
@@ -129,9 +129,14 @@ Lines starting with `::` insert a component rendered from the data files:
 | `::callout` + a paragraph | a highlighted box |
 | `::buttons` + a list of links | buttons; the first is filled, the others outlined |
 
-The home page (`content/index.md`) has no body: its hero, the three statements, the vision,
-the "what we build" cards, the regions and the get-involved band are all fields in its front
-matter. Edit the text there.
+The home page (`content/index.md`) has no body: everything is in its front matter. The `hero`
+is required; every other block is optional and appears only if its key is present: `why` (three
+claim/consequence statements), `vision` (one sentence, with `vision_title`), `build` (cards,
+with `build_title` and `build_buttons`), `regions` (with `global_title`, `global_text` and the
+partner tiles), `impact` (numbers, with `title` and `note`), `band` (the call to action) and
+`news: 3` (latest items). A block has a heading only if it carries a title, so the page can be
+as sparse or as full as you like; the current page is deliberately lean: hero, three cards,
+three numbers, one band.
 
 ## 5. A new page — worked example: "Partner organisations"
 
@@ -191,8 +196,12 @@ The Toolkit explorer (`toolkit/index.html`) is generated from three data files:
   step of each tool, the determination (`verdict_new`; begin with "Do not" for a negative
   outcome), the legal points and the questions for counsel. Put it where it should appear in the
   4×4 grid.
-- `data/tools.yml` — the four tools, step by step (T6 = Tool 1 … T9 = Tool 4). Each row is
-  step, question, answer, tier/outcome, required action.
+- `data/tools.yml` — the four tools, step by step (T6 = Tool 1 … T9 = Tool 4), copied from
+  Supplementary Tables 6–9 of the study. Each row is step, question, answer, tier, required action
+  (Tool 4: step, question, if yes, if no). Rows of one step repeat the step label and question so
+  that every row stands alone; a single-cell row is a note shown as a band. The step labels are
+  also used by the worked examples and by the workflow diagram, so a renumbering in the study means
+  updating `data/examples.yml` and `src/explorer/iwf.py` as well.
 - `data/tiers.yml` — the tier framework.
 
 The Legal landscape (`content/findings.html`) is generated from `src/landscape/matrix.json`
