@@ -1,5 +1,5 @@
 # The four tools, step by step: T6 = Tool 1, T7 = Tool 2, T8 = Tool 3, T9 = Tool 4 (Supplementary Tables 6–9 of the study,
-# revision of 26 October 2026). Each table is a list of rows; the first row holds the column headings. A merged cell in the
+# revision of 27 October 2026). Each table is a list of rows; the first row holds the column headings. A merged cell in the
 # study's table is repeated here (step label and question) so that every row is self-contained. Single-cell rows are notes.
 T6:
   - - Step
@@ -284,9 +284,12 @@ T6:
       at an earlier step remains applicable unless resolved through documented reassessment.
     - Record “Reassessment required” in Neurodata Governance Assessment Record (Schedule B of the MDTAA). Review
       the object’s technical form, provenance and exposure characteristics, then revisit Steps 3–6 and correct any
-      answers affected by the review. If no tier is identified and Step 7 remains “No”, record “Unclassified—specialist
-      review required” and stop automated classification. Refer the object for specialist governance review. Do
-      not assign Tier 1 by default. Resume at the relevant step when the review provides sufficient evidence.
+      answers affected by the review. If the evidence supports a tier, record the assigned tier and continue the
+      classification workflow. For participant-level data that are de-identified and have no reasonably available
+      linkage mechanism, assign Tier 2A; if a linkage key or other reasonably available linkage mechanism is retained,
+      consider Tier 2B. If the data remain identifiable or intrinsically traceable, assign the applicable higher
+      tier. Refer for specialist review only where the available evidence is insufficient or the appropriate tier
+      remains uncertain. Resume at the relevant step when the review provides sufficient evidence.
   - - '7'
     - 'Does the object contain only aggregated or summary-level information with no participant-level records or
       persistent participant trace? Example: A published study reporting only group-average brain activation patterns,
@@ -592,8 +595,8 @@ T7:
     - Obtain required review. Do not release. Return to Step 8B when resolved. If unresolved → Final Decision Outcome
       4.
   - - 9A
-    - Will the neurodata be linked with additional datasets after transfer or access? Examples include genomic, electronic
-      health-record, wearable-device, consumer or public-register data.
+    - Will the neurodata be linked with additional datasets after transfer or access? Examples include genomic,
+      electronic health-record, wearable-device, consumer or public-register data.
     - 'Yes'
     - Record the additional datasets, linkage purpose, responsible party and proposed resulting object. Apply Supplementary
       Table 6 to the proposed linked dataset or resulting object before linkage begins. Update the tier and safeguards
@@ -601,18 +604,18 @@ T7:
       affected checks are complete and no blocking outcome applies, continue to Step 10A. Do not repeat the same
       linkage assessment unless relevant circumstances change.
   - - 9A
-    - Will the neurodata be linked with additional datasets after transfer or access? Examples include genomic, electronic
-      health-record, wearable-device, consumer or public-register data.
+    - Will the neurodata be linked with additional datasets after transfer or access? Examples include genomic,
+      electronic health-record, wearable-device, consumer or public-register data.
     - 'No'
     - Record that linkage is outside the assessed arrangement and requires reassessment before introduction. Continue
       to Step 10A.
   - - 9A
-    - Will the neurodata be linked with additional datasets after transfer or access? Examples include genomic, electronic
-      health-record, wearable-device, consumer or public-register data.
+    - Will the neurodata be linked with additional datasets after transfer or access? Examples include genomic,
+      electronic health-record, wearable-device, consumer or public-register data.
     - Unsure
     - Clarify the proposed linkage, the datasets involved and the resulting object. Do not begin linkage while material
       uncertainty remains. Return to Step 9A when resolved. If it remains unresolved, select Final Decision Outcome
-      4
+      4.
   - - 9B
     - Could the publicly released object reasonably be linked with other available datasets in a way that changes
       its functional exposure?
@@ -677,7 +680,7 @@ T7:
       to controlled access, select Final Decision Outcome 3. If no acceptable pathway can preserve the required
       protection, select Final Decision Outcome 4. Otherwise continue to Step 11B.
   - - 11A
-    - 'Will the neurodata be used for a purpose materially different from the approved research purposeExamples
+    - 'Will the neurodata be used for a purpose materially different from the approved research purpose? Examples
       may include commercial development, employment, insurance, clinical deployment or unrelated secondary research
       where these activities fall outside the already approved purpose, consent, ethics approval or other applicable
       authorisation. Interpretive note: Assess the proposed purpose against the authorisations and conditions applicable
@@ -690,7 +693,7 @@ T7:
       that apply. Obtain any required approval before the new use begins. If the use is authorised, record its scope
       and restrictions. Continue to Step 12A.
   - - 11A
-    - 'Will the neurodata be used for a purpose materially different from the approved research purposeExamples
+    - 'Will the neurodata be used for a purpose materially different from the approved research purpose? Examples
       may include commercial development, employment, insurance, clinical deployment or unrelated secondary research
       where these activities fall outside the already approved purpose, consent, ethics approval or other applicable
       authorisation. Interpretive note: Assess the proposed purpose against the authorisations and conditions applicable
@@ -701,7 +704,7 @@ T7:
     - 'No'
     - Record the approved purpose and the authorisation or conditions covering it. Continue to Step 12A.
   - - 11A
-    - 'Will the neurodata be used for a purpose materially different from the approved research purposeExamples
+    - 'Will the neurodata be used for a purpose materially different from the approved research purpose? Examples
       may include commercial development, employment, insurance, clinical deployment or unrelated secondary research
       where these activities fall outside the already approved purpose, consent, ethics approval or other applicable
       authorisation. Interpretive note: Assess the proposed purpose against the authorisations and conditions applicable
@@ -860,34 +863,34 @@ T8:
     - Required action
   - - '1'
     - Has the neurodata undergone, or will it undergo, technical transformation; will it be used in an AI or machine-learning
-      system; or may neurodata-derived information persist in a model or computational infrastructure? Examples include
-      feature extraction, dimensionality reduction, embedding generation, predictive modelling, synthetic-data generation
-      or AI-model training. Apply the triggers and exceptions in Annexure 1 §7.2. The Derivative and Embedding Governance
-      Decision Tool need not be completed solely because routine preprocessing occurred without creating a separately
-      governed derivative or materially altering Functional Exposure. It is also not required for a confirmed Tier
-      1 aggregate or summary-level output where the documented assessment establishes that there is no participant-level
-      record, persistent participant trace, linkage mechanism, material inferential exposure or model-associated
-      computational persistence. This exception does not cover source data, retained intermediate representations
-      or models assessed as separate governance objects; AI or model activities requiring assessment under Tool
-      2 / Supplementary Table 7 Step 10; unresolved uncertainty; or later changes capable of materially altering
-      Functional Exposure.
+      system; or may neurodata-derived information persist in a model or computational infrastructure? Examples
+      include feature extraction, dimensionality reduction, embedding generation, predictive modelling, synthetic-data
+      generation or AI-model training. Apply the triggers and exceptions in Annexure 1 §7.2. The Derivative and
+      Embedding Governance Decision Tool need not be completed solely because routine preprocessing occurred without
+      creating a separately governed derivative or materially altering Functional Exposure. It is also not required
+      for a confirmed Tier 1 aggregate or summary-level output where the documented assessment establishes that
+      there is no participant-level record, persistent participant trace, linkage mechanism, material inferential
+      exposure or model-associated computational persistence. This exception does not cover source data, retained
+      intermediate representations or models assessed as separate governance objects; AI or model activities requiring
+      assessment under Tool 2 / Supplementary Table 7 Step 10; unresolved uncertainty; or later changes capable
+      of materially altering Functional Exposure.
     - 'No'
     - Record why none of these triggers apply. Retain the tier and safeguards established under Tool 1 / Supplementary
       Table 6. Record “Tool 3 (Supplementary Table 8) not required for this activity” and return to the referring
       Tool at its next applicable step. Reassess if the activity or object changes.
   - - '1'
     - Has the neurodata undergone, or will it undergo, technical transformation; will it be used in an AI or machine-learning
-      system; or may neurodata-derived information persist in a model or computational infrastructure? Examples include
-      feature extraction, dimensionality reduction, embedding generation, predictive modelling, synthetic-data generation
-      or AI-model training. Apply the triggers and exceptions in Annexure 1 §7.2. The Derivative and Embedding Governance
-      Decision Tool need not be completed solely because routine preprocessing occurred without creating a separately
-      governed derivative or materially altering Functional Exposure. It is also not required for a confirmed Tier
-      1 aggregate or summary-level output where the documented assessment establishes that there is no participant-level
-      record, persistent participant trace, linkage mechanism, material inferential exposure or model-associated
-      computational persistence. This exception does not cover source data, retained intermediate representations
-      or models assessed as separate governance objects; AI or model activities requiring assessment under Tool
-      2 / Supplementary Table 7 Step 10; unresolved uncertainty; or later changes capable of materially altering
-      Functional Exposure.
+      system; or may neurodata-derived information persist in a model or computational infrastructure? Examples
+      include feature extraction, dimensionality reduction, embedding generation, predictive modelling, synthetic-data
+      generation or AI-model training. Apply the triggers and exceptions in Annexure 1 §7.2. The Derivative and
+      Embedding Governance Decision Tool need not be completed solely because routine preprocessing occurred without
+      creating a separately governed derivative or materially altering Functional Exposure. It is also not required
+      for a confirmed Tier 1 aggregate or summary-level output where the documented assessment establishes that
+      there is no participant-level record, persistent participant trace, linkage mechanism, material inferential
+      exposure or model-associated computational persistence. This exception does not cover source data, retained
+      intermediate representations or models assessed as separate governance objects; AI or model activities requiring
+      assessment under Tool 2 / Supplementary Table 7 Step 10; unresolved uncertainty; or later changes capable
+      of materially altering Functional Exposure.
     - 'Yes'
     - Record the applicable trigger. If an exception under Annexure 1 §7.2 is established for this particular object
       and activity, document the exception and return to the referring Tool. Do not apply that exception to AI activities
@@ -895,17 +898,17 @@ T8:
       continue to Step 2.
   - - '1'
     - Has the neurodata undergone, or will it undergo, technical transformation; will it be used in an AI or machine-learning
-      system; or may neurodata-derived information persist in a model or computational infrastructure? Examples include
-      feature extraction, dimensionality reduction, embedding generation, predictive modelling, synthetic-data generation
-      or AI-model training. Apply the triggers and exceptions in Annexure 1 §7.2. The Derivative and Embedding Governance
-      Decision Tool need not be completed solely because routine preprocessing occurred without creating a separately
-      governed derivative or materially altering Functional Exposure. It is also not required for a confirmed Tier
-      1 aggregate or summary-level output where the documented assessment establishes that there is no participant-level
-      record, persistent participant trace, linkage mechanism, material inferential exposure or model-associated
-      computational persistence. This exception does not cover source data, retained intermediate representations
-      or models assessed as separate governance objects; AI or model activities requiring assessment under Tool
-      2 / Supplementary Table 7 Step 10; unresolved uncertainty; or later changes capable of materially altering
-      Functional Exposure.
+      system; or may neurodata-derived information persist in a model or computational infrastructure? Examples
+      include feature extraction, dimensionality reduction, embedding generation, predictive modelling, synthetic-data
+      generation or AI-model training. Apply the triggers and exceptions in Annexure 1 §7.2. The Derivative and
+      Embedding Governance Decision Tool need not be completed solely because routine preprocessing occurred without
+      creating a separately governed derivative or materially altering Functional Exposure. It is also not required
+      for a confirmed Tier 1 aggregate or summary-level output where the documented assessment establishes that
+      there is no participant-level record, persistent participant trace, linkage mechanism, material inferential
+      exposure or model-associated computational persistence. This exception does not cover source data, retained
+      intermediate representations or models assessed as separate governance objects; AI or model activities requiring
+      assessment under Tool 2 / Supplementary Table 7 Step 10; unresolved uncertainty; or later changes capable
+      of materially altering Functional Exposure.
     - Unsure
     - Obtain clarification of the processing, AI activity or possible computational persistence. Do not mark the
       activity as exempt while applicability remains uncertain. Pause this assessment and return to Step 1 when

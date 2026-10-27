@@ -79,7 +79,7 @@ def scen_html(s):
 <h3>{E(s["title"])}</h3>
 <p class="lead">{E(s["setting"])}</p>
 <div class="parties"><div><b>Data provider</b>{E(s["exporter"])}</div><div><b>Recipient</b>{E(s["importer"])}</div><div><b>Data</b>{E(s["datadesc"])}</div></div>
-<div class="facts"><div><b>Origin regime</b>{E(s["origin"])}</div><div><b>Destination</b>{E(s["dest"])}</div><div><b>Access mode</b>{E(s["access"])}</div><div><b>Determination</b><span class="{"negtxt" if (s["verdict_new"].lower().startswith("do not") or s["verdict_new"].lower().startswith("specialist")) else "postxt"}">{E(s["verdict_new"])}</span></div></div>
+<div class="facts"><div><b>Origin regime</b>{E(s["origin"])}</div><div><b>Destination</b>{E(s["dest"])}</div><div><b>Access mode</b>{E(s["access"])}</div><div><b>Determination</b><span class="{"negtxt" if s["verdict_new"].lower().startswith("do not") else "postxt"}">{E(s["verdict_new"])}</span></div></div>
 <h4>Path through the tools</h4>
 {strip_html(s)}
 <h4>Step-by-step</h4>
@@ -87,7 +87,7 @@ def scen_html(s):
 <div class="two"><div><h4>Legal points that decide the case</h4><ul>{legal}</ul></div><div><h4>Questions to put to counsel</h4><ul>{counsel}</ul></div></div>
 </section>'''
 
-ex_tabs=''.join(f'<button class="excard{" neg" if (s["verdict_new"].lower().startswith("do not") or s["verdict_new"].lower().startswith("specialist")) else ""}" data-sub="examples" data-id="{s["id"]}" title="{E(s["verdict_new"])}"><span class="exname">{E(s["short"])}</span><span class="exmeta">{E(s["region"])}</span></button>' for s in SCENARIOS)
+ex_tabs=''.join(f'<button class="excard{" neg" if s["verdict_new"].lower().startswith("do not") else ""}" data-sub="examples" data-id="{s["id"]}" title="{E(s["verdict_new"])}"><span class="exname">{E(s["short"])}</span><span class="exmeta">{E(s["region"])}</span></button>' for s in SCENARIOS)
 ex_panels=''.join(scen_html(s) for s in SCENARIOS)
 
 page = f'''<!doctype html>
@@ -215,7 +215,7 @@ a{{color:var(--accent)}}
 
 <section class="panel" id="panel-examples">
 <h2>Sixteen worked examples</h2>
-<p class="lead">Realistic arrangements drawn from current practice in the sampled regions; a red dot marks the cases that end in “do not proceed” or cannot be classified without specialist review. Click one to open it below the list: parties, data, the path through the four tools, the legal points that decide the case and the questions to put to counsel.</p>
+<p class="lead">Realistic arrangements drawn from current practice in the sampled regions; a red dot marks the cases that end in “do not proceed”. Click one to open it below the list: parties, data, the path through the four tools, the legal points that decide the case and the questions to put to counsel.</p>
 <div class="excards" data-group="examples">{ex_tabs}</div>
 {ex_panels}
 </section>

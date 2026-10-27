@@ -23,9 +23,9 @@
   access: Downloadable copy, public
   tools:
     - tool: Tool 1 (the deposited copy)
-      result: Unclassified — specialist review required. The deposited copy is participant-level, de-identified
-        and non-linkable by OpenNeuro or its users, and Tool 1 has no tier for that case; the lab’s own copy, which
-        keeps the key, is Tier 2.
+      result: Tier 2A for the deposited copy (participant-level, de-identified, no linkage mechanism reasonably
+        available to the recipient), assigned at Step 7; the lab’s own copy, which keeps the key, is Tier 2 (Step
+        6).
       steps:
         - step: Check
           answer: Completed
@@ -49,27 +49,28 @@
             answers Yes and is Tier 2.
         - step: '7'
           answer: 'No'
-          note: 'Participant-level records remain, so the object is not aggregate-only: “Reassessment required”;
-            Steps 3–6 confirmed; “Unclassified — specialist review required” recorded.'
+          note: 'Participant-level records remain: “Reassessment required”; Steps 3–6 confirmed; de-identified with
+            no reasonably available linkage mechanism → Tier 2A.'
+        - step: '8'
+          answer: 'No'
+          note: 'Disclosure-risk assessment for the public: healthy cohort, no rare diagnoses, residual-risk literature
+            on defacing noted.'
         - step: Final
-          answer: Provisional
-          note: Lab copy Tier 2; deposited copy referred for specialist governance review with the disclosure-risk
-            evidence (healthy cohort, no rare diagnoses, residual-risk literature).
+          answer: Tier 2A, confirmed
+          note: 'Safeguards: documented de-identification, disclosure-risk assessment, re-identification prohibition
+            carried by the repository terms.'
     - tool: Tool 2 (public-release pathway)
-      result: Outcome 4 — Do not proceed until specialist review resolves the classification; the public-release
-        pathway is otherwise ready to complete.
+      result: 'Outcome 1 — Proceed: licence recorded; re-identification ban; takedown and response procedure documented.'
       steps:
         - step: '1'
           answer: Repository deposit; public/open-access release
           note: ''
         - step: '2'
-          answer: 'No'
-          note: Tool 1 could not establish a tier for the deposited copy and requires specialist review → Final
-            Decision Outcome 4.
+          answer: 'Yes'
+          note: Tier 2A, confirmed.
         - step: '3'
           answer: Public/open-access release proposed
-          note: Object and version, releasing organisation (the lab), repository (OpenNeuro) and licence (CC0) recorded
-            for the review.
+          note: Object and version, releasing organisation (the lab), repository (OpenNeuro) and licence (CC0) recorded.
         - step: 4B
           answer: 'Yes'
           note: OpenNeuro, Stanford University and its hosting provider identified.
@@ -88,8 +89,23 @@
           answer: 'No'
           note: No EHDS permit or statutory access authorisation.
         - step: 8B
-          answer: Pending
-          note: Depends on the tier the specialist review assigns.
+          answer: 'Yes'
+          note: De-identification and the repository’s re-identification prohibition operate at release.
+        - step: 9B
+          answer: 'No'
+          note: No foreseeable linkage that changes exposure for a healthy, defaced cohort; assessment recorded.
+        - step: 10B
+          answer: 'Yes'
+          note: AI reuse foreseeable under CC0; the object is a dataset, so no Tool 3 for the release itself.
+        - step: 11B
+          answer: 'Yes'
+          note: Open reuse covered by the Open Brain Consent and ethics approval; scope recorded.
+        - step: 12B
+          answer: 'Yes'
+          note: Redistribution permitted under CC0; compatible with the safeguards.
+        - step: '13'
+          answer: 'Yes'
+          note: De-identification, licence terms, takedown procedure.
     - tool: Tool 3
       result: Not required.
       steps:
@@ -105,15 +121,15 @@
         - step: 1A
           answer: 'Yes'
           note: Repository terms and CC0 recorded; no separate MDTAA with OpenNeuro required. End of tool.
-  verdict_new: Specialist review required (Tool 1 cannot assign a tier)
+  verdict_new: Proceed (conditions documented)
   legal:
-    - 'Tool 1 has no tier for participant-level data that are de-identified and non-linkable by the recipient: Step
-      7 “No” records “Unclassified — specialist review required”. The review weighs the residual re-identification
-      risk of defaced images and the recipient’s means.'
+    - Tool 1 Step 7 assigns Tier 2A to participant-level data that are de-identified and have no reasonably available
+      linkage mechanism (27 October 2026 revision); the label is defined only at that step, so the safeguards applied
+      are those of Tier 2.
     - 'CJEU C-413/23 P (EDPS v SRB, 4 Sept 2025): pseudonymised data may be non-personal for a recipient without
       means of re-identification.'
-    - Residual re-identification risk after defacing (Schwarz 2019; Steeg 2024) must be weighed in the specialist
-      review.
+    - Residual re-identification risk after defacing (Schwarz 2019; Steeg 2024) must be weighed in the Step 8 disclosure-risk
+      assessment.
     - EU–US DPF is available only to FTC/DOT-regulated organisations; irrelevant for anonymous data, decisive if
       the data were personal.
   counsel:

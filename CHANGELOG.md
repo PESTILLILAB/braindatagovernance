@@ -2,7 +2,9 @@
 
 Dated entries, newest first. Legal content changes name the jurisdiction and the date the content reflects.
 
-## 2026-10-26 — v1.1
+## 2026-10-27 — v1.1
+
+- Tables updated to the 27 October revision: Tool 1 Step 7 “No” now assigns Tier 2A (de-identified, no linkage mechanism) or Tier 2B (key retained) instead of ending in specialist review; Example 1 (open deposit) returns to “Proceed”. Typographical fixes adopted by the authors removed from the local-corrections list.
 
 - Tools 1–4 updated to the authors' revised Supplementary Tables 6–9 (26 October 2026): applicability checkpoint and tier-confirmation rule in Tool 1; controlled-access (A) and public-release (B) pathways and the statutory-authorisation step 7A in Tool 2; the Annexure 1 §7.2 exception reproduced in Tool 3; public-release applicability (Step 1A) in Tool 4. The sub-tier 1b, the participant-status step, the matrix-class step and the split lawful-basis step proposed in the review draft are withdrawn.
 - Tier framework aligned with MDTAA Annexure 1 §3 (five tiers).
