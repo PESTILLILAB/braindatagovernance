@@ -16,7 +16,7 @@ E = lambda s: html.escape(str(s), quote=True)
 # ---------- toolkit tables -> accordion html
 def tool_html(key, title, cols):
     rows = T[key]; hdr = rows[0]; body = rows[1:]
-    out = [f'<h3>{E(title)}</h3>']
+    out = [f'<h3>{E(title)}</h3>', '<div class="steps">']
     # group by step
     groups = []; cur = None
     for r in body:
@@ -42,6 +42,7 @@ def tool_html(key, title, cols):
         for cells, changed in g['rows']:
             out.append(f'<tr>' + ''.join(f'<td>{E(c)}</td>' for c in cells[2:]) + '</tr>')
         out.append('</tbody></table></details>')
+    out.append('</div>')
     return '\n'.join(out)
 
 tools = [
@@ -72,7 +73,7 @@ def scen_html(s):
     steps=''
     for t in s['tools']:
         rows=''.join(f'<tr><td class="k">{E(st)}</td><td>{E(a)}</td><td class="m">{E(n)}</td></tr>' for st,a,n in t['steps'])
-        steps+=f'<details class="step" open><summary><span class="stepno">{E(t["tool"])}</span><span class="stepq">{E(t["result"])}</span></summary><table><thead><tr><th>Step</th><th>Answer</th><th>Note</th></tr></thead><tbody>{rows}</tbody></table></details>'
+        steps+=f'<div class="toolcard"><div class="tchead"><span class="stepno">{E(t["tool"])}</span><span class="stepq">{E(t["result"])}</span></div><table><thead><tr><th>Step</th><th>Answer</th><th>Note</th></tr></thead><tbody>{rows}</tbody></table></div>'
     legal=''.join(f'<li>{E(x)}</li>' for x in s['legal'])
     counsel=''.join(f'<li>{E(x)}</li>' for x in s['counsel'])
     return f'''<section class="subpanel" id="examples-{s["id"]}">
@@ -121,10 +122,11 @@ main{{padding-block:22px 60px}}
 h2{{font-size:1.35rem;font-weight:600;margin:0 0 .4rem}} h3{{font-size:1.15rem;font-weight:600;margin:1.2rem 0 .5rem}} h4{{font-size:1rem;margin:1.2rem 0 .4rem}}
 p,li{{max-width:78ch}} .lead{{color:var(--muted)}}
 .card{{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:0 0 14px}}
-.fourtools{{list-style:none;margin:0 0 18px;padding:0;max-width:78ch}} .fourtools li{{margin:0 0 10px;padding-left:2.2em;text-indent:-2.2em}} .fourtools b{{font-family:var(--mono);color:var(--accent);font-weight:500;margin-right:.6em}}
-details.step{{border-top:1px solid var(--line);margin:0}} details.step:last-of-type{{border-bottom:1px solid var(--line)}} details.step[open]{{padding-bottom:10px}}
+.fourtools{{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}} .fourtools li{{margin:0;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px}} .fourtools b{{display:block;font-family:var(--mono);color:var(--accent);font-weight:500;font-size:.8rem;letter-spacing:.04em;margin-bottom:4px}} .fourtools strong{{display:block;margin-bottom:4px}}
+.steps{{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0 14px;margin:0 0 18px}} details.step{{border-top:1px solid var(--line);margin:0}} details.step:first-of-type{{border-top:0}} details.step[open]{{padding-bottom:12px;background:color-mix(in srgb,var(--tier) 55%,var(--panel));margin:0 -14px;padding-left:14px;padding-right:14px}}
+.toolhead{{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin:0 0 10px}} .toolhead h3{{margin:0}}
 details.step.chg{{border-color:var(--newline);background:color-mix(in srgb,var(--new) 45%,var(--panel))}}
-details.step summary{{cursor:pointer;padding:10px 4px;display:flex;gap:12px;align-items:baseline;list-style:none}} details.step summary:hover .stepq{{color:var(--accent)}} details.step table{{margin:4px 0 0 0}}
+details.step summary{{cursor:pointer;padding:11px 4px;display:flex;gap:12px;align-items:baseline;list-style:none}} details.step summary:hover .stepq{{color:var(--accent)}} details.step table{{margin:4px 0 0 0}}
 details.step summary::-webkit-details-marker{{display:none}}
 details.step summary::before{{content:"▸";color:var(--accent);flex:0 0 auto}} details.step[open] summary::before{{content:"▾"}}
 .stepno{{font-family:var(--mono);font-weight:500;color:var(--accent);flex:0 0 auto;min-width:3.2em}} .stepq{{flex:1 1 auto;min-width:0}}
@@ -133,29 +135,30 @@ table{{border-collapse:collapse;width:100%;font-size:.9rem}} th,td{{text-align:l
 tr.chg td{{background:var(--new)}}
 td.k{{font-family:var(--mono);white-space:nowrap}} td.m{{color:var(--muted)}}
 .tablewrap{{overflow-x:auto}}
-.note{{background:var(--tier);border-left:3px solid var(--accent);padding:8px 12px;margin:0 0 8px;font-size:.9rem;color:var(--muted)}} .note.chg{{background:var(--new);border-left-color:var(--newline);color:var(--fg)}}
+.steps .note{{margin:10px 0}} .note{{background:var(--tier);border-left:3px solid var(--accent);padding:8px 12px;margin:0 0 8px;font-size:.9rem;color:var(--muted)}} .note.chg{{background:var(--new);border-left-color:var(--newline);color:var(--fg)}}
 .controls{{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:0 0 12px;font-size:.9rem}} .controls button.sub{{background:none;border:0;padding:0;color:var(--accent);font:inherit;font-size:.9rem;cursor:pointer;text-decoration:underline}}
 .controls input[type=search]{{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--fg);min-width:240px}}
-.facts{{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:14px 0 6px;font-size:.92rem;max-width:90ch}} .facts b{{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:3px;font-weight:600}} .facts span{{display:block}} @media (max-width:560px){{.facts{{grid-template-columns:1fr;gap:2px}} .facts span{{margin-bottom:8px}}}}
+.facts{{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:14px 0 18px;font-size:.92rem;max-width:none;background:var(--tier);border-radius:8px;padding:14px 18px}} .facts b{{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:3px;font-weight:600}} .facts span{{display:block}} @media (max-width:560px){{.facts{{grid-template-columns:1fr;gap:2px}} .facts span{{margin-bottom:8px}}}}
 .verdicts{{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 4px}} .v{{padding:5px 10px;border-radius:999px;font-size:.85rem;border:1.5px solid}} .v.old{{border-color:var(--old);color:var(--old)}} .v.new{{border-color:var(--good);color:var(--good)}}
 .strip{{display:flex;flex-direction:column;gap:8px;margin:6px 0 10px}}
 .lane{{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:start}} .lanehead{{font-weight:600;font-size:.9rem;padding-top:6px}}
 .chips{{display:flex;flex-wrap:wrap;gap:6px}} .chip{{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-size:.82rem}} .chip b{{font-family:var(--mono);color:var(--accent);font-weight:500;margin-right:4px}} .chip.res{{background:var(--tier);border-color:var(--accent);font-weight:600}}
 .callout{{border-left:3px solid var(--old);background:var(--panel);padding:10px 14px;margin:14px 0;font-size:.95rem}}
-.two{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}}
+.two{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:4px 20px 14px;margin-top:18px}} .two h4{{margin-top:.9rem}}
+.toolcard{{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin:0 0 12px;overflow:hidden}} .toolcard .tchead{{display:flex;gap:12px;align-items:baseline;padding:9px 14px;background:var(--tier);border-bottom:1px solid var(--line)}} .toolcard .tchead .stepno{{min-width:0}} .toolcard .tchead .stepq{{font-weight:600}} .toolcard table{{font-size:.88rem}} .toolcard td,.toolcard th{{padding:7px 14px}} .toolcard thead th{{border-top:0}}
 figure{{margin:0 0 18px;padding:0}} .iwf-legend button.sub{{background:none;border:0;padding:0;color:var(--accent);font:inherit;font-size:.85rem;cursor:pointer;text-decoration:underline}} figcaption{{color:var(--muted);font-size:.9rem;margin-top:8px}}
 .scroll{{overflow-x:auto}} #wf{{min-width:1200px;width:100%;height:auto;display:block}}
 .legend{{display:flex;flex-wrap:wrap;gap:12px 20px;font-size:.85rem;color:var(--muted);margin:0 0 10px}} .legend span{{display:inline-flex;align-items:center;gap:6px}} .sw{{width:20px;height:13px;border:1.5px solid var(--line);border-radius:3px;background:var(--panel)}} .sw.new{{background:var(--new);border-color:var(--newline)}} .sw.tier{{background:var(--tier);border-color:var(--accent)}} .sw.loop{{border:0;height:2px;background:var(--loop);width:24px}}
 .tierlist{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}} .tierlist div{{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:8px 12px;font-size:.92rem}} .tierlist div.new{{border-left-color:var(--newline)}} .tierlist b{{display:block}}
 td.old{{color:var(--old)}} td.new{{color:var(--good)}}
-.excards{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 32px;margin:0 0 28px;max-width:960px}}
-@media (max-width:640px){{.excards{{grid-template-columns:1fr}}}}
+.excards{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 24px}}
+@media (max-width:1000px){{.excards{{grid-template-columns:repeat(2,minmax(0,1fr))}}}} @media (max-width:560px){{.excards{{grid-template-columns:1fr}}}}
 .exdet.neg,.negtxt{{color:var(--old)}} .postxt{{color:var(--good);font-weight:600}}
 
-.excard{{text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:7px 4px 7px 18px;position:relative;font:inherit;color:var(--fg);cursor:pointer;display:block;width:100%}}
-.excard:hover .exname{{color:var(--accent)}} .excard.active .exname{{color:var(--accent);text-decoration:underline;text-underline-offset:3px}}
+.excard{{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px 8px 24px;position:relative;font:inherit;color:var(--fg);cursor:pointer;display:block;width:100%;transition:border-color .15s}}
+.excard:hover{{border-color:var(--accent)}} .excard.active{{border-color:var(--accent);background:var(--tier);box-shadow:0 0 0 1px var(--accent) inset}}
 .excard:focus-visible{{outline:2px solid var(--accent);outline-offset:2px}}
-.excard::before{{content:"";position:absolute;left:2px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--good)}} .excard.neg::before{{background:var(--old)}} .exname{{font-weight:500;font-size:.92rem;line-height:1.3}} .exmeta{{display:block;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:1px}} .exabs{{font-size:.88rem;color:var(--muted);line-height:1.45}} .exdet{{font-size:.78rem;color:var(--good);font-weight:600;margin-top:2px}}
+.excard::before{{content:"";position:absolute;left:10px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--good)}} .excard.neg::before{{background:var(--old)}} .exname{{font-weight:500;font-size:.92rem;line-height:1.3}} .exmeta{{display:block;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:1px}} .exabs{{font-size:.88rem;color:var(--muted);line-height:1.45}} .exdet{{font-size:.78rem;color:var(--good);font-weight:600;margin-top:2px}}
 
 footer{{color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:14px;margin-top:30px}}
 a{{color:var(--accent)}}
