@@ -13,10 +13,40 @@ T = Y('tools')
 
 E = lambda s: html.escape(str(s), quote=True)
 
+# ---------- visual helpers: answer pills, tier badges, reference chips, tool colours
+TOOLCOL = {'T6':'#005981','T7':'#e57536','T8':'#a9262c','T9':'#c99a00','Tool 1':'#005981','Tool 2':'#e57536','Tool 3':'#a9262c','Tool 4':'#c99a00'}
+TIERS_BY_ID = {t['id']: t for t in Y('tiers')}
+def ans_html(a):
+    t = a.strip(); low = t.lower()
+    if not t: return ''
+    if low.startswith('yes'): k = 'yes'
+    elif low.startswith('no,') or low.startswith('no —') or low.startswith('no /') or low.startswith('no or'): k = 'cond'
+    elif low.startswith('no'): k = 'no'
+    elif low.startswith(('unsure','unknown','uncertain','not technically')): k = 'unk'
+    elif low.startswith('complete'): k = 'done'
+    else: k = 'opt'
+    return f'<span class="ans ans-{k}">{E(t)}</span>'
+def tier_html(c):
+    t = c.strip()
+    m = re.match(r'^Tier (\d)\b(.*)$', t)
+    if m and m.group(1) in TIERS_BY_ID:
+        tt = TIERS_BY_ID[m.group(1)]
+        return f'<span class="tierbadge" style="background:{tt["background"]};color:{tt["text_colour"]}">Tier {m.group(1)}</span>' + (f' <span class="m">{E(m.group(2).strip())}</span>' if m.group(2).strip() else '')
+    if t.lower().startswith('no tier'): return f'<span class="m notier">{E(t)}</span>'
+    return E(t)
+REF = re.compile(r'(Continue to Step [0-9]+[A-Z]?|Return to Step [0-9]+[A-Z]?|Resume at Step [0-9]+[A-Z]?|proceed to the Final Decision|Final Decisions? Outcome [0-9]|Outcome [0-9]|Final Decision)')
+def action_html(c):
+    return REF.sub(lambda m: f'<span class="ref">{m.group(0)}</span>', E(c))
+def step_tag(step, key):
+    if key != 'T7': return ''
+    if step.endswith('A'): return '<span class="ptag pa">controlled access</span>'
+    if step.endswith('B'): return '<span class="ptag pb">public release</span>'
+    return ''
+
 # ---------- toolkit tables -> accordion html
 def tool_html(key, title, cols):
     rows = T[key]; hdr = rows[0]; body = rows[1:]
-    out = [f'<h3>{E(title)}</h3>', '<div class="steps">']
+    out = [f'<h3><span class="toolsq" style="background:{TOOLCOL[key]}"></span>{E(title)}</h3>', f'<div class="steps" style="border-left:4px solid {TOOLCOL[key]}">']
     # group by step
     groups = []; cur = None
     for r in body:
@@ -37,10 +67,16 @@ def tool_html(key, title, cols):
             out.append(f'<div class="note">{E(g["text"])}</div>'); continue
         cls = 'step'
         q = g['q'] or (g['rows'][0][0][1] if g['rows'] else '')
-        out.append(f'<details class="{cls}"><summary><span class="stepno">{E(g["step"])}</span><span class="stepq">{E(q)}</span></summary>')
+        out.append(f'<details class="{cls}"><summary><span class="stepno">{E(g["step"])}</span><span class="stepq">{E(q)}{step_tag(g["step"], key)}</span></summary>')
         out.append('<table><thead><tr>' + ''.join(f'<th>{E(h)}</th>' for h in hdr[2:]) + '</tr></thead><tbody>')
+        tier_col = next((i for i, h in enumerate(hdr) if 'tier' in h.lower()), None)
         for cells, changed in g['rows']:
-            out.append(f'<tr>' + ''.join(f'<td>{E(c)}</td>' for c in cells[2:]) + '</tr>')
+            tds = []
+            for i, c in enumerate(cells[2:], start=2):
+                if i == 2: tds.append(f'<td class="anscol">{ans_html(c)}</td>')
+                elif i == tier_col: tds.append(f'<td class="tiercol">{tier_html(c)}</td>')
+                else: tds.append(f'<td>{action_html(c)}</td>')
+            out.append('<tr>' + ''.join(tds) + '</tr>')
         out.append('</tbody></table></details>')
     out.append('</div>')
     return '\n'.join(out)
@@ -72,14 +108,17 @@ def strip_html(s):
 def scen_html(s):
     steps=''
     for t in s['tools']:
-        rows=''.join(f'<tr><td class="k">{E(st)}</td><td>{E(a)}</td><td class="m">{E(n)}</td></tr>' for st,a,n in t['steps'])
-        steps+=f'<div class="toolcard"><div class="tchead"><span class="stepno">{E(t["tool"])}</span><span class="stepq">{E(t["result"])}</span></div><table><thead><tr><th>Step</th><th>Answer</th><th>Note</th></tr></thead><tbody>{rows}</tbody></table></div>'
+        rows=''.join(f'<tr><td class="k">{E(st)}</td><td class="anscol">{ans_html(a)}</td><td class="m">{E(n)}</td></tr>' for st,a,n in t['steps'])
+        tkey=t["tool"].split(' (')[0].strip(); col=TOOLCOL.get(tkey,'#005981')
+        res=re.sub(r'\bTier (\d)\b,?', lambda m: f'<span class="tierbadge" style="background:{TIERS_BY_ID[m.group(1)]["background"]};color:{TIERS_BY_ID[m.group(1)]["text_colour"]}">Tier {m.group(1)}</span>' if m.group(1) in TIERS_BY_ID else m.group(0), E(t["result"]))
+        res=REF.sub(lambda m: f'<span class="ref">{m.group(0)}</span>', res)
+        steps+=f'<div class="toolcard" style="border-left:4px solid {col}"><div class="tchead"><span class="stepno" style="color:{col}">{E(t["tool"])}</span><span class="stepq">{res}</span></div><table><thead><tr><th>Step</th><th>Answer</th><th>Note</th></tr></thead><tbody>{rows}</tbody></table></div>'
     legal=''.join(f'<li>{E(x)}</li>' for x in s['legal'])
     counsel=''.join(f'<li>{E(x)}</li>' for x in s['counsel'])
     return f'''<section class="subpanel" id="examples-{s["id"]}">
 <h3>{E(s["title"])}</h3>
 <p class="lead">{E(s["setting"])}</p>
-<div class="facts"><b>Data provider</b><span>{E(s["exporter"])}</span><b>Recipient</b><span>{E(s["importer"])}</span><b>Data</b><span>{E(s["datadesc"])}</span><b>Origin regime</b><span>{E(s["origin"])}</span><b>Destination</b><span>{E(s["dest"])}</span><b>Access mode</b><span>{E(s["access"])}</span><b>Determination</b><span class="{"negtxt" if s["verdict_new"].lower().startswith("do not") else "postxt"}">{E(s["verdict_new"])}</span></div>
+<div class="facts"><b>Data provider</b><span>{E(s["exporter"])}</span><b>Recipient</b><span>{E(s["importer"])}</span><b>Data</b><span>{E(s["datadesc"])}</span><b>Origin regime</b><span>{E(s["origin"])}</span><b>Destination</b><span>{E(s["dest"])}</span><b>Access mode</b><span>{E(s["access"])}</span><b>Determination</b><span><span class="verdict {"neg" if s["verdict_new"].lower().startswith("do not") else "pos"}">{E(s["verdict_new"])}</span></span></div>
 <h4>Path through the tools</h4>
 {steps}
 <div class="two"><div><h4>Legal points that decide the case</h4><ul>{legal}</ul></div><div><h4>Questions to put to counsel</h4><ul>{counsel}</ul></div></div>
@@ -117,12 +156,12 @@ main{{padding-block:22px 60px}}
 .panel{{display:none}} .panel.active{{display:block}}
 .subtabs{{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}}
 .subtabs button{{background:var(--panel);border:1px solid var(--line);color:var(--fg);padding:6px 11px;border-radius:999px;font:inherit;font-size:.9rem;cursor:pointer}}
-.subtabs button.active{{background:var(--accent);border-color:var(--accent);color:#fff}}
+.subtabs button.active{{background:var(--accent);border-color:var(--accent);color:#fff}} .subtabs button[data-id=t2].active{{background:#e57536;border-color:#e57536}} .subtabs button[data-id=t3].active{{background:#a9262c;border-color:#a9262c}} .subtabs button[data-id=t4].active{{background:#c99a00;border-color:#c99a00}}
 .subpanel{{display:none}} .subpanel.active{{display:block}}
 h2{{font-size:1.35rem;font-weight:600;margin:0 0 .4rem}} h3{{font-size:1.15rem;font-weight:600;margin:1.2rem 0 .5rem}} h4{{font-size:1rem;margin:1.2rem 0 .4rem}}
 p,li{{max-width:78ch}} .lead{{color:var(--muted)}}
 .card{{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:0 0 14px}}
-.fourtools{{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}} .fourtools li{{margin:0;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px}} .fourtools b{{display:block;font-family:var(--mono);color:var(--accent);font-weight:500;font-size:.8rem;letter-spacing:.04em;margin-bottom:4px}} .fourtools strong{{display:block;margin-bottom:4px}}
+.fourtools{{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}} .fourtools li{{margin:0;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px}} .fourtools li:nth-child(2){{border-left-color:#e57536}} .fourtools li:nth-child(3){{border-left-color:#a9262c}} .fourtools li:nth-child(4){{border-left-color:#c99a00}} .fourtools b{{display:block;font-family:var(--mono);color:var(--accent);font-weight:500;font-size:.8rem;letter-spacing:.04em;margin-bottom:4px}} .fourtools strong{{display:block;margin-bottom:4px}}
 .steps{{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0 14px;margin:0 0 18px}} details.step{{border-top:1px solid var(--line);margin:0}} details.step:first-of-type{{border-top:0}} details.step[open]{{padding-bottom:12px;background:color-mix(in srgb,var(--tier) 55%,var(--panel));margin:0 -14px;padding-left:14px;padding-right:14px}}
 .toolhead{{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin:0 0 10px}} .toolhead h3{{margin:0}}
 details.step.chg{{border-color:var(--newline);background:color-mix(in srgb,var(--new) 45%,var(--panel))}}
@@ -130,6 +169,16 @@ details.step summary{{cursor:pointer;padding:11px 4px;display:flex;gap:12px;alig
 details.step summary::-webkit-details-marker{{display:none}}
 details.step summary::before{{content:"▸";color:var(--accent);flex:0 0 auto}} details.step[open] summary::before{{content:"▾"}}
 .stepno{{font-family:var(--mono);font-weight:500;color:var(--accent);flex:0 0 auto;min-width:3.2em}} .stepq{{flex:1 1 auto;min-width:0}}
+.toolsq{{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px;vertical-align:-1px}}
+.ans{{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.82rem;font-weight:600;line-height:1.35;border:1px solid transparent}}
+.ans-yes{{background:#e3f3e8;color:#135c37;border-color:#b9dec6}} .ans-no{{background:#eceff2;color:#3a4150;border-color:#d3d8de}} .ans-cond{{background:#fdf0dc;color:#7a4a00;border-color:#f3d9a6}} .ans-unk{{background:#fff6cc;color:#6b5200;border-color:#f1dd8a}} .ans-done{{background:#e6f0f5;color:#004a6b;border-color:#bcd5e3}} .ans-opt{{background:var(--panel);color:var(--fg);border-color:var(--line);font-weight:500;border-radius:6px;padding:3px 9px}}
+@media (prefers-color-scheme:dark){{.ans-yes{{background:#173d2a;color:#9fe0b8;border-color:#245c3d}} .ans-no{{background:#2a303b;color:#c7cdd6;border-color:#3f4755}} .ans-cond{{background:#4a3310;color:#f5cd84;border-color:#6b4a17}} .ans-unk{{background:#4a4210;color:#f3e08a;border-color:#6b6017}} .ans-done{{background:#163346;color:#9fd0ec;border-color:#234a63}}}}
+td.anscol{{white-space:normal;min-width:7em;max-width:16em}}
+.tierbadge{{display:inline-block;padding:2px 8px;border-radius:5px;font-weight:700;font-size:.8rem;letter-spacing:.02em;white-space:nowrap}} .notier{{font-size:.82rem}}
+.ref{{font-family:var(--mono);font-size:.8rem;background:var(--tier);color:var(--accent);padding:0 5px;border-radius:4px;white-space:nowrap}}
+.ptag{{display:inline-block;margin-left:10px;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border-radius:4px;vertical-align:2px;font-weight:600}} .ptag.pa{{background:#e6f0f5;color:#004a6b}} .ptag.pb{{background:#fdeee4;color:#8a3b00}}
+@media (prefers-color-scheme:dark){{.ptag.pa{{background:#163346;color:#9fd0ec}} .ptag.pb{{background:#4a2a14;color:#f5b58a}}}}
+.facts span .verdict{{display:inline-block}} .verdict{{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:700;font-size:.85rem;color:#fff}} .verdict.pos{{background:var(--good)}} .verdict.neg{{background:var(--old)}}
 .tag{{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;background:var(--newline);color:#fff;padding:2px 7px;border-radius:4px;flex:0 0 auto}}
 table{{border-collapse:collapse;width:100%;font-size:.9rem}} th,td{{text-align:left;vertical-align:top;padding:8px 10px;border-top:1px solid var(--line)}} th{{color:var(--muted);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}}
 tr.chg td{{background:var(--new)}}
