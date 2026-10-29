@@ -2,7 +2,10 @@
 
 Dated entries, newest first. Legal content changes name the jurisdiction and the date the content reflects.
 
-## 2026-10-27 — v1.1
+## 2026-10-29 — v1.1
+
+- Tables updated to the 29 October revision: Tool 1 Step 7 “No” assigns Tier 2 (the Tier 2A/2B labels are withdrawn).
+- Worked examples revised on the authors’ review: open deposit (Tier 2 with the linkage route and disclosure risk recorded as assessment factors); Nigeria (controller-of-major-importance status to be verified against the NDPC criteria); South Africa and Kenya (the transfer route assumed for the scenario is one of several, to be confirmed by counsel; Kenya’s serving-copy, transfer and research-permit requirements distinguished); Libya (video is directly identifying; its biometric status is regime-specific); Egypt (Executive Regulations under Decree 816/2025 cited; the scenario stipulates that the licence is unavailable).
 
 - Tables updated to the 27 October revision: Tool 1 Step 7 “No” now assigns Tier 2A (de-identified, no linkage mechanism) or Tier 2B (key retained) instead of ending in specialist review; Example 1 (open deposit) returns to “Proceed”. Typographical fixes adopted by the authors removed from the local-corrections list.
 
