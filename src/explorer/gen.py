@@ -52,7 +52,7 @@ tools = [
 ]
 tool_tabs = ''.join(f'<button class="sub" data-sub="toolkit" data-id="t{i+1}">Tool {i+1}</button>' for i in range(4))
 PDFS={'T6': 'Tool1_Neurodata_Governance_Decision_Tool.pdf', 'T7': 'Tool2_Neurodata_Transfer_and_Access_Decision_Tool.pdf', 'T8': 'Tool3_Derivative_and_Embedding_Governance_Decision_Tool.pdf', 'T9': 'Tool4_MDTAA_Clause_Selection_Tool.pdf'}
-tool_panels = ''.join(f'<section class="subpanel" id="toolkit-t{i+1}"><p class="lead">{E(d)}</p><p><a class="dl" href="pdf/{PDFS[k]}" download>Download {E(t.split(" — ")[0])} as PDF</a></p>{tool_html(k,t,None)}</section>' for i,(k,t,d) in enumerate(tools))
+tool_panels = ''.join(f'<section class="subpanel" id="toolkit-t{i+1}"><p class="lead">{E(d)}</p>{tool_html(k,t,None)}</section>' for i,(k,t,d) in enumerate(tools))
 
 # ---------- scenarios
 def abstract(s):
@@ -78,11 +78,8 @@ def scen_html(s):
     return f'''<section class="subpanel" id="examples-{s["id"]}">
 <h3>{E(s["title"])}</h3>
 <p class="lead">{E(s["setting"])}</p>
-<div class="parties"><div><b>Data provider</b>{E(s["exporter"])}</div><div><b>Recipient</b>{E(s["importer"])}</div><div><b>Data</b>{E(s["datadesc"])}</div></div>
-<div class="facts"><div><b>Origin regime</b>{E(s["origin"])}</div><div><b>Destination</b>{E(s["dest"])}</div><div><b>Access mode</b>{E(s["access"])}</div><div><b>Determination</b><span class="{"negtxt" if s["verdict_new"].lower().startswith("do not") else "postxt"}">{E(s["verdict_new"])}</span></div></div>
+<div class="facts"><b>Data provider</b><span>{E(s["exporter"])}</span><b>Recipient</b><span>{E(s["importer"])}</span><b>Data</b><span>{E(s["datadesc"])}</span><b>Origin regime</b><span>{E(s["origin"])}</span><b>Destination</b><span>{E(s["dest"])}</span><b>Access mode</b><span>{E(s["access"])}</span><b>Determination</b><span class="{"negtxt" if s["verdict_new"].lower().startswith("do not") else "postxt"}">{E(s["verdict_new"])}</span></div>
 <h4>Path through the tools</h4>
-{strip_html(s)}
-<h4>Step-by-step</h4>
 {steps}
 <div class="two"><div><h4>Legal points that decide the case</h4><ul>{legal}</ul></div><div><h4>Questions to put to counsel</h4><ul>{counsel}</ul></div></div>
 </section>'''
@@ -124,11 +121,10 @@ main{{padding-block:22px 60px}}
 h2{{font-size:1.35rem;font-weight:600;margin:0 0 .4rem}} h3{{font-size:1.15rem;font-weight:600;margin:1.2rem 0 .5rem}} h4{{font-size:1rem;margin:1.2rem 0 .4rem}}
 p,li{{max-width:78ch}} .lead{{color:var(--muted)}}
 .card{{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px 18px;margin:0 0 14px}}
-.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}}
-.grid .card h3{{margin-top:0}}
-details.step{{background:var(--panel);border:1px solid var(--line);border-radius:6px;margin:0 0 8px}}
+.fourtools{{list-style:none;margin:0 0 18px;padding:0;max-width:78ch}} .fourtools li{{margin:0 0 10px;padding-left:2.2em;text-indent:-2.2em}} .fourtools b{{font-family:var(--mono);color:var(--accent);font-weight:500;margin-right:.6em}}
+details.step{{border-top:1px solid var(--line);margin:0}} details.step:last-of-type{{border-bottom:1px solid var(--line)}} details.step[open]{{padding-bottom:10px}}
 details.step.chg{{border-color:var(--newline);background:color-mix(in srgb,var(--new) 45%,var(--panel))}}
-details.step summary{{cursor:pointer;padding:10px 12px;display:flex;gap:12px;align-items:baseline;list-style:none}}
+details.step summary{{cursor:pointer;padding:10px 4px;display:flex;gap:12px;align-items:baseline;list-style:none}} details.step summary:hover .stepq{{color:var(--accent)}} details.step table{{margin:4px 0 0 0}}
 details.step summary::-webkit-details-marker{{display:none}}
 details.step summary::before{{content:"▸";color:var(--accent);flex:0 0 auto}} details.step[open] summary::before{{content:"▾"}}
 .stepno{{font-family:var(--mono);font-weight:500;color:var(--accent);flex:0 0 auto;min-width:3.2em}} .stepq{{flex:1 1 auto;min-width:0}}
@@ -138,32 +134,32 @@ tr.chg td{{background:var(--new)}}
 td.k{{font-family:var(--mono);white-space:nowrap}} td.m{{color:var(--muted)}}
 .tablewrap{{overflow-x:auto}}
 .note{{background:var(--tier);border-left:3px solid var(--accent);padding:8px 12px;margin:0 0 8px;font-size:.9rem;color:var(--muted)}} .note.chg{{background:var(--new);border-left-color:var(--newline);color:var(--fg)}}
-.controls{{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:0 0 12px;font-size:.9rem}}
+.controls{{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:0 0 12px;font-size:.9rem}} .controls button.sub{{background:none;border:0;padding:0;color:var(--accent);font:inherit;font-size:.9rem;cursor:pointer;text-decoration:underline}}
 .controls input[type=search]{{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--fg);min-width:240px}}
-.facts{{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0}} .facts div{{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:.9rem}} .facts b{{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}}
+.facts{{display:grid;grid-template-columns:max-content 1fr;gap:6px 18px;margin:14px 0 6px;font-size:.92rem;max-width:90ch}} .facts b{{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:3px;font-weight:600}} .facts span{{display:block}} @media (max-width:560px){{.facts{{grid-template-columns:1fr;gap:2px}} .facts span{{margin-bottom:8px}}}}
 .verdicts{{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 4px}} .v{{padding:5px 10px;border-radius:999px;font-size:.85rem;border:1.5px solid}} .v.old{{border-color:var(--old);color:var(--old)}} .v.new{{border-color:var(--good);color:var(--good)}}
 .strip{{display:flex;flex-direction:column;gap:8px;margin:6px 0 10px}}
 .lane{{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:start}} .lanehead{{font-weight:600;font-size:.9rem;padding-top:6px}}
 .chips{{display:flex;flex-wrap:wrap;gap:6px}} .chip{{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-size:.82rem}} .chip b{{font-family:var(--mono);color:var(--accent);font-weight:500;margin-right:4px}} .chip.res{{background:var(--tier);border-color:var(--accent);font-weight:600}}
 .callout{{border-left:3px solid var(--old);background:var(--panel);padding:10px 14px;margin:14px 0;font-size:.95rem}}
 .two{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}}
-figure{{margin:0 0 18px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px}} figcaption{{color:var(--muted);font-size:.9rem;margin-top:8px}}
+figure{{margin:0 0 18px;padding:0}} .iwf-legend button.sub{{background:none;border:0;padding:0;color:var(--accent);font:inherit;font-size:.85rem;cursor:pointer;text-decoration:underline}} figcaption{{color:var(--muted);font-size:.9rem;margin-top:8px}}
 .scroll{{overflow-x:auto}} #wf{{min-width:1200px;width:100%;height:auto;display:block}}
 .legend{{display:flex;flex-wrap:wrap;gap:12px 20px;font-size:.85rem;color:var(--muted);margin:0 0 10px}} .legend span{{display:inline-flex;align-items:center;gap:6px}} .sw{{width:20px;height:13px;border:1.5px solid var(--line);border-radius:3px;background:var(--panel)}} .sw.new{{background:var(--new);border-color:var(--newline)}} .sw.tier{{background:var(--tier);border-color:var(--accent)}} .sw.loop{{border:0;height:2px;background:var(--loop);width:24px}}
 .tierlist{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}} .tierlist div{{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:8px 12px;font-size:.92rem}} .tierlist div.new{{border-left-color:var(--newline)}} .tierlist b{{display:block}}
 td.old{{color:var(--old)}} td.new{{color:var(--good)}}
-.excards{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0 0 20px}}
-@media (max-width:1000px){{.excards{{grid-template-columns:repeat(2,minmax(0,1fr))}}}} @media (max-width:560px){{.excards{{grid-template-columns:1fr}}}}
+.excards{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 32px;margin:0 0 28px;max-width:960px}}
+@media (max-width:640px){{.excards{{grid-template-columns:1fr}}}}
 .exdet.neg,.negtxt{{color:var(--old)}} .postxt{{color:var(--good);font-weight:600}}
-.parties{{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:10px 0}} .parties div{{background:var(--tier);border-radius:6px;padding:10px 12px;font-size:.9rem}} .parties b{{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}}
-.excard{{text-align:left;background:var(--panel);border:1.5px solid var(--line);border-radius:8px;padding:8px 10px 8px 24px;position:relative;font:inherit;color:var(--fg);cursor:pointer;display:flex;flex-direction:column;gap:2px;transition:border-color .15s,box-shadow .15s}}
-.excard:hover{{border-color:var(--accent);box-shadow:0 2px 10px rgba(0,0,0,.08)}} .excard.active{{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset;background:var(--tier)}}
+
+.excard{{text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:7px 4px 7px 18px;position:relative;font:inherit;color:var(--fg);cursor:pointer;display:block;width:100%}}
+.excard:hover .exname{{color:var(--accent)}} .excard.active .exname{{color:var(--accent);text-decoration:underline;text-underline-offset:3px}}
 .excard:focus-visible{{outline:2px solid var(--accent);outline-offset:2px}}
-.excard::before{{content:"";position:absolute;left:10px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--good)}} .excard.neg::before{{background:var(--old)}} .exname{{font-weight:600;font-size:.9rem;line-height:1.25}} .exmeta{{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}} .exabs{{font-size:.88rem;color:var(--muted);line-height:1.45}} .exdet{{font-size:.78rem;color:var(--good);font-weight:600;margin-top:2px}}
-.subpanel.exopen{{border-top:3px solid var(--accent);padding-top:10px}}
+.excard::before{{content:"";position:absolute;left:2px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--good)}} .excard.neg::before{{background:var(--old)}} .exname{{font-weight:500;font-size:.92rem;line-height:1.3}} .exmeta{{display:block;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:1px}} .exabs{{font-size:.88rem;color:var(--muted);line-height:1.45}} .exdet{{font-size:.78rem;color:var(--good);font-weight:600;margin-top:2px}}
+
 footer{{color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:14px;margin-top:30px}}
 a{{color:var(--accent)}}
-.dls{{display:flex;flex-wrap:wrap;gap:8px}} a.dl{{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:7px 12px;border-radius:6px;font-size:.9rem;font-weight:500}} a.dl:hover{{filter:brightness(1.1)}}
+.dls{{font-size:.9rem;color:var(--muted);margin:0 0 18px;max-width:none}} .dls a{{white-space:nowrap}} a.dl{{font-weight:500;text-decoration:none;border-bottom:1px solid currentColor}} a.dl:hover{{color:var(--accent2)}} .links a.dl{{margin-right:14px}}
 @media (max-width:600px){{.lane{{grid-template-columns:1fr}}}}
 {TIER_CSS}
 {iwf.CSS}
@@ -182,26 +178,23 @@ a{{color:var(--accent)}}
 
 <section class="panel active" id="panel-intro">
 <p class="lead" style="font-size:1.2rem;max-width:60ch">Four tools that take a collaboration from “what are these data?” to the clauses its agreement needs.</p>
-<div class="grid">
-<div class="card"><h3>1 · Classify</h3><p>What can the data reveal or enable, for this recipient? Tool 1 assigns a tier by functional exposure.</p></div>
-<div class="card"><h3>2 · Test the pathway</h3><p>Can the proposed transfer, access or public release carry the safeguards that tier requires? Tool 2 decides: proceed, proceed after safeguards, redesign, or do not proceed.</p></div>
-<div class="card"><h3>3 · Reassess derivatives and models</h3><p>Features, embeddings, synthetic data and model weights are reassessed for identification, inference, persistence and leakage before they circulate. Tool 3 retains the tier, refers to Tier 4 or 5, or stops.</p></div>
-<div class="card"><h3>4 · Select the clauses</h3><p>Tool 4 maps the results to the modules of the Modular Neurodata Transfer and Access Agreement (MDTAA).</p></div>
-</div>
-<p><a class="dl" href="#toolkit">Open the tools</a> <a class="dl" href="#workflow">See the workflow</a> <a class="dl" href="#examples">Sixteen worked examples</a></p>
+<ul class="fourtools">
+<li><b>Tool 1</b><strong>Classify.</strong> What can the data reveal or enable, for this recipient? Tool 1 assigns a tier by functional exposure.</li>
+<li><b>Tool 2</b><strong>Test the pathway.</strong> Can the proposed transfer, access or public release carry the safeguards that tier requires? Tool 2 decides: proceed, proceed after safeguards, redesign, or do not proceed.</li>
+<li><b>Tool 3</b><strong>Reassess derivatives and models.</strong> Features, embeddings, synthetic data and model weights are reassessed for identification, inference, persistence and leakage before they circulate. Tool 3 retains the tier, refers to Tier 4 or 5, or stops.</li>
+<li><b>Tool 4</b><strong>Select the clauses.</strong> Tool 4 maps the results to the modules of the Modular Neurodata Transfer and Access Agreement (MDTAA).</li>
+</ul>
 <p>Built from the law of 93 countries in Africa, Europe, and Latin America and the Caribbean. The tools structure the questions and record the answers. They do not establish that a transfer is lawful, and they do not replace ethics, repository, institutional or legal review.</p>
 <h3>Tiered Neurodata Risk Classification Framework based on functional exposure</h3>
-<p class="lead">Classifying neurodata by the capacity to enable inference, reconstruction, profiling or harm.</p>
-<p><a class="dl" href="pdf/Figure_Tiers.png" download>Download tier figure (PNG)</a> <a class="dl" href="pdf/Figure_Tiers.pdf" download>Download tier figure (PDF)</a></p>
+<p class="lead">Classifying neurodata by the capacity to enable inference, reconstruction, profiling or harm. Download the figure as <a class="dl" href="pdf/Figure_Tiers.png" download>PNG</a> or <a class="dl" href="pdf/Figure_Tiers.pdf" download>PDF</a>.</p>
 {tiers_html()}
 </section>
 
 <section class="panel" id="panel-toolkit">
 <h2>The four tools</h2>
-<p class="lead">Each tool is a sequence of questions. Click a step to expand its answer rows and required actions; the search box filters steps by text.</p>
+<p class="lead">Each tool is a sequence of questions. Click a step to see its answer rows and required actions.</p>
 <div class="controls"><input type="search" id="toolsearch" placeholder="Filter steps (e.g. public release, Tier 4, EHDS)"><button class="sub" id="expandall">Expand all</button><button class="sub" id="collapseall">Collapse all</button></div>
-<div class="card downloads"><h3>Downloads</h3><p class="lead">Print-ready PDFs (A4 landscape) of the four tools, the workflow figure and the tier framework.</p>
-<div class="dls"><a class="dl" href="pdf/Toolkit_Tools_1-4.pdf" download>All four tools (PDF, 48 pp.)</a><a class="dl" href="pdf/Tool1_Neurodata_Governance_Decision_Tool.pdf" download>Tool 1 (PDF)</a><a class="dl" href="pdf/Tool2_Neurodata_Transfer_and_Access_Decision_Tool.pdf" download>Tool 2 (PDF)</a><a class="dl" href="pdf/Tool3_Derivative_and_Embedding_Governance_Decision_Tool.pdf" download>Tool 3 (PDF)</a><a class="dl" href="pdf/Tool4_MDTAA_Clause_Selection_Tool.pdf" download>Tool 4 (PDF)</a><a class="dl" href="pdf/Figure_Workflow_Toolkit.png" download>Workflow figure (PNG)</a><a class="dl" href="pdf/Figure_Workflow_Toolkit.svg" download>Workflow figure (SVG)</a><a class="dl" href="pdf/Figure_Tiers.png" download>Tier figure (PNG)</a><a class="dl" href="pdf/Figure_Tiers.pdf" download>Tier figure (PDF)</a></div></div>
+<p class="dls">Print-ready PDFs (A4 landscape): <a class="dl" href="pdf/Toolkit_Tools_1-4.pdf" download>all four tools (48 pp.)</a> · <a class="dl" href="pdf/Tool1_Neurodata_Governance_Decision_Tool.pdf" download>Tool 1</a> · <a class="dl" href="pdf/Tool2_Neurodata_Transfer_and_Access_Decision_Tool.pdf" download>Tool 2</a> · <a class="dl" href="pdf/Tool3_Derivative_and_Embedding_Governance_Decision_Tool.pdf" download>Tool 3</a> · <a class="dl" href="pdf/Tool4_MDTAA_Clause_Selection_Tool.pdf" download>Tool 4</a> · workflow figure (<a class="dl" href="pdf/Figure_Workflow_Toolkit.png" download>PNG</a>, <a class="dl" href="pdf/Figure_Workflow_Toolkit.svg" download>SVG</a>) · tier figure (<a class="dl" href="pdf/Figure_Tiers.png" download>PNG</a>, <a class="dl" href="pdf/Figure_Tiers.pdf" download>PDF</a>)</p>
 <div class="subtabs" data-group="toolkit">{tool_tabs}</div>
 {tool_panels}
 </section>
@@ -209,13 +202,13 @@ a{{color:var(--accent)}}
 <section class="panel" id="panel-workflow">
 <h2>Workflow</h2>
 <p class="lead">The four tools are used in sequence: classify the object, assess the pathway (controlled access or public release), reassess any transformation, then select the contract modules. Linkage, AI use and material changes loop back to earlier tools.</p>
-<p><a class="dl" href="pdf/Figure_Workflow_Toolkit.png" download>Download figure (PNG)</a> <a class="dl" href="pdf/Figure_Workflow_Toolkit.svg" download>Download figure (SVG)</a></p>
+<p class="dls">Download the figure as <a class="dl" href="pdf/Figure_Workflow_Toolkit.png" download>PNG</a> or <a class="dl" href="pdf/Figure_Workflow_Toolkit.svg" download>SVG</a>.</p>
 {iwf.html()}
 </section>
 
 <section class="panel" id="panel-examples">
 <h2>Sixteen worked examples</h2>
-<p class="lead">Realistic arrangements drawn from current practice in the sampled regions; a red dot marks the cases that end in “do not proceed”. Click one to open it below the list: parties, data, the path through the four tools, the legal points that decide the case and the questions to put to counsel.</p>
+<p class="lead">Realistic arrangements drawn from current practice in the sampled regions; a red dot marks the cases that end in “do not proceed”. Click one to open it below the list.</p>
 <div class="excards" data-group="examples">{ex_tabs}</div>
 {ex_panels}
 </section>
