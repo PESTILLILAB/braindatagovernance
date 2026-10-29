@@ -1,5 +1,5 @@
 # The four tools, step by step: T6 = Tool 1, T7 = Tool 2, T8 = Tool 3, T9 = Tool 4 (Supplementary Tables 6–9 of the study,
-# revision of 27 October 2026). Each table is a list of rows; the first row holds the column headings. A merged cell in the
+# second revision of 29 October 2026). Each table is a list of rows; the first row holds the column headings. A merged cell in the
 # study's table is repeated here (step label and question) so that every row is self-contained. Single-cell rows are notes.
 T6:
   - - Step
@@ -280,16 +280,15 @@ T6:
       summary statistics, or aggregate connectivity measures with no participant-level records or re-identifiable
       individual data.'
     - 'No'
-    - No tier is assigned at this step. Follow the instructions in the Required action column. Any tier identified
-      at an earlier step remains applicable unless resolved through documented reassessment.
+    - Tier 2
     - Record “Reassessment required” in Neurodata Governance Assessment Record (Schedule B of the MDTAA). Review
       the object’s technical form, provenance and exposure characteristics, then revisit Steps 3–6 and correct any
       answers affected by the review. If the evidence supports a tier, record the assigned tier and continue the
       classification workflow. For participant-level data that are de-identified and have no reasonably available
-      linkage mechanism, assign Tier 2A; if a linkage key or other reasonably available linkage mechanism is retained,
-      consider Tier 2B. If the data remain identifiable or intrinsically traceable, assign the applicable higher
-      tier. Refer for specialist review only where the available evidence is insufficient or the appropriate tier
-      remains uncertain. Resume at the relevant step when the review provides sufficient evidence.
+      linkage mechanism, or if a linkage key or other reasonably available linkage mechanism is retained, assign
+      Tier 2. If the data remain identifiable or intrinsically traceable, assign the applicable higher tier. Refer
+      for specialist review only where the available evidence is insufficient or the appropriate tier remains uncertain.
+      Resume at the relevant step when the review provides sufficient evidence.
   - - '7'
     - 'Does the object contain only aggregated or summary-level information with no participant-level records or
       persistent participant trace? Example: A published study reporting only group-average brain activation patterns,
@@ -578,19 +577,31 @@ T7:
       continue to Step 9A. If they cannot, select Final Decision Outcome 3 if a feasible alternative pathway may
       provide the required protection; otherwise select Outcome 4.
   - - 8B
-    - Can the safeguards required for the assigned tier be preserved under the proposed public-release pathway?
+    - Can the safeguards required for the assigned tier be maintained under the proposed public-release pathway,
+      either directly or through documented release-specific safeguards that adequately address the same risks?
     - 'Yes'
-    - Record safeguards that will apply before and at release. Continue to Step 9B.
+    - Record the safeguards that will apply before release and identify any controlled-access measure that cannot
+      operate after public release. For each such measure, identify the release-specific safeguard that addresses
+      the same risk and explain why it is adequate for the assessed object and release context. For Tier 2 participant-level
+      data, document residual disclosure and linkage risk, including reasonably foreseeable downstream linkage;
+      confirm release authority and applicable consent, ethics, institutional and upstream conditions; and assess
+      the scope and enforceability of repository or licence terms. De-identification or a re-identification prohibition
+      alone does not establish anonymity or satisfy this Step. Continue to Step 9B only if the assessment supports
+      the proposed release. If required safeguards cannot be maintained, select Final Decisions Outcome 3 where
+      a feasible redesign exists; otherwise select Outcome 4.
   - - 8B
-    - Can the safeguards required for the assigned tier be preserved under the proposed public-release pathway?
+    - Can the safeguards required for the assigned tier be maintained under the proposed public-release pathway,
+      either directly or through documented release-specific safeguards that adequately address the same risks?
     - No, but controlled access or another release model could preserve them.
     - Record safeguards that cannot be maintained. Select Final Decision Outcome 3 — Redesign pathway.
   - - 8B
-    - Can the safeguards required for the assigned tier be preserved under the proposed public-release pathway?
+    - Can the safeguards required for the assigned tier be maintained under the proposed public-release pathway,
+      either directly or through documented release-specific safeguards that adequately address the same risks?
     - 'No'
     - Record why safeguards cannot be preserved. Select Final Decision Outcome 4.
   - - 8B
-    - Can the safeguards required for the assigned tier be preserved under the proposed public-release pathway?
+    - Can the safeguards required for the assigned tier be maintained under the proposed public-release pathway,
+      either directly or through documented release-specific safeguards that adequately address the same risks?
     - Unsure
     - Obtain required review. Do not release. Return to Step 8B when resolved. If unresolved → Final Decision Outcome
       4.

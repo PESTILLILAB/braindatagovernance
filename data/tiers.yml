@@ -1,5 +1,5 @@
 # The tier framework shown in the explorer (Introduction tab) and the tier figure.
-# Source: Supplementary Figure 3 and MDTAA Annexure 1 §3 (revision of 26 October 2026). Highest applicable tier governs;
+# Source: Supplementary Figure 3 and MDTAA Annexure 1 §3 (second revision of 29 October 2026). Highest applicable tier governs;
 # safeguards are cumulative; uncertainty is governed under the more protective tier until resolved.
 - id: '1'
   name: Tier 1 — Aggregated or functionally non-revealing neurodata
@@ -13,9 +13,12 @@
   background: '#f3f7fa'
   text_colour: '#1d2230'
 - id: '2'
-  name: Tier 2 — Pseudonymised or participant-linkable neurodata
-  description: Participant-level neurodata from which direct identifiers have been removed but which may still be linked
-    to an individual through a code, repository record, institutional key or other retained linkage mechanism.
+  name: Tier 2 — Pseudonymised or participant-level neurodata without direct identifiers
+  description: Participant-level neurodata from which direct identifiers have been removed, whether or not a linkage
+    mechanism is reasonably available to the relevant actor. The assessment records whether linkage is reasonably
+    available to the originating institution, the intended recipient and, for public release, foreseeable downstream
+    users. The tier's minimum measures are the default for controlled access; for public release, Tool 2 Step 8B may
+    accept documented release-specific safeguards that address the same risks.
   examples:
   - Pseudonymised EEG or MEG data linked to a participant code
   - De-identified MRI capable of re-linkage through a secure institutional key

@@ -92,7 +92,10 @@
           note: No EHDS permit or statutory access authorisation.
         - step: 8B
           answer: 'Yes'
-          note: De-identification and the repository’s re-identification prohibition operate at release.
+          note: 'Release-specific safeguards documented in place of controlled access: defacing and header stripping,
+            the disclosure-risk assessment (residual linkage risk for a healthy cohort recorded), release authority under
+            the Open Brain Consent, and OpenNeuro’s re-identification prohibition and takedown procedure, with its
+            enforceability assessed. The re-identification ban alone would not satisfy the step.'
         - step: 9B
           answer: 'No'
           note: No foreseeable linkage that changes exposure for a healthy, defaced cohort; assessment recorded.
@@ -127,7 +130,9 @@
   legal:
     - Tool 1 assigns Tier 2 to participant-level data that are de-identified and have no reasonably available linkage
       mechanism. The absence of a recipient linkage route and the residual disclosure risk of open MRI/fMRI release
-      are recorded as assessment factors and weighed at Tool 2 Step 8B; they do not create a lower tier.
+      are recorded as assessment factors and weighed at Tool 2 Step 8B; they do not create a lower tier. Annexure 1
+      §3.2 makes the Tier 2 minimum measures the default for controlled access and lets Step 8B accept documented
+      release-specific safeguards for an open release, without changing the tier or making the data legally anonymous.
     - 'CJEU C-413/23 P (EDPS v SRB, 4 Sept 2025): pseudonymised data may be non-personal for a recipient without
       means of re-identification; the status is actor-relative, so the lab remains a controller of personal data
       and the public copy must still be assessed for re-identification risk by any downloader.'
